@@ -1,0 +1,82 @@
+// Review page
+
+section {
+    &.cover, &.information {
+        width: 50%;
+        height: 100%;
+    }
+    &.cover {
+        float: left;
+        background: #000000 url("/images/cover-bg.jpg") center -150px no-repeat;
+        color: #ffffff;
+        .gradient {
+            background: url("/images/cover-gradient.png");
+        }
+        .details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 0 80px 80px 80px;
+            color: #d2d2d2;
+            .tag {
+                font-size: 16px;
+                border: 1px solid #d2d2d2;
+                border-radius: 5px;
+                padding: 5px 8px;
+                text-transform: uppercase;
+                display: inline-block;
+            }
+        }
+    }
+    &.information {
+        float: right;
+        overflow: scroll;
+        .quick-nav {
+            width: 50%;
+            height: 80px;
+            color: #ffffff;
+            background: #2d2c2c;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .user-review {
+            padding: 130px 80px 20px 80px;
+            border-bottom: 1px solid #f0f0f0;
+            input[type="text"] {
+                font-family: "Merriweather", serif;
+                font-size: 18px;
+                padding: 15px;
+                width: 100%;
+                box-sizing: border-box;
+                border: 3px solid #f6f6f6;
+                border-radius: 5px;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        .feed {
+            background: #f7f7f7;
+            padding: 30px 80px;
+            .review {
+                background: #ffffff;
+                color: #2b2b2b;
+                font-family: "Merriweather", serif;
+                font-size: 16px;
+                line-height: 24px;
+                padding: 35px;
+                margin-bottom: 15px;
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+
+                .details {
+                    width: 100%;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

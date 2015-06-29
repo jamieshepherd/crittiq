@@ -1,2 +1,22 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import
+'vendor/reset';
 
+@import
+'utilities/variables',
+'utilities/typography',
+'utilities/mixins';
+
+@import
+'layout/background',
+'layout/navigation',
+'layout/main',
+'layout/footer';
+
+@import
+'components/buttons',
+'components/notifications',
+'components/forms';
+
+@import
+'pages/home',
+'pages/review';
