@@ -144,6 +144,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * 3rd Party Service Providers...
+         */
+        'Jenssegers\Mongodb\MongodbServiceProvider',
+
     ],
 
     /*
@@ -191,6 +196,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        'Moloquent' => Jenssegers\Mongodb\Model::class,
 
     ],
 
