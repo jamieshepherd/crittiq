@@ -12,6 +12,9 @@
 <body>
     <section class="cover">
     <div class="gradient">
+        <nav>
+            <img class="logo" src="/images/logo.svg">
+        </nav>
         <div class="details">
             <div class="score">
                 8.9

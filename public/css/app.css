@@ -84,6 +84,12 @@ a, a:link, a:visited {
   a:hover, a:link:hover, a:visited:hover {
     text-decoration: underline; }
 
+nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+  nav .logo {
+    padding: 30px 80px 25px;
+    height: 23px; }
+
 .mini-nav a, .mini-nav a:link, .mini-nav a:visited {
   color: white; }
 
