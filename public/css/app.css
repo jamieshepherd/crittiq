@@ -128,13 +128,19 @@ section.cover {
       margin-right: 10px; }
     section.cover .details .tag {
       font-size: 16px;
-      border: 1px solid #d2d2d2;
+      border: 1px solid #ffffff;
+      color: #ffffff;
       border-radius: 5px;
       padding: 5px 8px;
       text-transform: uppercase;
       display: inline-block; }
     section.cover .details .stats {
-      margin-top: 30px; }
+      border-top: #333 1px solid;
+      margin-top: 30px;
+      padding-top: 30px; }
+      section.cover .details .stats .tag {
+        color: #d2d2d2;
+        border-color: #d2d2d2; }
     section.cover .details .tempgraph {
       vertical-align: bottom;
       padding-bottom: 2px; }
