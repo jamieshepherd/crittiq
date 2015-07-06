@@ -112,6 +112,21 @@ section {
         .user-review {
             padding: 130px 80px 20px 80px;
             border-bottom: 1px solid #f0f0f0;
+            .sort {
+                margin-top: 30px;
+                text-transform: uppercase;
+                li {
+                    display: inline-block;
+                    margin-right: 20px;
+                    font-weight: 600;
+                    a {
+                        color: #8a8a8a;
+                        &.current {
+                            color: $blue;
+                        }
+                    }
+                }
+            }
             input[type="text"] {
                 font-family: "Merriweather", serif;
                 font-size: 18px;
@@ -124,23 +139,44 @@ section {
                     outline: none;
                 }
             }
+            textarea {
+                font-family: "Merriweather", serif;
+                font-size: 18px;
+                padding: 15px;
+                width: 100%;
+                box-sizing: border-box;
+                border: 3px solid #f6f6f6;
+                border-radius: 5px;
+                resize: vertical;
+                height: 58px;
+                overflow: hidden;
+                &:focus {
+                    outline: none;
+                }
+            }
         }
         .feed {
             background: #f7f7f7;
-            padding: 30px 80px;
+            padding: 10px;
             .review {
                 background: #ffffff;
                 color: #2b2b2b;
                 font-family: "Merriweather", serif;
                 font-size: 16px;
                 line-height: 24px;
-                padding: 35px;
+                padding: 35px 35px 25px 35px;
                 margin-bottom: 15px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
-
                 .details {
+                    color: #999;
+                    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+                    font-size: 13px;
+                    margin-top: 10px;
                     width: 100%;
                     text-align: right;
+                    .fa {
+                        margin: 0 3px 0 10px;
+                    }
                 }
             }
         }

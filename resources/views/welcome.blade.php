@@ -26,7 +26,12 @@
     <section class="information">
         <div class="mini-nav">
             <div class="user-info">
-                <span class="avatar"><img src="/images/avatar.png"></span>JIM BEAN<span class="level">7</span><span class="points">+10,000 points</span>
+                @if(Auth::check())
+                <span class="avatar"><img src="/images/avatar.png"></span>{{ Auth::user()->name }}<span class="level">{{ Auth::user()->level }}</span><span class="points">+{{ Auth::user()->points }} points</span>
+                @else
+                    <a href="/auth/register">Create account</a> -
+                    <a href="/auth/login">Sign in</a>
+                @endif
             </div>
             <div class="search">
                 SEARCH
@@ -35,31 +40,43 @@
         <div class="content">
             <div class="user-review">
                 <h2>What did you think about Inception?</h2>
-                <input type="text" placeholder="Enter your review now...">
+                <textarea placeholder="Enter your review now..."></textarea>
+                <div class="sort">
+                    <ul>
+                        <li><a href="#" class="current">Latest</a></li>
+                        <li><a href="#">Popular</a></li>
+                        <li><a href="#">Highest rated</a></li>
+                        <li><a href="#">Lowest rated</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="feed">
                 <div class="review">
                     <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
                     <div class="details">
-                        PAUL MESSENGER
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
                     <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
                     <div class="details">
-                        PAUL MESSENGER
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
                     <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
                     <div class="details">
-                        PAUL MESSENGER
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
                     <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
                     <div class="details">
-                        PAUL MESSENGER
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
             </div>
