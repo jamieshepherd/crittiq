@@ -13,15 +13,17 @@
     <section class="cover">
     <div class="gradient">
         <div class="details">
-            <div class="graph">
-                <img src="/images/graph.png">
-            </div>
             <div class="score">
                 8.9
             </div>
             <h1>Inception</h1>
             <h6><strong>2010</strong> directed by <strong>Christopher Nolan</strong></h6>
             <p>A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.</p>
+            <div class="stats">
+                <span><img class="tempgraph" src="/images/graph.png"></span>
+                <span class="tag"><i class="fa fa-thumbs-up"></i> 151</span>
+                <span class="tag"><i class="fa fa-eye"></i> 12,010</span>
+            </div>
         </div>
     </div>
     </section>

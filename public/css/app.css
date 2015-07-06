@@ -120,10 +120,12 @@ section.cover {
       height: 50px;
       padding: 8px;
       line-height: 50px;
-      margin-top: 0;
+      margin-top: 10px;
       border: 2px solid #54d0bf;
       color: white;
       text-align: center; }
+    section.cover .details span {
+      margin-right: 10px; }
     section.cover .details .tag {
       font-size: 16px;
       border: 1px solid #d2d2d2;
@@ -131,6 +133,11 @@ section.cover {
       padding: 5px 8px;
       text-transform: uppercase;
       display: inline-block; }
+    section.cover .details .stats {
+      margin-top: 30px; }
+    section.cover .details .tempgraph {
+      vertical-align: bottom;
+      padding-bottom: 2px; }
 
 section.information {
   float: right; }
