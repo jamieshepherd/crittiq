@@ -254,7 +254,6 @@ section.information {
       border: 3px solid #f6f6f6;
       border-radius: 5px;
       resize: vertical;
-      height: 65px;
       transition: all 0.5s; }
       section.information .user-review textarea:focus {
         outline: none;
@@ -266,7 +265,8 @@ section.information {
       font-weight: 600;
       color: #54d0bf;
       display: block;
-      text-align: right; }
+      text-align: right;
+      transition: all 0.5s; }
   section.information .feed {
     background: #f7f7f7;
     padding: 10px; }

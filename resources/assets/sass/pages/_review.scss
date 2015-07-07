@@ -166,7 +166,6 @@ section {
                 border: 3px solid #f6f6f6;
                 border-radius: 5px;
                 resize: vertical;
-                height: 65px;
                 transition: $transition;
                 &:focus {
                     outline: none;
@@ -181,6 +180,7 @@ section {
                 color: $green;
                 display: block;
                 text-align: right;
+                transition: $transition;
             }
         }
         .feed {

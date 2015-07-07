@@ -34,6 +34,7 @@ new Vue({
 
 });
 
-$('#user-review').click(function() {
-    $('.character-count').animate({ 'opacity': 1 }, 500);
+$('#user-review').focus(function() {
+    $(this).css({ 'min-height': "150px" }, 500);
+    $('.character-count').css({ 'opacity': 1 }, 500);
 });
