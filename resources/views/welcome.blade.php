@@ -33,7 +33,7 @@
             <div class="user-info">
                 @if(Auth::check())
                 <span class="avatar">
-                    <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=22" >
+                    <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=44" >
                 </span>{{ Auth::user()->name }}
                 <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
                 <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>

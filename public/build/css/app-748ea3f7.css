@@ -113,7 +113,9 @@ nav {
       display: inline-block;
       margin-right: 10px; }
       .mini-nav .user-info .avatar img {
-        border-radius: 50%; }
+        border-radius: 50%;
+        width: 22px;
+        height: 22px; }
     .mini-nav .user-info .level {
       color: #24d9f7;
       margin-left: 15px;
