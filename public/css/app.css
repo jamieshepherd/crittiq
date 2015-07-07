@@ -116,7 +116,7 @@ nav {
         border-radius: 50%; }
     .mini-nav .user-info .level {
       color: #24d9f7;
-      margin-left: 5px;
+      margin-left: 15px;
       /* CIRCLE
             padding: 3px 9px;
             text-align: center;
@@ -124,7 +124,7 @@ nav {
             border-radius: 50%;
             behavior: url(PIE.htc); /* remove if you don't care about IE8 */ }
     .mini-nav .user-info .points {
-      margin-left: 35px;
+      margin-left: 15px;
       color: #54d0bf; }
   .mini-nav .search-button {
     background: #222222;

@@ -34,10 +34,8 @@ nav {
             }
         }
         .level {
-
             color: $blue;
-
-            margin-left: 5px;
+            margin-left: 15px;
             /* CIRCLE
             padding: 3px 9px;
             text-align: center;
@@ -46,7 +44,7 @@ nav {
             behavior: url(PIE.htc); /* remove if you don't care about IE8 */
         }
         .points {
-            margin-left: 35px;
+            margin-left: 15px;
             color: $green;
         }
     }

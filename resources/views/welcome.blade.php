@@ -34,7 +34,9 @@
                 @if(Auth::check())
                 <span class="avatar">
                     <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=22" >
-                </span>{{ Auth::user()->name }}<span class="level">(Rank {{ Auth::user()->level }})</span><span class="points">+{{ Auth::user()->points }} points</span>
+                </span>{{ Auth::user()->name }}
+                <span class="level"><i class="fa fa-trophy"></i> Rank {{ Auth::user()->level }}</span>
+                <span class="points"><i class="fa fa-diamond"></i> +{{ Auth::user()->points }} points</span>
                 @else
                     <a href="/auth/register">Create account</a> -
                     <a href="/auth/login">Sign in</a>
