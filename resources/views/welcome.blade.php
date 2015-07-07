@@ -11,7 +11,6 @@
 </head>
 <body>
     <div id="loading">
-        <span>Loading</span>
     </div>
     <section class="cover">
     <div class="gradient">
