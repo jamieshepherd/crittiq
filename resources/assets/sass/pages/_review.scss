@@ -159,15 +159,18 @@ section {
             textarea {
                 font-family: "Merriweather", serif;
                 font-size: 18px;
+                line-height: 28px;
                 padding: 15px;
                 width: 100%;
                 box-sizing: border-box;
                 border: 3px solid #f6f6f6;
                 border-radius: 5px;
                 resize: vertical;
-                height: 60px;
+                height: 65px;
+                transition: $transition;
                 &:focus {
                     outline: none;
+                    min-height: 150px;
                 }
             }
             .character-count {

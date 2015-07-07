@@ -43,7 +43,8 @@
                 <textarea id="user-review"
                           v-model="review"
                           v-on="keyup: update"
-                          placeholder="Enter your review now..."></textarea>
+                          placeholder="Enter your micro review here..."
+                          maxlength="250"></textarea>
                 <span class="character-count">@{{ count }}</span>
                 <div class="sort">
                     <ul>

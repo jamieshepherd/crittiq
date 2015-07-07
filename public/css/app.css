@@ -59,7 +59,7 @@ h1 {
   margin-bottom: 10px; }
 
 h2 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   color: #000000;
   margin-bottom: 30px; }
@@ -247,15 +247,18 @@ section.information {
     section.information .user-review textarea {
       font-family: "Merriweather", serif;
       font-size: 18px;
+      line-height: 28px;
       padding: 15px;
       width: 100%;
       box-sizing: border-box;
       border: 3px solid #f6f6f6;
       border-radius: 5px;
       resize: vertical;
-      height: 60px; }
+      height: 65px;
+      transition: all 0.5s; }
       section.information .user-review textarea:focus {
-        outline: none; }
+        outline: none;
+        min-height: 150px; }
     section.information .user-review .character-count {
       opacity: 0;
       margin: 20px 0;

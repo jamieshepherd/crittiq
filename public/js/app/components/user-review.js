@@ -15,12 +15,12 @@ new Vue({
     methods: {
         update: function(e) {
             var remaining = characterLimit - this.review.length;
-            this.count = characterLimit - this.review.length + " characters";
+            this.count = characterLimit - this.review.length + " characters left";
             $('.character-count').css('color', '');
-            if(remaining < 30) {
+            if(remaining < 50) {
                 // Make orange
                 $('.character-count').css('color', '#f60');
-                if(remaining < 0) {
+                if(remaining < 10) {
                     // Make red
                     $('.character-count').css('color', '#f00');
                 }
@@ -35,6 +35,5 @@ new Vue({
 });
 
 $('#user-review').click(function() {
-    $(this).animate({ 'height': "150px" }, 300);
-    $('.character-count').animate({ 'opacity': 1 }, 300);
+    $('.character-count').animate({ 'opacity': 1 }, 500);
 });
