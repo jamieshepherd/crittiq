@@ -17,8 +17,8 @@
             <div class="stats">
                 <span><img class="tempgraph" src="/images/graph.png"></span>
                 <span class="tag"><i class="fa fa-comments-o"></i> 51</span>
-                <span class="tag"><i class="fa fa-thumbs-up"></i> 151</span>
                 <span class="tag"><i class="fa fa-eye"></i> 12,010</span>
+                <span class="tag"><i class="fa fa-check"></i> Reviewed</span>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                 @endif
             </div>
             <div class="search-button">
-                SEARCH
+                <span>Search</span>
             </div>
         </div>
         <div class="content">

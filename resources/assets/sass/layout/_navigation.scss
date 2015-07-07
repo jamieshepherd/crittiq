@@ -23,9 +23,10 @@ nav {
     }
     .user-info {
         display: inline-block;
+        float: left;
         padding: 30px 0 30px 80px;
         .avatar {
-            vertical-align: text-top;
+            vertical-align: middle;
             display: inline-block;
             margin-right: 10px;
         }
@@ -52,13 +53,19 @@ nav {
         padding: 30px 80px;
         cursor: pointer;
         z-index: 3;
+        position: relative;
+        span {
+            text-transform: uppercase;
+            margin: auto;
+            position: absolute;
+        }
         &:hover {
             background: #363636;
         }
         &:after {
             font-family: "FontAwesome";
             content: "\f002";
-            margin-left: 15px;
+            margin-left: 60px;
         }
     }
 }
