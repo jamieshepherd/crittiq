@@ -73,9 +73,17 @@ section {
         float: right;
         .content {
             overflow: scroll;
+        }
+        #search {
             height: 100%;
+            width: 50%;
+            z-index: 2;
+            background: #222222;
+            position: absolute;
+            display: none;
         }
         .mini-nav {
+            z-index: 3;
             width: 50%;
             height: 80px;
             color: #ffffff;
@@ -111,11 +119,12 @@ section {
                     color: $green;
                 }
             }
-            .search {
+            .search-button {
                 background: #222222;
                 float: right;
                 padding: 30px 80px;
                 cursor: pointer;
+                z-index: 3;
                 &:hover {
                     background: #363636;
                 }
@@ -127,7 +136,7 @@ section {
             }
         }
         .user-review {
-            padding: 130px 80px 20px 80px;
+            padding: 40px 80px 20px 80px;
             border-bottom: 1px solid #f0f0f0;
             .sort {
                 margin-top: 30px;

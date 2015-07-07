@@ -24,6 +24,9 @@
     </div>
     </section>
     <section class="information">
+        <div id="search">
+            OLA
+        </div>
         <div class="mini-nav">
             <div class="user-info">
                 @if(Auth::check())
@@ -33,7 +36,7 @@
                     <a href="/auth/login">Sign in</a>
                 @endif
             </div>
-            <div class="search">
+            <div class="search-button">
                 SEARCH
             </div>
         </div>
@@ -88,4 +91,5 @@
         </div>
     </section>
     <script src="/js/app/components/user-review.js"></script>
+    <script src="/js/app/components/search.js"></script>
 @endsection
