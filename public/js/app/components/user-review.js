@@ -1,10 +1,8 @@
-Vue.config.debug = true;
-
-var characterLimit = 250;
-
 /*
  * Vue: User review component
  */
+
+var characterLimit = 250;
 
 new Vue({
 
@@ -35,11 +33,6 @@ new Vue({
     }
 
 });
-
-$(window).load(function(){
-    $('#loading').fadeOut(500);
-})
-
 
 $('#user-review').click(function() {
     $(this).animate({ 'height': "150px" }, 300);
