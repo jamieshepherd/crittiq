@@ -1,5 +1,5 @@
 $('.search-button').click(function() {
-    $('#search').fadeToggle(500, function() {
+    $('#search').slideToggle(300, function() {
         $('#search-input').focus();
     });
 });
