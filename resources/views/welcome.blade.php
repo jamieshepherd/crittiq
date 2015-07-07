@@ -32,7 +32,9 @@
         <div class="mini-nav">
             <div class="user-info">
                 @if(Auth::check())
-                <span class="avatar"><img src="/images/avatar.png"></span>{{ Auth::user()->name }}<span class="level">{{ Auth::user()->level }}</span><span class="points">+{{ Auth::user()->points }} points</span>
+                <span class="avatar">
+                    <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=22" >
+                </span>{{ Auth::user()->name }}<span class="level">{{ Auth::user()->level }}</span><span class="points">+{{ Auth::user()->points }} points</span>
                 @else
                     <a href="/auth/register">Create account</a> -
                     <a href="/auth/login">Sign in</a>

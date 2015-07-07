@@ -29,6 +29,9 @@ nav {
             vertical-align: middle;
             display: inline-block;
             margin-right: 10px;
+            img {
+                border-radius: 50%;
+            }
         }
         .level {
             background: $blue;
