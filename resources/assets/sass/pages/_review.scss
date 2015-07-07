@@ -165,11 +165,19 @@ section {
                 border: 3px solid #f6f6f6;
                 border-radius: 5px;
                 resize: vertical;
-                height: 58px;
-                overflow: hidden;
+                height: 60px;
                 &:focus {
                     outline: none;
                 }
+            }
+            .character-count {
+                opacity: 0;
+                margin: 20px 0;
+                font-size: 14px;
+                font-weight: 600;
+                color: $green;
+                display: block;
+                text-align: right;
             }
         }
         .feed {

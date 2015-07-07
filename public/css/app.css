@@ -96,6 +96,27 @@ nav {
 html, body {
   height: 100%; }
 
+#loading {
+  background: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2015;
+  height: 100%;
+  width: 100%;
+  text-align: middle;
+  vertical-align: middle; }
+  #loading span {
+    color: white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 50%;
+    height: 50%; }
+
 section.cover, section.information {
   width: 50%;
   height: 100%; }
@@ -232,10 +253,17 @@ section.information {
       border: 3px solid #f6f6f6;
       border-radius: 5px;
       resize: vertical;
-      height: 58px;
-      overflow: hidden; }
+      height: 60px; }
       section.information .user-review textarea:focus {
         outline: none; }
+    section.information .user-review .character-count {
+      opacity: 0;
+      margin: 20px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #54d0bf;
+      display: block;
+      text-align: right; }
   section.information .feed {
     background: #f7f7f7;
     padding: 10px; }

@@ -10,6 +10,9 @@
     <script src="/js/vendor/jquery-2.1.4.js"></script>
 </head>
 <body>
+    <div id="loading">
+        <span>Loading</span>
+    </div>
     <section class="cover">
     <div class="gradient">
         <nav>
@@ -48,8 +51,11 @@
         <div class="content">
             <div class="user-review">
                 <h2>What did you think about Inception?</h2>
-                <textarea v-model="review" v-on="keyup:update" placeholder="Enter your review now..."></textarea>
-                <span>@{{ count }}</span>
+                <textarea id="user-review"
+                          v-model="review"
+                          v-on="keyup: update"
+                          placeholder="Enter your review now..."></textarea>
+                <span class="character-count">@{{ count }}</span>
                 <div class="sort">
                     <ul>
                         <li><a href="#" class="current">Latest</a></li>

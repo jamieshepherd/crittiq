@@ -1,20 +1,47 @@
-    Vue.config.debug = true;
+Vue.config.debug = true;
 
-    var characterLimit = 250;
+var characterLimit = 250;
 
-    new Vue({
+/*
+ * Vue: User review component
+ */
 
-        el: '.user-review',
-        data: {
-            review: "",
-            count: characterLimit
-        },
+new Vue({
 
-        methods: {
-            update: function(e) {
-                this.count = characterLimit - this.review.length;
+    el: '.user-review',
+    data: {
+        review: "",
+        count: characterLimit
+    },
+
+    methods: {
+        update: function(e) {
+            var remaining = characterLimit - this.review.length;
+            this.count = characterLimit - this.review.length + " characters";
+            $('.character-count').css('color', '');
+            if(remaining < 30) {
+                // Make orange
+                $('.character-count').css('color', '#f60');
+                if(remaining < 0) {
+                    // Make red
+                    $('.character-count').css('color', '#f00');
+                }
             }
         }
+    },
 
-    });
+    ready: function() {
+        this.update();
+    }
 
+});
+
+$(window).load(function(){
+    $('#loading').fadeOut(500);
+})
+
+
+$('#user-review').click(function() {
+    $(this).animate({ 'height': "150px" }, 300);
+    $('.character-count').animate({ 'opacity': 1 }, 300);
+});
