@@ -25,7 +25,9 @@
     </section>
     <section class="information">
         <div id="search">
-            OLA
+            <span class="category">FILM <i class="fa fa-caret-down"></i></span>
+            <input type="text" id="search-input" placeholder="Start typing to search...">
+            <div id="search-results"></div>
         </div>
         <div class="mini-nav">
             <div class="user-info">

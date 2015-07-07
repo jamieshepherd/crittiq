@@ -1,0 +1,29 @@
+#search {
+    color: white;
+    height: 100%;
+    width: 50%;
+    z-index: 2;
+    background: #222222;
+    position: absolute;
+    display: none;
+    padding: 40px 80px;
+    box-sizing: border-box;
+    .category {
+        font-size: 14px;
+    }
+    #search-input {
+        margin-top: 20px;
+        font-size: 28px;
+        display: block;
+        border: none;
+        outline: none;
+        background: none;
+        color: white;
+        width: 100%;
+    }
+    #search-results {
+        margin-top: 40px;
+        border-top: 1px solid #333;
+        display: block;
+    }
+}
