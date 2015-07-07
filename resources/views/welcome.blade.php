@@ -48,7 +48,8 @@
         <div class="content">
             <div class="user-review">
                 <h2>What did you think about Inception?</h2>
-                <textarea placeholder="Enter your review now..."></textarea>
+                <textarea v-model="review" v-on="keyup:update" placeholder="Enter your review now..."></textarea>
+                <span>@{{ count }}</span>
                 <div class="sort">
                     <ul>
                         <li><a href="#" class="current">Latest</a></li>
@@ -90,5 +91,6 @@
             </div>
         </div>
     </section>
+    <script src="/js/app/components/user-review.js"></script>
 </body>
 </html>
