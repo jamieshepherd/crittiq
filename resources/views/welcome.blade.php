@@ -89,6 +89,48 @@
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
+                <div class="review">
+                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <div class="details">
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <div class="details">
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <div class="details">
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <div class="details">
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <div class="details">
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                    </div>
+                </div>
+                <div class="review">
+                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <div class="details">
+                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
