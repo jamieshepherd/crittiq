@@ -3,5 +3,5 @@ $('.search-button').click(function() {
         //$('body').css({'overflow': 'hidden'});
         $('#search-input').focus();
     });
-    $('#review-content').fadeToggle(300);
+    //$('#review-content').slideToggle(300);
 });
