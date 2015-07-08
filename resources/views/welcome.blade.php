@@ -54,7 +54,14 @@
                           v-on="keyup: update, focus: open"
                           placeholder="Enter your micro review here..."
                           maxlength="250"></textarea>
-                <span class="character-count">@{{ count }}</span>
+                <div class="user-review-actions">
+                    <div class="user-review-actions-left">
+                        <input type="submit" value="Post review">
+                    </div>
+                    <div class="user-review-actions-right">
+                        <span class="character-count">@{{ count }}</span>
+                    </div>
+                </div>
                 <div class="sort">
                     <ul>
                         <li><a href="#" class="current">Latest</a></li>

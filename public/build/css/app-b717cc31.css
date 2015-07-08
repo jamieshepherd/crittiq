@@ -187,8 +187,7 @@ html, body {
   top: 80px;
   bottom: 0;
   right: 0;
-  width: 50%;
-  overflow-y: scroll; }
+  width: 50%; }
   #search .category {
     font-size: 14px; }
   #search #search-input {
@@ -204,9 +203,6 @@ html, body {
     margin-top: 40px;
     border-top: 1px solid #333;
     display: block; }
-
-body {
-  overflow: hidden; }
 
 section.cover, section.information {
   width: 50%;
@@ -309,15 +305,25 @@ section .user-review {
     resize: vertical;
     transition: all 0.5s;
     outline: none; }
-  section .user-review .character-count {
+  section .user-review .user-review-actions {
     opacity: 0;
-    margin: 20px 0;
-    font-size: 14px;
-    font-weight: 600;
-    color: #54d0bf;
-    display: block;
-    text-align: right;
-    transition: all 0.5s; }
+    margin: 20px 0 40px;
+    transition: all 0.5s;
+    width: 100%;
+    overflow: hidden; }
+    section .user-review .user-review-actions .user-review-actions-left {
+      display: inline-block;
+      width: 50%;
+      float: left; }
+    section .user-review .user-review-actions .user-review-actions-right {
+      display: inline-block;
+      width: 50%;
+      float: right;
+      text-align: right; }
+      section .user-review .user-review-actions .user-review-actions-right .character-count {
+        font-size: 14px;
+        font-weight: 600;
+        color: #54d0bf; }
 
 section .feed {
   background: #f7f7f7;

@@ -1,7 +1,4 @@
 // Review page
-body {
-    overflow: hidden;
-}
 section {
     &.cover, &.information {
         width: 50%;
@@ -126,15 +123,29 @@ section {
             transition: $transition;
             outline: none;
         }
-        .character-count {
+        .user-review-actions {
             opacity: 0;
-            margin: 20px 0;
-            font-size: 14px;
-            font-weight: 600;
-            color: $green;
-            display: block;
-            text-align: right;
+            margin: 20px 0 40px;
             transition: $transition;
+            width: 100%;
+            overflow: hidden;
+            .user-review-actions-left {
+                display: inline-block;
+                width: 50%;
+                float: left;
+            }
+            .user-review-actions-right {
+                display: inline-block;
+                width: 50%;
+                float: right;
+                text-align: right;
+
+                .character-count {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $green;
+                }
+            }
         }
     }
     .feed {
