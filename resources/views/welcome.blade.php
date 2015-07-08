@@ -34,7 +34,24 @@
                 @if(Auth::check())
                 <span class="avatar">
                     <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=44" >
-                </span>{{ Auth::user()->name }}
+                </span>
+                <span class="user-name" v-on="click:dropdown">
+                    {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+                </span>
+                <div class="account-menu">
+                    <span class="account-menu-name">{{ Auth::user()->name }}</span>
+                    <span class="account-menu-email">{{ Auth::user()->email }}</span>
+                    <div class="progress-outer">
+                        <div class="progress-inner"></div>
+                        <div class="progress-text">75% to next level</div>
+                    </div>
+                    <ul>
+                        <li><a href="">My profile</a></li>
+                        <li><a href="">History</a></li>
+                        <li><a href="">Settings</a></li>
+                        <li><a href="">Sign out</a></li>
+                    </ul>
+                </div>
                 <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
                 <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
                 @else
@@ -185,6 +202,7 @@
             </div>
         </div>
     </section>
+    <script src="/js/app/components/user-info.js"></script>
     <script src="/js/app/components/user-review.js"></script>
     <script src="/js/app/components/search.js"></script>
 @endsection
