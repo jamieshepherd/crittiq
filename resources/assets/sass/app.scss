@@ -2,9 +2,9 @@
 'vendor/reset';
 
 @import
+'utilities/mixins',
 'utilities/variables',
-'utilities/typography',
-'utilities/mixins';
+'utilities/typography';
 
 @import
 'layout/background',

@@ -80,7 +80,8 @@ strong {
 a, a:link, a:visited {
   color: #24d9f7;
   font-weight: 600;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all 0.3s linear; }
   a:hover, a:link:hover, a:visited:hover {
     text-decoration: underline; }
 
@@ -308,22 +309,35 @@ section.information {
     section.information .feed .review {
       background: #ffffff;
       color: #2b2b2b;
-      font-family: "Merriweather", serif;
       font-size: 16px;
       line-height: 24px;
-      padding: 50px 80px 20px 80px;
+      padding: 50px 70px 20px 70px;
       margin-bottom: 15px;
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
-      transition: all 0.2s;
+      transition: all 0.1s linear;
       cursor: pointer; }
       section.information .feed .review:hover {
-        padding: 60px 80px 30px 80px;
         box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
+      section.information .feed .review .score {
+        float: left;
+        display: inline-block;
+        font-weight: 300;
+        font-size: 22px;
+        border-radius: 50%;
+        padding: 8px 10px;
+        line-height: 30px;
+        border: 2px solid #54d0bf;
+        color: #2d2d2d;
+        text-align: center;
+        margin-right: 20px; }
+      section.information .feed .review .review-content {
+        font-family: "Merriweather", serif;
+        display: block; }
       section.information .feed .review .details {
         color: #999;
         font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
         font-size: 13px;
-        margin-top: 10px;
+        margin-top: 20px;
         width: 100%;
         text-align: right; }
         section.information .feed .review .details .fa {

@@ -66,72 +66,112 @@
             </div>
             <div class="feed">
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 day ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 day ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">2 days ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">2 days ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">3 days ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 week ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 week ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 week ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 month ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>
                 <div class="review">
-                    <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    <span class="score">8.9</span>
+                    <div class="review-content">
+                        <p>“Really fun film, Chris Pratt was great, and it really exceeded my expectations. Funny, action packed, and thoroughly enjoyable. Looking forward to a sequel!”</p>
+                    </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="#">PAUL MESSENGER</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 month ago</a></span>
+                        <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
                     </div>
                 </div>

@@ -138,23 +138,43 @@ section {
             .review {
                 background: #ffffff;
                 color: #2b2b2b;
-                font-family: "Merriweather", serif;
                 font-size: 16px;
                 line-height: 24px;
-                padding: 50px 80px 20px 80px;
+                padding: 50px 70px 20px 70px;
                 margin-bottom: 15px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
-                @include transition(0.2s);
+                @include transition(0.1s);
                 cursor: pointer;
                 &:hover {
-                    padding: 60px 80px 30px 80px;
-                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+                    //padding: 55px 70px 25px 70px;
+                    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+                }
+                .score {
+                    float: left;
+
+                    display: inline-block;
+                    font-weight: 300;
+                    font-size: 22px;
+
+                    border-radius: 50%;
+
+                    padding: 8px 10px;
+                    line-height: 30px;
+
+                    border: 2px solid $green;
+                    color: #2d2d2d;
+                    text-align: center;
+                    margin-right: 20px;
+                }
+                .review-content {
+                    font-family: "Merriweather", serif;
+                    display: block;
                 }
                 .details {
                     color: #999;
                     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
                     font-size: 13px;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     width: 100%;
                     text-align: right;
                     .fa {
