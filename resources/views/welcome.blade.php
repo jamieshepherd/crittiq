@@ -46,7 +46,7 @@
                 <span>Search</span>
             </div>
         </div>
-        <div class="content">
+        <div id="review-content">
             <div class="user-review">
                 <h2>What did you think about Inception?</h2>
                 <textarea id="user-review"

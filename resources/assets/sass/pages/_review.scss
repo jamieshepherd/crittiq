@@ -10,6 +10,11 @@ section {
         background: #000000 url("/images/cover-bg.jpg") center -150px no-repeat;
         background-size: cover;
         color: #ffffff;
+
+        position: fixed;
+        left: 0;
+        top: 0;
+
         .gradient {
             height: 100%;
             background: url("/images/cover-gradient.png") bottom repeat-x;
@@ -18,7 +23,6 @@ section {
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50%;
             overflow: hidden;
             box-sizing: border-box;
             padding: 0 80px 80px 80px;
@@ -71,8 +75,10 @@ section {
     }
     &.information {
         float: right;
-        .content {
-            overflow: scroll;
+        height: 100%;
+
+        #review-content {
+            padding-top: 80px;
         }
 
         .user-review {
