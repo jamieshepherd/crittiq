@@ -25,6 +25,10 @@ new Vue({
                     $('.character-count').css('color', '#f00');
                 }
             }
+        },
+        open: function(e) {
+            $('#user-review').css({ 'min-height': "150px" }, 500);
+            $('.character-count').css({ 'opacity': 1 }, 500);
         }
     },
 
@@ -32,9 +36,4 @@ new Vue({
         this.update();
     }
 
-});
-
-$('#user-review').focus(function() {
-    $(this).css({ 'min-height': "150px" }, 500);
-    $('.character-count').css({ 'opacity': 1 }, 500);
 });

@@ -102,7 +102,8 @@ nav {
   right: 0;
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 600; }
+  font-weight: 600;
+  display: table-row; }
   .mini-nav a, .mini-nav a:link, .mini-nav a:visited {
     color: white; }
   .mini-nav .user-info {
@@ -256,9 +257,10 @@ section.cover {
 
 section.information {
   float: right;
-  height: 100%; }
+  height: 100%;
+  display: table; }
   section.information #review-content {
-    padding-top: 80px; }
+    display: table-row; }
   section.information .user-review {
     padding: 40px 80px 20px 80px;
     border-bottom: 1px solid #f0f0f0; }
@@ -293,10 +295,8 @@ section.information {
       border: 3px solid #f6f6f6;
       border-radius: 5px;
       resize: vertical;
-      transition: all 0.5s; }
-      section.information .user-review textarea:focus {
-        outline: none;
-        min-height: 150px; }
+      transition: all 0.5s;
+      outline: none; }
     section.information .user-review .character-count {
       opacity: 0;
       margin: 20px 0;

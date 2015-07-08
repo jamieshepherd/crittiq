@@ -77,8 +77,10 @@ section {
         float: right;
         height: 100%;
 
+        display: table;
+
         #review-content {
-            padding-top: 80px;
+            display: table-row;
         }
 
         .user-review {
@@ -122,10 +124,7 @@ section {
                 border-radius: 5px;
                 resize: vertical;
                 transition: $transition;
-                &:focus {
-                    outline: none;
-                    min-height: 150px;
-                }
+                outline: none;
             }
             .character-count {
                 opacity: 0;

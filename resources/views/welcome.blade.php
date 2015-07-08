@@ -51,7 +51,7 @@
                 <h2>What did you think about Inception?</h2>
                 <textarea id="user-review"
                           v-model="review"
-                          v-on="keyup: update"
+                          v-on="keyup: update, focus: open"
                           placeholder="Enter your micro review here..."
                           maxlength="250"></textarea>
                 <span class="character-count">@{{ count }}</span>
