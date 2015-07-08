@@ -141,9 +141,15 @@ section {
                 font-family: "Merriweather", serif;
                 font-size: 16px;
                 line-height: 24px;
-                padding: 35px 35px 25px 35px;
+                padding: 50px 80px 20px 80px;
                 margin-bottom: 15px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+                @include transition(0.2s);
+                cursor: pointer;
+                &:hover {
+                    padding: 60px 80px 30px 80px;
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+                }
                 .details {
                     color: #999;
                     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
