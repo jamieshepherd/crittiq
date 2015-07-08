@@ -1,13 +1,19 @@
 #search {
     color: white;
-    height: 100%;
-    width: 50%;
+
     z-index: 2;
     background: #222222;
-    position: fixed;
+
     display: none;
-    padding: 120px 80px;
+    padding: 40px 80px;
     box-sizing: border-box;
+
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    overflow-y: scroll;
     .category {
         font-size: 14px;
     }

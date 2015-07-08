@@ -1,5 +1,7 @@
 // Review page
-
+body {
+    overflow: hidden;
+}
 section {
     &.cover, &.information {
         width: 50%;
@@ -73,120 +75,118 @@ section {
             }
         }
     }
-    &.information {
-        float: right;
-        height: 100%;
-
-        display: table;
-
-        #review-content {
-            display: table-row;
-        }
-
-        .user-review {
-            padding: 40px 80px 20px 80px;
-            border-bottom: 1px solid #f0f0f0;
-            .sort {
-                margin-top: 30px;
-                text-transform: uppercase;
-                li {
-                    display: inline-block;
-                    margin-right: 20px;
-                    font-weight: 600;
-                    a {
-                        color: #8a8a8a;
-                        &.current {
-                            color: $blue;
-                        }
+    #review-content {
+        position: absolute;
+        top: 80px;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        overflow-y: scroll;
+    }
+    .user-review {
+        padding: 40px 80px 20px 80px;
+        border-bottom: 1px solid #f0f0f0;
+        .sort {
+            margin-top: 30px;
+            text-transform: uppercase;
+            li {
+                display: inline-block;
+                margin-right: 20px;
+                font-weight: 600;
+                a {
+                    color: #8a8a8a;
+                    &.current {
+                        color: $blue;
                     }
                 }
             }
-            input[type="text"] {
-                font-family: "Merriweather", serif;
-                font-size: 18px;
-                padding: 15px;
-                width: 100%;
-                box-sizing: border-box;
-                border: 3px solid #f6f6f6;
-                border-radius: 5px;
-                &:focus {
-                    outline: none;
-                }
-            }
-            textarea {
-                font-family: "Merriweather", serif;
-                font-size: 18px;
-                line-height: 28px;
-                padding: 15px;
-                width: 100%;
-                box-sizing: border-box;
-                border: 3px solid #f6f6f6;
-                border-radius: 5px;
-                resize: vertical;
-                transition: $transition;
+        }
+        input[type="text"] {
+            font-family: "Merriweather", serif;
+            font-size: 18px;
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 3px solid #f6f6f6;
+            border-radius: 5px;
+            &:focus {
                 outline: none;
             }
-            .character-count {
-                opacity: 0;
-                margin: 20px 0;
-                font-size: 14px;
-                font-weight: 600;
-                color: $green;
-                display: block;
-                text-align: right;
-                transition: $transition;
-            }
         }
-        .feed {
-            background: #f7f7f7;
-            padding: 10px;
-            .review {
-                background: #ffffff;
-                color: #2b2b2b;
-                font-size: 16px;
-                line-height: 24px;
-                padding: 50px 70px 20px 70px;
-                margin-bottom: 15px;
-                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
-                @include transition(0.1s);
-                cursor: pointer;
-                &:hover {
-                    //padding: 55px 70px 25px 70px;
-                    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-                }
-                .score {
-                    float: left;
+        textarea {
+            font-family: "Merriweather", serif;
+            font-size: 18px;
+            line-height: 28px;
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 3px solid #f6f6f6;
+            border-radius: 5px;
+            resize: vertical;
+            transition: $transition;
+            outline: none;
+        }
+        .character-count {
+            opacity: 0;
+            margin: 20px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: $green;
+            display: block;
+            text-align: right;
+            transition: $transition;
+        }
+    }
+    .feed {
+        background: #f7f7f7;
+        padding: 10px;
+        .review {
+            background: #ffffff;
+            color: #2b2b2b;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 50px 70px 20px 70px;
+            margin-bottom: 15px;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+            @include transition(0.1s);
+            cursor: pointer;
+            &:hover {
+                //padding: 55px 70px 25px 70px;
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+            }
+            .score {
+                float: left;
 
-                    display: inline-block;
-                    font-weight: 300;
-                    font-size: 22px;
+                display: inline-block;
+                font-weight: 300;
+                font-size: 22px;
 
-                    border-radius: 50%;
+                border-radius: 50%;
 
-                    padding: 8px 10px;
-                    line-height: 30px;
+                padding: 8px 10px;
+                line-height: 30px;
 
-                    border: 2px solid $green;
-                    color: #2d2d2d;
-                    text-align: center;
-                    margin-right: 20px;
-                }
-                .review-content {
-                    font-family: "Merriweather", serif;
-                    display: block;
-                }
-                .details {
-                    color: #999;
-                    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-                    font-size: 13px;
-                    margin-top: 20px;
-                    width: 100%;
-                    text-align: right;
-                    .fa {
-                        margin: 0 3px 0 10px;
-                    }
+                border: 2px solid $green;
+                color: #2d2d2d;
+                text-align: center;
+                margin-right: 20px;
+            }
+            .review-content {
+                font-family: "Merriweather", serif;
+                display: block;
+            }
+            .details {
+                color: #999;
+                font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                margin-top: 20px;
+                width: 100%;
+                text-align: right;
+                .fa {
+                    margin: 0 3px 0 10px;
                 }
             }
         }
     }
+
 }

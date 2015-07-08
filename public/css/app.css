@@ -109,7 +109,7 @@ nav {
   .mini-nav .user-info {
     display: inline-block;
     float: left;
-    padding: 30px 0 30px 80px; }
+    padding: 32px 0 32px 80px; }
     .mini-nav .user-info .avatar {
       vertical-align: middle;
       display: inline-block;
@@ -133,17 +133,21 @@ nav {
   .mini-nav .search-button {
     background: #222222;
     float: right;
-    padding: 30px 80px;
+    padding: 0 80px;
     cursor: pointer;
     z-index: 3;
-    position: relative; }
+    position: relative;
+    height: 80px; }
     .mini-nav .search-button span {
       text-transform: uppercase;
       margin: auto;
-      position: absolute; }
+      position: absolute;
+      padding: 32px 0; }
     .mini-nav .search-button:hover {
-      background: #363636; }
+      background: #262626; }
     .mini-nav .search-button:after {
+      display: inline-block;
+      margin-top: 32px;
       font-family: "FontAwesome";
       content: "\f002";
       margin-left: 60px; }
@@ -174,14 +178,17 @@ html, body {
 
 #search {
   color: white;
-  height: 100%;
-  width: 50%;
   z-index: 2;
   background: #222222;
-  position: fixed;
   display: none;
-  padding: 120px 80px;
-  box-sizing: border-box; }
+  padding: 40px 80px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 80px;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  overflow-y: scroll; }
   #search .category {
     font-size: 14px; }
   #search #search-input {
@@ -197,6 +204,9 @@ html, body {
     margin-top: 40px;
     border-top: 1px solid #333;
     display: block; }
+
+body {
+  overflow: hidden; }
 
 section.cover, section.information {
   width: 50%;
@@ -255,93 +265,96 @@ section.cover {
       vertical-align: bottom;
       padding-bottom: 2px; }
 
-section.information {
-  float: right;
-  height: 100%;
-  display: table; }
-  section.information #review-content {
-    display: table-row; }
-  section.information .user-review {
-    padding: 40px 80px 20px 80px;
-    border-bottom: 1px solid #f0f0f0; }
-    section.information .user-review .sort {
-      margin-top: 30px;
-      text-transform: uppercase; }
-      section.information .user-review .sort li {
-        display: inline-block;
-        margin-right: 20px;
-        font-weight: 600; }
-        section.information .user-review .sort li a {
-          color: #8a8a8a; }
-          section.information .user-review .sort li a.current {
-            color: #24d9f7; }
-    section.information .user-review input[type="text"] {
-      font-family: "Merriweather", serif;
-      font-size: 18px;
-      padding: 15px;
-      width: 100%;
-      box-sizing: border-box;
-      border: 3px solid #f6f6f6;
-      border-radius: 5px; }
-      section.information .user-review input[type="text"]:focus {
-        outline: none; }
-    section.information .user-review textarea {
-      font-family: "Merriweather", serif;
-      font-size: 18px;
-      line-height: 28px;
-      padding: 15px;
-      width: 100%;
-      box-sizing: border-box;
-      border: 3px solid #f6f6f6;
-      border-radius: 5px;
-      resize: vertical;
-      transition: all 0.5s;
+section #review-content {
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  overflow-y: scroll; }
+
+section .user-review {
+  padding: 40px 80px 20px 80px;
+  border-bottom: 1px solid #f0f0f0; }
+  section .user-review .sort {
+    margin-top: 30px;
+    text-transform: uppercase; }
+    section .user-review .sort li {
+      display: inline-block;
+      margin-right: 20px;
+      font-weight: 600; }
+      section .user-review .sort li a {
+        color: #8a8a8a; }
+        section .user-review .sort li a.current {
+          color: #24d9f7; }
+  section .user-review input[type="text"] {
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid #f6f6f6;
+    border-radius: 5px; }
+    section .user-review input[type="text"]:focus {
       outline: none; }
-    section.information .user-review .character-count {
-      opacity: 0;
-      margin: 20px 0;
-      font-size: 14px;
-      font-weight: 600;
-      color: #54d0bf;
-      display: block;
-      text-align: right;
-      transition: all 0.5s; }
-  section.information .feed {
-    background: #f7f7f7;
-    padding: 10px; }
-    section.information .feed .review {
-      background: #ffffff;
-      color: #2b2b2b;
-      font-size: 16px;
-      line-height: 24px;
-      padding: 50px 70px 20px 70px;
-      margin-bottom: 15px;
-      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
-      transition: all 0.1s linear;
-      cursor: pointer; }
-      section.information .feed .review:hover {
-        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
-      section.information .feed .review .score {
-        float: left;
-        display: inline-block;
-        font-weight: 300;
-        font-size: 22px;
-        border-radius: 50%;
-        padding: 8px 10px;
-        line-height: 30px;
-        border: 2px solid #54d0bf;
-        color: #2d2d2d;
-        text-align: center;
-        margin-right: 20px; }
-      section.information .feed .review .review-content {
-        font-family: "Merriweather", serif;
-        display: block; }
-      section.information .feed .review .details {
-        color: #999;
-        font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-        font-size: 13px;
-        margin-top: 20px;
-        width: 100%;
-        text-align: right; }
-        section.information .feed .review .details .fa {
-          margin: 0 3px 0 10px; }
+  section .user-review textarea {
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    line-height: 28px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid #f6f6f6;
+    border-radius: 5px;
+    resize: vertical;
+    transition: all 0.5s;
+    outline: none; }
+  section .user-review .character-count {
+    opacity: 0;
+    margin: 20px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #54d0bf;
+    display: block;
+    text-align: right;
+    transition: all 0.5s; }
+
+section .feed {
+  background: #f7f7f7;
+  padding: 10px; }
+  section .feed .review {
+    background: #ffffff;
+    color: #2b2b2b;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 50px 70px 20px 70px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+    transition: all 0.1s linear;
+    cursor: pointer; }
+    section .feed .review:hover {
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
+    section .feed .review .score {
+      float: left;
+      display: inline-block;
+      font-weight: 300;
+      font-size: 22px;
+      border-radius: 50%;
+      padding: 8px 10px;
+      line-height: 30px;
+      border: 2px solid #54d0bf;
+      color: #2d2d2d;
+      text-align: center;
+      margin-right: 20px; }
+    section .feed .review .review-content {
+      font-family: "Merriweather", serif;
+      display: block; }
+    section .feed .review .details {
+      color: #999;
+      font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      margin-top: 20px;
+      width: 100%;
+      text-align: right; }
+      section .feed .review .details .fa {
+        margin: 0 3px 0 10px; }
