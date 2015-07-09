@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Nodes;
 
 use Illuminate\Http\Request;
 
+use App\Node;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -15,22 +16,9 @@ class NodeController extends Controller
      *
      * @return Response
      */
-    public function index($category, $id)
+    public function index($category, $slug)
     {
-        /*
-        $node = DB::collection('nodes')
-            ->where('category', $category)
-            ->where('id', $id)
-            ->find(1);
-        */
-
-        $node = DB::collection('nodes')
-            ->where('category', $category)
-            ->find('559e6f40bffebcd33c8b456d');
-
-        dd($node);
-
-        return response()->json($node);
+        //
     }
 
     /**
@@ -56,21 +44,36 @@ class NodeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return Response
      */
-    public function show($id)
+    public function show($category, $slug)
     {
-        //
+
+        /*
+        $node = DB::collection('nodes')
+            ->where('category', $category)
+            ->where('slug', $slug)
+            ->first();
+
+            dd($node);
+        */
+
+
+
+        $node = Node::where('category', $category)->where('slug', $slug)->first();
+
+
+        return view('nodes.show')->with('node', $node);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
         //
     }
@@ -78,10 +81,10 @@ class NodeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return Response
      */
-    public function update($id)
+    public function update($slug)
     {
         //
     }
@@ -89,10 +92,10 @@ class NodeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $slug
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
         //
     }

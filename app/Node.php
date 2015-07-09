@@ -4,7 +4,7 @@ namespace App;
 
 use Jenssegers\Mongodb\Model;
 
-class Review extends Model
+class Node extends Model
 {
 
     /**
@@ -12,7 +12,7 @@ class Review extends Model
      *
      * @var string
      */
-    protected $collection = 'reviews';
+    protected $collection = 'nodes';
 
     /**
      * The attributes that are mass assignable.

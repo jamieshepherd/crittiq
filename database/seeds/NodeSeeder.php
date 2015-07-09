@@ -14,19 +14,28 @@ class NodeSeeder extends Seeder
         DB::table('nodes')->insert([
             'category'  => 'films',
             'title'     => 'Inception',
-            'series_id' => 1
+            'slug'      => 'inception',
+            'director'  => "Christopher Nolan",
+            'year'      => 2010,
+            'synopsis'  => "A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO."
         ]);
 
         DB::table('nodes')->insert([
             'category'  => 'films',
             'title'     => '28 Days Later',
-            'series_id' => 1
+            'slug'      => '28_days_later',
+            'director'  => "Danny Boyle",
+            'year'      => 2002,
+            'synopsis'  => "Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary."
         ]);
 
         DB::table('nodes')->insert([
             'category'  => 'films',
             'title'     => 'Interstellar',
-            'series_id' => 1
+            'slug'      => 'interstellar',
+            'director'  => "Christopher Nolan",
+            'year'      => 2014,
+            'synopsis'  => "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."
         ]);
     }
 }

@@ -24,4 +24,8 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::get('/{category}/{id}/{name?}', 'Nodes\NodeController@index');
+Route::get('/{category}', 'Nodes\NodeController@index');
+Route::get('/{category}/{slug}', 'Nodes\NodeController@show');
+
+// API Version 1
+Route::get('/api/v1/{category}/{slug}', 'Nodes\API\NodeAPI@index');
