@@ -27,8 +27,8 @@ new Vue({
             }
         },
         open: function(e) {
-            $('#user-review').css({ 'min-height': "150px" }, 500);
-            $('.user-review-actions').css({ 'opacity': 1 }, 500);
+            $('#user-review').animate({ 'min-height': "150px" }, 300);
+            $('.user-review-actions').css({ 'opacity': 1 }, 300);
         }
     },
 

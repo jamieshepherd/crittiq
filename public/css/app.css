@@ -366,8 +366,10 @@ section .user-review {
     border: 3px solid #f6f6f6;
     border-radius: 5px;
     resize: vertical;
-    transition: all 0.5s;
     outline: none; }
+    section .user-review textarea:after {
+      font-family: "FontAwesome";
+      content: "\f040"; }
   section .user-review .user-review-actions {
     opacity: 0;
     margin: 20px 0 40px;

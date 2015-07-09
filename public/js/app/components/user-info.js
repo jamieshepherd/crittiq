@@ -11,7 +11,7 @@ new Vue({
 
     methods: {
         dropdown: function(e) {
-            $('.account-menu').slideToggle(200);
+            $('.account-menu').slideToggle(150);
         }
     }
 

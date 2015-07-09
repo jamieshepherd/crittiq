@@ -49,7 +49,7 @@
                         <li><a href="">My profile</a></li>
                         <li><a href="">History</a></li>
                         <li><a href="">Settings</a></li>
-                        <li><a href="">Sign out</a></li>
+                        <li><a href="/auth/logout">Sign out</a></li>
                     </ul>
                 </div>
                 <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>

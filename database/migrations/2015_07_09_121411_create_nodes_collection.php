@@ -3,7 +3,7 @@
 use Jenssegers\Mongodb\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateNodesCollection extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $collection) {
-            $collection->increments('id');
-            $collection->index('name');
-            $collection->unique('email');
+        Schema::create('nodes', function (Blueprint $collection) {
+
         });
     }
 
@@ -26,6 +24,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('nodes');
     }
 }
