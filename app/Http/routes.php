@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// API Version 1
+Route::get('/api/v1/{category}', 'Nodes\NodeAPI@index');
+Route::get('/api/v1/{category}/search/{term}', 'Nodes\NodeAPI@search');
+Route::get('/api/v1/{category}/{slug}', 'Nodes\NodeAPI@find');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -26,6 +31,3 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/{category}', 'Nodes\NodeController@index');
 Route::get('/{category}/{slug}', 'Nodes\NodeController@show');
-
-// API Version 1
-Route::get('/api/v1/{category}/{slug}', 'Nodes\API\NodeAPI@index');

@@ -25,6 +25,22 @@ class NodeAPI extends Controller
     }
 
     /**
+     * Search for a specified term.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public static function search($category, $term)
+    {
+        $node = DB::collection('nodes')
+            ->where('category', $category)
+            ->where('title',  'like', '%'.$term.'%')
+            ->get();
+
+        return response()->json($node);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id

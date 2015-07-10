@@ -2,7 +2,7 @@
 @section('body')
     <div id="loading">
     </div>
-    <section class="cover">
+    <section class="cover" style="background-image: url('/images/uploads/cover/{{ $node->cover }}')">
     <div class="gradient">
         <nav>
             <img class="logo" src="/images/logo.svg">

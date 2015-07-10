@@ -6,7 +6,8 @@ section {
     }
     &.cover {
         float: left;
-        background: #000000 url("/images/cover-bg.jpg") center -150px no-repeat;
+        background: #000000;
+        background-position: center -150px;
         background-size: cover;
         color: #ffffff;
 
