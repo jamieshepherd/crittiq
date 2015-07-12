@@ -84,7 +84,8 @@
                     <form action="" method="POST">
                         {{ csrf_field() }}
                         <h2>What did you think about {{ $node->title }}?</h2>
-                        <textarea id="user-review"
+                        <textarea name="review"
+                                  id="user-review"
                                   v-model="review"
                                   v-on="keyup: update, focus: open"
                                   placeholder="Enter your micro review here..."

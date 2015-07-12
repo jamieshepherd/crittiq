@@ -32,3 +32,4 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/{category}', 'Nodes\NodeController@index');
 Route::get('/{category}/{slug}', 'Nodes\NodeController@show');
+Route::post('/{category}/{slug}', 'Reviews\ReviewController@create');

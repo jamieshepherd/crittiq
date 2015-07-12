@@ -59,10 +59,7 @@ class NodeController extends Controller
             dd($node);
         */
 
-
-
         $node = Node::where('category', $category)->where('slug', $slug)->first();
-
 
         return view('nodes.show')->with('node', $node);
     }
