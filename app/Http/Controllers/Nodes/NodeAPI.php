@@ -30,14 +30,20 @@ class NodeAPI extends Controller
      * @param  int  $id
      * @return Response
      */
-    public static function search($category, $term)
+    public static function search($category)
     {
-        $node = DB::collection('nodes')
+        if(isset($_GET['query'])) {
+            $term = $_GET['query'];
+
+            $node = DB::collection('nodes')
             ->where('category', $category)
             ->where('title',  'like', '%'.$term.'%')
             ->get();
 
-        return response()->json($node);
+            return response()->json($node);
+        }
+        return null;
+
     }
 
     /**

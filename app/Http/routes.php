@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 // API Version 1
 Route::get('/api/v1/{category}', 'Nodes\NodeAPI@index');
-Route::get('/api/v1/{category}/search/{term}', 'Nodes\NodeAPI@search');
+Route::get('/api/v1/{category}/search', 'Nodes\NodeAPI@search');
 Route::get('/api/v1/{category}/{slug}', 'Nodes\NodeAPI@find');
 
 // Authentication routes...

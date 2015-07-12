@@ -26,8 +26,18 @@
     <section class="information">
         <div id="search">
             <span class="category">FILM <i class="fa fa-caret-down"></i></span>
-            <input type="text" id="search-input" placeholder="Start typing to search...">
-            <div id="search-results"></div>
+            <input type="text"
+                   id="search-input"
+                   v-on="keyup: search"
+                   v-model="query"
+                   placeholder="Start typing to search...">
+            <div id="search-results">
+                <ul class="list-group">
+                    <li v-repeat="nodes">
+                        <span>@{{ title }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="mini-nav">
             <div class="user-info">

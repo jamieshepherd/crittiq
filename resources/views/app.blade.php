@@ -9,6 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Crittiq is a micro review site for TV, Film, and Games">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" id="X-CSRF-TOKEN" content="{{ csrf_token() }}">
 
     <!-- Styles -->
     <link media="all" type="text/css" rel="stylesheet" href="{{ elixir("css/app.css") }}">
@@ -17,6 +18,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="/js/vendor/vue-0.12.6.js"></script>
+    <script src="/js/vendor/vue-resource.js"></script>
     <script src="/js/vendor/jquery-2.1.4.js"></script>
 </head>
 <body>
