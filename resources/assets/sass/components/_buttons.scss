@@ -1,0 +1,18 @@
+a.btn, button, input[type='submit'], input[type='button'] {
+    border-radius: 3px;
+    padding: 12px 24px;
+    color: white;
+    text-transform: uppercase;
+    background: #54d0bf;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.9;
+    }
+    &.green {
+        background: #54d0bf;
+    }
+}

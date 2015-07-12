@@ -78,20 +78,25 @@
         </div>
         <div id="review-content">
             <div class="user-review">
-                <h2>What did you think about {{ $node->title }}?</h2>
-                <textarea id="user-review"
-                          v-model="review"
-                          v-on="keyup: update, focus: open"
-                          placeholder="Enter your micro review here..."
-                          maxlength="250"></textarea>
-                <div class="user-review-actions">
-                    <div class="user-review-actions-left">
-                        <input type="submit" value="Post review">
+                <form action="" method="POST">
+                    {{ csrf_field() }}
+                    <h2>What did you think about {{ $node->title }}?</h2>
+                    <textarea id="user-review"
+                              v-model="review"
+                              v-on="keyup: update, focus: open"
+                              placeholder="Enter your micro review here..."
+                              maxlength="250"></textarea>
+                    <span class="character-count">@{{ count }} characters remaining</span>
+                    <div class="user-review-actions">
+                        <div class="user-review-actions-left">
+                            <input type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
+                        </div>
+                        <div class="user-review-actions-right">
+                            <span class="rangeCount">@{{ rangeCount }}/10</span>
+                            <input class="btn green" type="submit" value="Submit">
+                        </div>
                     </div>
-                    <div class="user-review-actions-right">
-                        <span class="character-count">@{{ count }}</span>
-                    </div>
-                </div>
+                </form>
                 <div class="sort">
                     <ul>
                         <li><a href="#" class="current">Latest</a></li>

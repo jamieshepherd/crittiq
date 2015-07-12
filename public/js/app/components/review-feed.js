@@ -14,7 +14,6 @@ new Vue({
     ready: function() {
         this.$http.get('/api/v1/films/interstellar/reviews', function(response) {
             this.reviews = response;
-            console.log(this.reviews);
         });
 
         var that = this;

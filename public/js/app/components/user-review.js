@@ -9,26 +9,27 @@ new Vue({
     el: '.user-review',
     data: {
         review: "",
-        count: characterLimit
+        count: characterLimit,
+        rangeCount: 5
     },
 
     methods: {
         update: function(e) {
-            var remaining = characterLimit - this.review.length;
-            this.count = characterLimit - this.review.length + " characters left";
+            this.count = characterLimit - this.review.length;
             $('.character-count').css('color', '');
-            if(remaining < 50) {
+            if(this.count < 50) {
                 // Make orange
                 $('.character-count').css('color', '#f60');
-                if(remaining < 10) {
+                if(this.count < 10) {
                     // Make red
                     $('.character-count').css('color', '#f00');
                 }
             }
         },
         open: function(e) {
-            $('#user-review').animate({ 'min-height': "150px" }, 300);
-            $('.user-review-actions').css({ 'opacity': 1 }, 300);
+            $('#user-review').animate({ 'min-height': "220px" }, 300);
+            $('.user-review-actions').fadeIn(300);
+            $('.character-count').css({ 'opacity': 1 }, 300);
         }
     },
 

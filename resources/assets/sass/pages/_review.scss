@@ -115,10 +115,10 @@ section {
             font-family: "Merriweather", serif;
             font-size: 18px;
             line-height: 28px;
-            padding: 15px;
+            padding: 25px 25px 40px 25px;
             width: 100%;
             box-sizing: border-box;
-            border: 3px solid #f6f6f6;
+            border: 1px solid #ebeaea;
             border-radius: 5px;
             resize: vertical;
             outline: none;
@@ -127,29 +127,40 @@ section {
                 content: "\f040";
             }
         }
+        input[type="range"] {
+            width: 100%;
+        }
         .user-review-actions {
-            opacity: 0;
+            display: none;
             margin: 20px 0 40px;
             transition: $transition;
             width: 100%;
             overflow: hidden;
             .user-review-actions-left {
                 display: inline-block;
-                width: 50%;
+                width: 60%;
                 float: left;
+                .rangeCount {
+                    display: inline-block;
+                }
             }
             .user-review-actions-right {
                 display: inline-block;
-                width: 50%;
+                width: 40%;
                 float: right;
                 text-align: right;
-
-                .character-count {
-                    font-size: 14px;
-                    font-weight: 600;
-                    color: $green;
-                }
             }
+        }
+        .character-count {
+            opacity: 0;
+            transition: $transition;
+            position: relative;
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ddd;
+            top: -35px;
+            left: 25px;
         }
     }
     #review-feed {
@@ -173,18 +184,15 @@ section {
                 float: left;
 
                 display: inline-block;
-                font-weight: 300;
+                font-weight: 600;
                 font-size: 22px;
 
-                border-radius: 50%;
-
-                padding: 8px 10px;
-                line-height: 30px;
-
-                border: 2px solid $green;
-                color: #2d2d2d;
+                border-right: 1px solid #e7e7e7;
+                //color: #2d2d2d;
+                color: $green;
                 text-align: center;
-                margin-right: 20px;
+                margin-right: 30px;
+                padding-right: 20px;
             }
             .review-content {
                 font-family: "Merriweather", serif;

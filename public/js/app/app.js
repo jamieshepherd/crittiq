@@ -4,4 +4,5 @@ Vue.config.debug = true;
 // Loading overlay
 $(window).load(function(){ $('#loading').fadeOut(500); })
 
-var mnavHeight = $('.mini-nav').height();
+// Convert any sliders to HTML
+$('input[type="range"]').rangeslider();
