@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/api/v1/{category}', 'Nodes\NodeAPI@index');
 Route::get('/api/v1/{category}/search', 'Nodes\NodeAPI@search');
 Route::get('/api/v1/{category}/{slug}', 'Nodes\NodeAPI@find');
+Route::get('/api/v1/{category}/{slug}/reviews', 'Nodes\NodeAPI@reviews');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

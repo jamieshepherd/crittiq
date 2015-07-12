@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Nodes;
 
 use Illuminate\Http\Request;
 
+use App\Node;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -57,6 +58,24 @@ class NodeAPI extends Controller
         $node = DB::collection('nodes')
             ->where('category', $category)
             ->where('slug', $slug)
+            ->get();
+
+        return response()->json($node);
+    }
+
+    /**
+     * Get reviews for a node.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public static function reviews($category, $slug)
+    {
+        $node = Node::where('category', $category)->where('slug', $slug)->first();
+        $_id = $node->_id;
+
+        $node = DB::collection('reviews')
+            //->where('id', $id)
             ->get();
 
         return response()->json($node);

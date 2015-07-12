@@ -1,1 +1,8 @@
 [v-cloak] { visibility: hidden }
+
+.expand-transition {
+    transition: all 0.3s;
+}
+.expand-enter, .expand-leave {
+    opacity: 0;
+}

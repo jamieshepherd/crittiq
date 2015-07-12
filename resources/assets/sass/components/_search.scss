@@ -27,8 +27,21 @@
         width: 100%;
     }
     #search-results {
+        padding-top: 40px;
         margin-top: 40px;
         border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
         display: block;
+        ul {
+            overflow: auto;
+            li {
+                overflow: auto;
+                margin-bottom: 40px;
+                .thumbnail {
+                    float: left;
+                    margin-right: 30px;
+                }
+            }
+        }
     }
 }

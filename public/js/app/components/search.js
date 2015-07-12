@@ -21,16 +21,23 @@ new Vue({
                 return false;
             }
 
-            var that = this;
+            //this.nodes = this.$http.get('/api/v1/films/search', { query: this.query });
             this.$http.get('/api/v1/films/search', { query: this.query }, function(response) {
-
-                this.nodes = [];
-
-                response.forEach(function(node) {
-                    that.nodes.push(node);
-                });
-
+                this.nodes = response;
             })
+        },
+        foo: function(e) {
+            console.log("oi");
+        }
+    },
+
+    computed: {
+        noResults: function() {
+            if(this.query.length > 2) {
+                if(this.nodes.length === 0) {
+                    return true;
+                }
+            }
         }
     }
 
