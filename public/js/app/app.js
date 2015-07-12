@@ -20,3 +20,16 @@ $('.login').click(function() {
         'opacity': 1
     });
 });
+
+$('#page').click(function() {
+    $('#page').css({
+        'filter'         : 'blur(0)',
+        '-webkit-filter' : 'blur(0)',
+        '-moz-filter'    : 'blur(0)',
+        '-o-filter'      : 'blur(0)',
+        '-ms-filter'     : 'blur(0)'
+    });
+    $('#modal').css({
+        'opacity': 0
+    });
+});

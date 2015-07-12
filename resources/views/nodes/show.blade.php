@@ -6,7 +6,9 @@
         <section class="cover" style="background-image: url('/images/uploads/cover/{{ $node->cover }}')">
         <div class="gradient">
             <nav>
-                <img class="logo" src="/images/logo.svg">
+                <a href="/">
+                    <img class="logo" src="/images/logo.svg">
+                </a>
             </nav>
             <div class="details">
                 <div class="score">
@@ -70,7 +72,7 @@
                     <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
                     @else
                         <a href="/auth/register">Create account</a> -
-                        <a class="login">Sign in</a>
+                        <a href="/auth/login" class="login">Sign in</a>
                     @endif
                 </div>
                 <div class="search-button">

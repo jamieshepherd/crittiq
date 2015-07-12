@@ -2,7 +2,7 @@
 <html>
 <head>
     <!-- Title -->
-    <title>Inception (2010) - crittiq</title>
+    <title>@if(isset($node)) {{ $node->title }} ({{ $node->year }}) - @endif crittiq</title>
 
     <!-- Meta tags -->
     <meta charset="utf-8">
