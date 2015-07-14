@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Node;
+use App\User;
+
 class ReviewSeeder extends Seeder
 {
     /**
@@ -11,44 +14,28 @@ class ReviewSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('reviews')->insert([
-            'author'    => 'TEST',
-            'film'      => 'TEST',
-            'score'     => 8.9,
-            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-            'timestamp' => 'TEST'
-        ]);
+        $author = User::where('name', '=', 'Jamie Shepherd')->first();
+        $film = Node::where('category', '=', 'films')->where('title', '=', 'Inception')->first();
 
         DB::table('reviews')->insert([
-            'author'    => 'TEST',
-            'film'      => 'TEST',
-            'score'     => 8.9,
-            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-            'timestamp' => 'TEST'
+            'author'    => $author->_id,
+            'node'      => $film->_id,
+            'score'     => 7.9,
+            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         ]);
 
         DB::table('reviews')->insert([
-            'author'    => 'TEST',
-            'film'      => 'TEST',
+            'author'    => $author->_id,
+            'node'      => $film->_id,
             'score'     => 8.9,
-            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-            'timestamp' => 'TEST'
+            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         ]);
 
-         DB::table('reviews')->insert([
-            'author'    => 'TEST',
-            'film'      => 'TEST',
-            'score'     => 8.9,
-            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-            'timestamp' => 'TEST'
-        ]);
-
-          DB::table('reviews')->insert([
-            'author'    => 'TEST',
-            'film'      => 'TEST',
-            'score'     => 8.9,
-            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-            'timestamp' => 'TEST'
+        DB::table('reviews')->insert([
+            'author'    => $author->_id,
+            'node'      => $film->_id,
+            'score'     => 5.9,
+            'review'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         ]);
     }
 }

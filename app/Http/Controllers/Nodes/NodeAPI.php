@@ -72,12 +72,12 @@ class NodeAPI extends Controller
     public static function reviews($category, $slug)
     {
         $node = Node::where('category', $category)->where('slug', $slug)->first();
-        $_id = $node->_id;
 
-        $node = DB::collection('reviews')
-            //->where('id', $id)
+        $reviews = DB::collection('reviews')
+            ->where('node', $node->_id)
+            ->orderBy('created_at', 'desc')
             ->get();
 
-        return response()->json($node);
+        return response()->json($reviews);
     }
 }

@@ -20,11 +20,12 @@ class ReviewController extends Controller
      */
     public function create($category, $slug)
     {
-        //$node = Node::where('category', $category)->where('slug', $slug)->first();
+        $node = Node::where('category', $category)->where('slug', $slug)->first();
 
         $review = new Review();
-        $review->author = "TESTER";
-        $review->score  = 8.5;
+        $review->node   = $node->_id;
+        $review->author = Auth::user()->_id;
+        $review->score  = Input::get('score');
         $review->review = Input::get('review');
         $review->save();
 

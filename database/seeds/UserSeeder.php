@@ -26,5 +26,13 @@ class UserSeeder extends Seeder
             'level'    => 10,
             'points'   => 1000
         ]);
+
+        DB::table('users')->insert([
+            'name'     => 'Thomas Stembridge',
+            'email'    => 'thomas.stembridge@gmail.com',
+            'password' => bcrypt('crittiq15'),
+            'level'    => 10,
+            'points'   => 1000
+        ]);
     }
 }

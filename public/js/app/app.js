@@ -2,12 +2,17 @@
 Vue.config.debug = true;
 
 // Loading overlay
-$(window).load(function(){ $('#loading').fadeOut(500); })
+$(window).load(function(){
+    $('#loading').fadeOut(500);
+})
 
 // Convert any sliders to HTML
-$('input[type="range"]').rangeslider();
+$('input[type="range"]').rangeslider({
+    polyfill: false
+});
 
 // Show modal login
+/*
 $('.login').click(function() {
     $('#page').css({
         'filter'         : 'blur(5px)',
@@ -33,3 +38,4 @@ $('#page').click(function() {
         'opacity': 0
     });
 });
+*/
