@@ -84,22 +84,26 @@
                     <form action="" method="POST">
                         {{ csrf_field() }}
                         <h2>What did you think about {{ $node->title }}?</h2>
+                        @if(Auth::user())
                         <textarea name="review"
                                   id="user-review"
                                   v-model="review"
-                                  v-on="keyup: update, focus: open"
+                                  v-on="keyup: updateCounter, focus: showActions"
                                   placeholder="Enter your micro review here..."
                                   maxlength="250"></textarea>
                         <span class="character-count">@{{ count }} characters remaining</span>
                         <div class="user-review-actions">
                             <div class="user-review-actions-left">
-                                <input type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
+                                <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
                             </div>
                             <div class="user-review-actions-right">
                                 <span class="rangeCount">@{{ rangeCount }}/10</span>
                                 <input class="btn green" type="submit" value="Submit">
                             </div>
                         </div>
+                        @else
+                            <span>You need to be signed in to post a review! <a href='/auth/login'>Sign in</a> or <a href='/auth/login'>create an account</a>.</span>
+                        @endif
                     </form>
                     <div class="sort">
                         <ul>
@@ -117,18 +121,17 @@
                             <p>@{{ review }}</p>
                         </div>
                         <div class="details">
-                            <span class="date"><i class="fa fa-clock-o"></i><a href="#">1 day ago</a></span>
-                            <span class="user"><i class="fa fa-user"></i><a href="#">Paul Messenger</a></span>
-                            <span class="thumbs"><i class="fa fa-thumbs-up"></i> 15</span>
+                            <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ created_at.toString() }}</a></span>
+                            <span class="user"><i class="fa fa-user"></i><a href="#">@{{ author }}</a></span>
+                            <span class="thumbs"><i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
                         </div>
                     </div>
                 </div>
-                    <span class="noReviews" v-if="noReviews"><i class="fa fa-frown-o"></i> There are currently no reviews for {{ $node->title }}. Be the first to write one!</span>
+                <span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
             </div>
         </section>
     </div>
-    <script src="/js/app/components/review-feed.js"></script>
+    <script src="/js/app/components/review.js"></script>
     <script src="/js/app/components/user-info.js"></script>
-    <script src="/js/app/components/user-review.js"></script>
     <script src="/js/app/components/search.js"></script>
 @endsection
