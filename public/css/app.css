@@ -453,6 +453,10 @@ section #review-content {
   right: 0;
   width: 50%;
   overflow-y: scroll; }
+  section #review-content .noReviews {
+    display: block;
+    color: #ccc;
+    padding: 40px 80px; }
 
 section .user-review {
   padding: 40px 80px 20px 80px;

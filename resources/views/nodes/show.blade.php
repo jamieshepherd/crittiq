@@ -123,6 +123,7 @@
                         </div>
                     </div>
                 </div>
+                    <span class="noReviews" v-if="noReviews"><i class="fa fa-frown-o"></i> There are currently no reviews for {{ $node->title }}. Be the first to write one!</span>
             </div>
         </section>
     </div>

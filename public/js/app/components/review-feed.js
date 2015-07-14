@@ -8,9 +8,10 @@ var path = window.location.pathname;
 
 new Vue({
 
-    el: '#review-feed',
+    el: '#review-content',
     data: {
-        reviews: []
+        reviews: [],
+        reviewsEmpty: false
     },
 
     ready: function() {
@@ -24,6 +25,14 @@ new Vue({
                 that.reviews = response;
             });
         }, 15000);
+    },
+
+    computed: {
+        noReviews: function() {
+            if(this.reviews.length == 0) {
+                return true;
+            }
+        }
     }
 
 });
