@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Nodes;
 use Illuminate\Http\Request;
 
 use App\Node;
+use App\Review;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -60,8 +61,9 @@ class NodeController extends Controller
         */
 
         $node = Node::where('category', $category)->where('slug', $slug)->first();
+        $avg = round(Review::where('node', $node->_id)->avg('score'),1);
 
-        return view('nodes.show')->with('node', $node);
+        return view('nodes.show')->with('node', $node)->with('avg', $avg);
     }
 
     /**

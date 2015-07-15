@@ -12,7 +12,7 @@
             </nav>
             <div class="details">
                 <div class="score">
-                    8.9
+                    {{ $avg }}
                 </div>
                 <h1>{{ $node->title }}</h1>
                 <h6><strong>Film ({{ $node->year }})</strong> directed by <strong>{{ $node->director }}</strong></h6>
