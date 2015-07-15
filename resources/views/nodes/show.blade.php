@@ -99,8 +99,9 @@
                                   maxlength="250"></textarea>
                         <span class="character-count">@{{ count }} characters remaining</span>
                         <div class="user-review-actions">
+                            <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
                             <div class="user-review-actions-left">
-                                <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
+                                <input type="checkbox"><label>My review contains spoilers</label>
                             </div>
                             <div class="user-review-actions-right">
                                 <span class="rangeCount">@{{ rangeCount }}/10</span>

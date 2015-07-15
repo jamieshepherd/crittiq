@@ -538,7 +538,7 @@ section .user-review {
     width: 100%; }
   section .user-review .user-review-actions {
     display: none;
-    margin: 20px 0 40px;
+    margin: 0px 0 40px;
     transition: all 0.5s;
     width: 100%;
     overflow: hidden; }
