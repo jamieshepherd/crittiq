@@ -1,7 +1,6 @@
 @extends('app')
 @section('body')
     <div id="loading"></div>
-    <div id="modal"></div>
     <div id="page">
         <section class="cover" style="background-image: url('/images/uploads/cover/{{ $node->cover }}')">
         <div class="gradient">
@@ -55,18 +54,23 @@
                         {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                     </span>
                     <div class="account-menu">
-                        <span class="account-menu-name">{{ Auth::user()->name }}</span>
-                        <span class="account-menu-email">{{ Auth::user()->email }}</span>
-                        <div class="progress-outer">
-                            <div class="progress-inner"></div>
-                            <div class="progress-text">75% to next level</div>
+                        <div class="padding">
+                            <div class="account-details">
+                                <img class="avatar" src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=120">
+                                <span class="account-menu-name">{{ Auth::user()->name }}</span>
+                                <span class="account-menu-email">{{ Auth::user()->email }}</span>
+                            </div>
+                            <div class="progress-outer">
+                                <div class="progress-inner"></div>
+                                <div class="progress-text">75% to next level</div>
+                            </div>
+                            <ul>
+                                <li><a href="/users/{{ Auth::user()->_id }}">My profile</a></li>
+                                <li><a href="/users/{{ Auth::user()->_id }}/history">History</a></li>
+                                <li><a href="/users/{{ Auth::user()->_id }}/settings">Settings</a></li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li><a href="">My profile</a></li>
-                            <li><a href="">History</a></li>
-                            <li><a href="">Settings</a></li>
-                            <li><a href="/auth/logout">Sign out</a></li>
-                        </ul>
+                        <a class="sign-out" href="/auth/logout">Sign out</a>
                     </div>
                     <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
                     <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
