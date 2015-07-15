@@ -161,6 +161,7 @@ nav {
             font-weight: 400;
             @include transition(0.1s);
             &:hover {
+                border-top: 1px solid #f62459;
                 text-decoration: none;
                 background: #f62459;
                 color: white;

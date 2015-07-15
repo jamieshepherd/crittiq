@@ -37,7 +37,9 @@
                     <ul class="list-group">
                         <li v-repeat="nodes">
                             <img src='http://placehold.it/125x125' class='thumbnail'>
-                            <h3>@{{ title }}</h3>
+                            <a href='/@{{ category }}/@{{ slug }}'>
+                                <h3>@{{ title }}</h3>
+                            </a>
                             <p><strong>@{{ year }}</strong> directed by <strong>@{{ director }}</strong></p>
                         </li>
                         <li class='' v-if='noResults'>Search for <strong>'@{{ query }}'</strong> on IMDB</li>
@@ -85,10 +87,10 @@
             </div>
             <div id="review-content">
                 <div class="user-review">
+                    @if(!$userReview)
                     <form action="" method="POST">
                         {{ csrf_field() }}
                         <h2>What did you think about {{ $node->title }}?</h2>
-                        @if(Auth::user())
                         <textarea name="review"
                                   id="user-review"
                                   v-model="review"
@@ -105,10 +107,11 @@
                                 <input class="btn green" type="submit" value="Submit">
                             </div>
                         </div>
-                        @else
-                            <span>You need to be signed in to post a review! <a href='/auth/login'>Sign in</a> or <a href='/auth/login'>create an account</a>.</span>
-                        @endif
                     </form>
+                    @else
+                        <h2>You said...</h2>
+                        <span class='user-review-content'>&ldquo;{{ $userReview->review }}&rdquo;</span>
+                    @endif
                     <div class="sort">
                         <ul>
                             <li><a href="#" class="current">Latest</a></li>

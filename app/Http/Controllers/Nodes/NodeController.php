@@ -8,6 +8,7 @@ use App\Node;
 use App\Review;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 use DB;
 
 class NodeController extends Controller
@@ -62,8 +63,11 @@ class NodeController extends Controller
 
         $node = Node::where('category', $category)->where('slug', $slug)->first();
         $avg = round(Review::where('node', $node->_id)->avg('score'),1);
+        $userReview = Review::where('node', $node->_id)->where('author', Auth::user()->id)->first();
 
-        return view('nodes.show')->with('node', $node)->with('avg', $avg);
+        //dd($userReview);
+
+        return view('nodes.show')->with('node', $node)->with('avg', $avg)->with('userReview', $userReview);
     }
 
     /**
