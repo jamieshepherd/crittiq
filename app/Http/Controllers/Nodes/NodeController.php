@@ -52,20 +52,12 @@ class NodeController extends Controller
     public function show($category, $slug)
     {
 
-        /*
-        $node = DB::collection('nodes')
-            ->where('category', $category)
-            ->where('slug', $slug)
-            ->first();
-
-            dd($node);
-        */
-
         $node = Node::where('category', $category)->where('slug', $slug)->first();
         $avg = round(Review::where('node', $node->_id)->avg('score'),1);
-        $userReview = Review::where('node', $node->_id)->where('author', Auth::user()->id)->first();
-
-        //dd($userReview);
+        $userReview = null;
+        if(Auth::user()) {
+            $userReview = Review::where('node', $node->_id)->where('author', Auth::user()->id)->first();
+        }
 
         return view('nodes.show')->with('node', $node)->with('avg', $avg)->with('userReview', $userReview);
     }

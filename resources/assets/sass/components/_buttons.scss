@@ -1,18 +1,35 @@
 a.btn, button, input[type='submit'], input[type='button'] {
     border-radius: 3px;
-    padding: 12px 24px;
+    padding: 10px 22px;
     color: white;
     text-transform: uppercase;
     background: #54d0bf;
     outline: none;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     &:hover {
         opacity: 0.9;
+        text-decoration: none;
     }
     &.green {
         background: #54d0bf;
+    }
+    &.outlined {
+        background: none;
+        border: 1px solid white;
+        &.green {
+            border-color: #54d0bf;
+            &:hover {
+                background: #54d0bf;
+                color: white;
+            }
+        }
+        &:hover {
+            background: white;
+            color: #2d2d2d;
+            text-decoration: none;
+        }
     }
 }

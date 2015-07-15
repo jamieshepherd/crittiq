@@ -126,6 +126,8 @@ nav {
     display: inline-block;
     float: left;
     padding: 32px 0 32px 80px; }
+    .mini-nav .user-info .btn {
+      margin-right: 10px; }
     .mini-nav .user-info .avatar {
       vertical-align: middle;
       display: inline-block;
@@ -282,19 +284,32 @@ html, body {
 
 a.btn, button, input[type='submit'], input[type='button'] {
   border-radius: 3px;
-  padding: 12px 24px;
+  padding: 10px 22px;
   color: white;
   text-transform: uppercase;
   background: #54d0bf;
   outline: none;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer; }
   a.btn:hover, button:hover, input[type='submit']:hover, input[type='button']:hover {
-    opacity: 0.9; }
+    opacity: 0.9;
+    text-decoration: none; }
   a.btn.green, button.green, input[type='submit'].green, input[type='button'].green {
     background: #54d0bf; }
+  a.btn.outlined, button.outlined, input[type='submit'].outlined, input[type='button'].outlined {
+    background: none;
+    border: 1px solid white; }
+    a.btn.outlined.green, button.outlined.green, input[type='submit'].outlined.green, input[type='button'].outlined.green {
+      border-color: #54d0bf; }
+      a.btn.outlined.green:hover, button.outlined.green:hover, input[type='submit'].outlined.green:hover, input[type='button'].outlined.green:hover {
+        background: #54d0bf;
+        color: white; }
+    a.btn.outlined:hover, button.outlined:hover, input[type='submit'].outlined:hover, input[type='button'].outlined:hover {
+      background: white;
+      color: #2d2d2d;
+      text-decoration: none; }
 
 #search {
   color: white;

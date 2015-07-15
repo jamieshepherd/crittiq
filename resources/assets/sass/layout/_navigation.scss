@@ -26,6 +26,9 @@ nav {
         display: inline-block;
         float: left;
         padding: 32px 0 32px 80px;
+        .btn {
+            margin-right: 10px;
+        }
         .avatar {
             vertical-align: middle;
             display: inline-block;

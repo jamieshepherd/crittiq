@@ -77,8 +77,8 @@
                     <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
                     <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
                     @else
-                        <a href="/auth/register">Create account</a> -
-                        <a href="/auth/login" class="login">Sign in</a>
+                    <a class="btn outlined" href="/auth/register">Sign up</a>
+                    <a class="btn green" href="/auth/login" class="login">Log in</a>
                     @endif
                 </div>
                 <div class="search-button">
