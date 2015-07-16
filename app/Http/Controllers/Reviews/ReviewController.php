@@ -28,7 +28,7 @@ class ReviewController extends Controller
         if(Input::get('score') == 10) {
             $score = 10;
         } else {
-            $score = number_format(Input::get('score'),1);
+            $score = Input::get('score');
         }
 
         $review = new Review();

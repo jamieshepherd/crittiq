@@ -1,22 +1,20 @@
 @extends('app')
 @section('body')
-    <div id="loading"></div>
+    <div id="loading">
+        <div id="preloader"><span></span><span></span><span></span><span></span></div>
+    </div>
     <div id="page">
-        <section class="cover" style="background-image: url('/images/uploads/cover/{{ $node->cover }}')">
+        <section class="cover" @if($node->cover) style="background-image: url('/images/uploads/cover/{{ $node->cover }}')" @endif>
         <div class="gradient">
+            {{-- Top left logo, not really navigation --}}
             <nav>
                 <a href="/">
                     <img class="logo" src="/images/logo.svg">
                 </a>
             </nav>
+            {{-- Bottom left cover details --}}
             <div class="details">
-                <div class="score">
-                    @if($avg)
-                    {{ $avg }}
-                    @else
-                    &mdash;
-                    @endif
-                </div>
+                <div class="score">{{ $avg }}</div>
                 <h1>{{ $node->title }}</h1>
                 <h6><strong>Film ({{ $node->year }})</strong> directed by <strong>{{ $node->director }}</strong></h6>
                 <p>{{ $node->synopsis }}</p>
@@ -29,7 +27,9 @@
             </div>
         </div>
         </section>
+        {{-- Right hand side --}}
         <section class="information">
+            {{-- Entire search element --}}
             <div id="search">
                 <span class="category">FILM <i class="fa fa-caret-down"></i></span>
                 <input type="text"
@@ -50,6 +50,7 @@
                     </ul>
                 </div>
             </div>
+            {{-- Top right navigation bar --}}
             <div class="mini-nav">
                 <div class="user-info">
                     @if(Auth::check())
@@ -89,7 +90,9 @@
                     <span>Search</span>
                 </div>
             </div>
+            {{-- Review content, including user review and feed --}}
             <div id="review-content">
+                {{-- User review --}}
                 <div class="user-review">
                     @if(!$userReview)
                     <form action="" method="POST">
@@ -126,14 +129,15 @@
                         </ul>
                     </div>
                 </div>
+                {{-- Review feed --}}
                 <div id="review-feed">
                     <div class="review" v-repeat="reviews">
-                        <span class="score">@{{ score }}</span>
+                        <span class="score">@{{ score.toFixed(1); }}</span>
                         <div class="review-content">
                             <p>@{{ review }}</p>
                         </div>
                         <div class="details">
-                            <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ created_at.toString() }}</a></span>
+                            <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ created_at }}</a></span>
                             <span class="user"><i class="fa fa-user"></i><a href="#">@{{ author }}</a></span>
                             <span class="thumbs"><i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
                         </div>
