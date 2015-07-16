@@ -34,7 +34,7 @@ class ReviewController extends Controller
         $review = new Review();
         $review->node   = $node->_id;
         $review->author = Auth::user()->_id;
-        $review->score  = $score;
+        $review->score  = (double)$score;
         $review->review = Input::get('review');
         $review->save();
 
