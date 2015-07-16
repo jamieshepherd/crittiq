@@ -27,4 +27,9 @@ class Node extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function reviews()
+    {
+        return $this->hasMany('Review', 'node');
+    }
 }

@@ -74,7 +74,7 @@ class NodeAPI extends Controller
         $node = Node::where('category', $category)->where('slug', $slug)->first();
 
         $reviews = DB::collection('reviews')
-            ->where('node', $node->_id)
+            ->where('node.reference', $node->_id)
             ->orderBy('created_at', 'desc')
             ->get();
 

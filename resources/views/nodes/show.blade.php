@@ -138,7 +138,7 @@
                         </div>
                         <div class="details">
                             <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ created_at }}</a></span>
-                            <span class="user"><i class="fa fa-user"></i><a href="#">@{{ author }}</a></span>
+                            <span class="user"><i class="fa fa-user"></i><a href="/users/@{{ author.reference }}">@{{ author.name }}</a></span>
                             <span class="thumbs"><i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
                         </div>
                     </div>
