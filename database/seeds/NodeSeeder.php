@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Node;
+
 class NodeSeeder extends Seeder
 {
     /**
@@ -11,34 +13,47 @@ class NodeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('nodes')->insert([
-            'category'  => 'films',
-            'title'     => 'Inception',
-            'slug'      => 'inception',
-            'director'  => "Christopher Nolan",
-            'cover'     => "50634dbcbe4617f17bb159d0.jpg",
-            'year'      => 2010,
-            'synopsis'  => "A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO."
-        ]);
+        // Inception
+        $node = new Node();
+        $node->category = 'films';
+        $node->title    = 'Inception';
+        $node->slug     = 'inception';
+        $node->director = "Christopher Nolan";
+        $node->cover    = "50634dbcbe4617f17bb159d0.jpg";
+        $node->year     = 2010;
+        $node->synopsis = "A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.";
+        $node->save();
 
-        DB::table('nodes')->insert([
-            'category'  => 'films',
-            'title'     => '28 Days Later',
-            'slug'      => '28-days-later',
-            'director'  => "Danny Boyle",
-            'cover'     => "50634dbcbe4617f17bb159d1.jpg",
-            'year'      => 2002,
-            'synopsis'  => "Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary."
-        ]);
+        // 28 Days Later
+        $node = new Node();
+        $node->category = 'films';
+        $node->title    = '28 Days Later';
+        $node->slug     = '28-days-later';
+        $node->director = "Danny Boyle";
+        $node->cover    = "50634dbcbe4617f17bb159d1.jpg";
+        $node->year     = 2002;
+        $node->synopsis = "Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary.";
+        $node->save();
 
-        DB::table('nodes')->insert([
-            'category'  => 'films',
-            'title'     => 'Interstellar',
-            'slug'      => 'interstellar',
-            'director'  => "Christopher Nolan",
-            'cover'     => "50634dbcbe4617f17bb159d2.jpg",
-            'year'      => 2014,
-            'synopsis'  => "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival."
-        ]);
+        // Interstellar
+        $node = new Node();
+        $node->category = 'films';
+        $node->title    = 'Interstellar';
+        $node->slug     = 'interstellar';
+        $node->director = "Christopher Nolan";
+        $node->cover    = "50634dbcbe4617f17bb159d2.jpg";
+        $node->year     = 2014;
+        $node->synopsis = "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.";
+        $node->save();
+
+        // Nosferatu
+        $node = new Node();
+        $node->category = 'films';
+        $node->title    = 'Nosferatu';
+        $node->slug     = 'nosferatu';
+        $node->director = "F.W. Murnau";
+        $node->year     = 1922;
+        $node->synopsis = "Vampire Count Orlok expresses interest in a new residence and real estate agent Hutter's wife. Silent classic based on the story \"Dracula.\"";
+        $node->save();
     }
 }

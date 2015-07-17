@@ -147,7 +147,9 @@ return [
         /*
          * 3rd Party Service Providers...
          */
+
         'Jenssegers\Mongodb\MongodbServiceProvider',
+        'Laravel\Socialite\SocialiteServiceProvider',
 
     ],
 
@@ -198,6 +200,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Moloquent' => Jenssegers\Mongodb\Model::class,
+        'Socialize' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

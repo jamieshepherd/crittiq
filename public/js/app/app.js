@@ -10,3 +10,8 @@ $(window).load(function(){
 $('input[type="range"]').rangeslider({
     polyfill: true
 });
+
+$('#modal').click(function () {
+    $('#modal').fadeOut(300);
+    $('#account').fadeOut(300);
+});

@@ -3,8 +3,19 @@
     <div id="loading">
         <div id="preloader"><span></span><span></span><span></span><span></span></div>
     </div>
+    <div id="modal"></div>
+    <div id="account">
+        <form method="POST" action="/auth/login">
+            <img class="logo" src="/images/logo-dark.svg">
+            <span>Sign in to your Crittiq Account</span>
+            {!! csrf_field() !!}
+            <input type="text" name="email" placeholder="Email address">
+            <input type="password" name="password" placeholder="Password">
+            <input class="btn green full" type="submit" value="Sign in">
+        </form>
+    </div>
     <div id="page">
-        <section class="cover" @if($node->cover) style="background-image: url('/images/uploads/cover/{{ $node->cover }}')" @endif>
+        <section class="cover" @if($node->cover) style="background-image: url('/images/uploads/cover/{{ $node->cover }}')" @else style="background-image: url('/images/uploads/cover/{{ $node->category }}.jpg')" @endif>
         <div class="gradient">
             {{-- Top left logo, not really navigation --}}
             <nav>
@@ -82,7 +93,7 @@
                     <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
                     @else
                     <a class="btn outlined" href="/auth/register">Sign up</a>
-                    <a class="btn green" href="/auth/login" class="login">Log in</a>
+                    <a class="btn green" class="login" v-on="click:openModal">Log in</a>
                     @endif
                 </div>
                 <div class="search-button">

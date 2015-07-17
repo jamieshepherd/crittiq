@@ -1,3 +1,14 @@
+input {
+    font-size: 15px;
+}
 input[type="range"] {
     //width: 100%;
+}
+
+input[type="text"], input[type="password"] {
+    display: block;
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8;
+    outline: none;
 }

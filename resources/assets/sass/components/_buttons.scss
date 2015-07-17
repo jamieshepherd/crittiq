@@ -16,6 +16,9 @@ a.btn, button, input[type='submit'], input[type='button'] {
     &.green {
         background: #54d0bf;
     }
+    &.full {
+        width: 100%;
+    }
     &.outlined {
         background: none;
         border: 1px solid white;

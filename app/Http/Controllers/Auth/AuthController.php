@@ -65,4 +65,5 @@ class AuthController extends Controller
             'points'   => 10
         ]);
     }
+
 }
