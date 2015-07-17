@@ -36,6 +36,7 @@ class ReviewController extends Controller
         $review->author = array('reference' => Auth::user()->_id, 'name' => Auth::user()->name);
         $review->score  = (double)$score;
         $review->review = Input::get('review');
+        $review->thumbs = 0;
         $review->save();
 
         return redirect()->back();

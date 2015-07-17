@@ -46,30 +46,32 @@ section {
                 text-align: center;
 
             }
+            .graph {
+                margin-right: 5px;
+                vertical-align: bottom;
+                padding-bottom: 2px;
+            }
             span {
-                margin-right: 10px;
+                margin-left: 10px;
             }
             .tag {
-                font-size: 16px;
-                border: 1px solid #ffffff;
-                color: #ffffff;
+                font-size: 15px;
+                border: 1px solid #646464;
+                color: #646464;
                 border-radius: 5px;
                 padding: 5px 8px;
                 text-transform: uppercase;
                 display: inline-block;
+                cursor: pointer;
+                &:hover {
+                    color: #d2d2d2;
+                    border-color: #d2d2d2;
+                }
             }
             .stats {
                 border-top: #333 1px solid;
                 margin-top: 30px;
                 padding-top: 30px;
-                .tag {
-                    color: #d2d2d2;
-                    border-color: #d2d2d2;
-                }
-            }
-            .tempgraph {
-                vertical-align: bottom;
-                padding-bottom: 2px;
             }
         }
     }

@@ -19,10 +19,9 @@
                 <h6><strong>Film ({{ $node->year }})</strong> directed by <strong>{{ $node->director }}</strong></h6>
                 <p>{{ $node->synopsis }}</p>
                 <div class="stats">
-                    <span><img class="tempgraph" src="/images/graph.png"></span>
-                    <span class="tag"><i class="fa fa-comments-o"></i> 51</span>
-                    <span class="tag"><i class="fa fa-eye"></i> 12,010</span>
-                    <span class="tag"><i class="fa fa-check"></i> Reviewed</span>
+                    <span><img class="graph" src="/images/graph.png"></span>
+                    <span class="tag" title="Number of comments"><i class="fa fa-comments-o"></i> 51</span>
+                    <span class="tag" title="Number of views"><i class="fa fa-eye"></i> 12,010</span>
                 </div>
             </div>
         </div>
@@ -137,7 +136,8 @@
                             <p>@{{ review }}</p>
                         </div>
                         <div class="details">
-                            <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ created_at }}</a></span>
+                        @{{ _id }}
+                            <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ Date(created_at.sec) }}</a></span>
                             <span class="user"><i class="fa fa-user"></i><a href="/users/@{{ author.reference }}">@{{ author.name }}</a></span>
                             <span class="thumbs"><i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
                         </div>

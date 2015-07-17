@@ -10,4 +10,3 @@ $(window).load(function(){
 $('input[type="range"]').rangeslider({
     polyfill: true
 });
-

@@ -19,6 +19,8 @@ nav {
     font-weight: 600;
 
     display: table-row;
+
+    @include user-select();
     a, a:link, a:visited {
         color: white;
     }

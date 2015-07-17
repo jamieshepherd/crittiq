@@ -337,7 +337,13 @@ nav {
   right: 0;
   font-size: 14px;
   font-weight: 600;
-  display: table-row; }
+  display: table-row;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .mini-nav a, .mini-nav a:link, .mini-nav a:visited {
     color: white; }
   .mini-nav .user-info {
@@ -671,26 +677,28 @@ section.cover {
       border: 2px solid #54d0bf;
       color: white;
       text-align: center; }
+    section.cover .details .graph {
+      margin-right: 5px;
+      vertical-align: bottom;
+      padding-bottom: 2px; }
     section.cover .details span {
-      margin-right: 10px; }
+      margin-left: 10px; }
     section.cover .details .tag {
-      font-size: 16px;
-      border: 1px solid #ffffff;
-      color: #ffffff;
+      font-size: 15px;
+      border: 1px solid #646464;
+      color: #646464;
       border-radius: 5px;
       padding: 5px 8px;
       text-transform: uppercase;
-      display: inline-block; }
+      display: inline-block;
+      cursor: pointer; }
+      section.cover .details .tag:hover {
+        color: #d2d2d2;
+        border-color: #d2d2d2; }
     section.cover .details .stats {
       border-top: #333 1px solid;
       margin-top: 30px;
       padding-top: 30px; }
-      section.cover .details .stats .tag {
-        color: #d2d2d2;
-        border-color: #d2d2d2; }
-    section.cover .details .tempgraph {
-      vertical-align: bottom;
-      padding-bottom: 2px; }
 
 section #review-content {
   position: absolute;

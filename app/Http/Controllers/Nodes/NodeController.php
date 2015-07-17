@@ -63,7 +63,7 @@ class NodeController extends Controller
         //dd($avg);
         $userReview = null;
         if(Auth::user()) {
-            $userReview = Review::where('node', $node->_id)->where('author', Auth::user()->id)->first();
+            $userReview = Review::where('node.reference', $node->_id)->where('author.reference', Auth::user()->id)->first();
         }
 
         return view('nodes.show')->with('node', $node)->with('avg', $avg)->with('userReview', $userReview);
