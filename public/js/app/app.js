@@ -7,9 +7,7 @@ $(window).load(function(){
 })
 
 // Convert any sliders to HTML
-$('input[type="range"]').rangeslider({
-    polyfill: true
-});
+$('input[type="range"]').rangeslider({ polyfill: false });
 
 $('#modal').click(function () {
     $('#modal').fadeOut(300);
