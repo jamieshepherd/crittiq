@@ -559,7 +559,8 @@ input[type="text"], input[type="password"] {
     outline: none;
     background: none;
     color: white;
-    width: 100%; }
+    width: 100%;
+    padding: 0; }
   #search #search-results {
     padding-top: 40px;
     margin-top: 40px;

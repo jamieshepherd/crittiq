@@ -56,7 +56,7 @@ class NodeController extends Controller
 
         //dd($node->_id);
 
-        $avg = number_format(round(Review::where('node', $node->_id)->avg('score'),1),1);
+        $avg = number_format(round(Review::where('node.reference', $node->_id)->avg('score'),1),1);
         if($avg == "0.0") {
             $avg = "&mdash;";
         }
