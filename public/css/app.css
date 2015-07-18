@@ -96,8 +96,6 @@ a, a:link, a:visited {
   font-weight: 600;
   text-decoration: none;
   transition: all linear 0.3s; }
-  a:hover, a:link:hover, a:visited:hover {
-    text-decoration: underline; }
 
 #preloader_2 {
   position: relative;
@@ -498,7 +496,7 @@ html, body {
 
 a.btn, button, input[type='submit'], input[type='button'] {
   border-radius: 3px;
-  padding: 10px 22px;
+  padding: 14px 25px;
   color: white;
   text-transform: uppercase;
   background: #54d0bf;
@@ -735,7 +733,10 @@ section .user-review {
       section .user-review .sort li a {
         color: #8a8a8a; }
         section .user-review .sort li a.current {
-          color: #24d9f7; }
+          color: #24d9f7;
+          border-bottom: 1px solid #24d9f7; }
+        section .user-review .sort li a:hover {
+          border-bottom: 1px solid #8a8a8a; }
   section .user-review input[type="text"] {
     font-family: "Merriweather", serif;
     font-size: 18px;

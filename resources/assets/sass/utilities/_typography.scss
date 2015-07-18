@@ -41,7 +41,4 @@ a, a:link, a:visited {
     font-weight: 600;
     text-decoration: none;
     @include transition(0.3s);
-    &:hover {
-        text-decoration: underline;
-    }
 }

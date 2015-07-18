@@ -22,7 +22,6 @@ class ReviewController extends Controller
     public function create($category, $slug)
     {
         $node = Node::where('category', $category)->where('slug', $slug)->first();
-
         $score = 0.0;
 
         if(Input::get('score') == 10) {
@@ -31,6 +30,13 @@ class ReviewController extends Controller
             $score = Input::get('score');
         }
 
+        // If it's the first review, reward the user
+        if(Review::where('node.reference', $node->_id)->count() == 0) {
+            Auth::user()->points += 1000;
+            Auth::user()->save();
+        }
+
+        // Create the review
         $review = new Review();
         $review->node   = array('reference' => $node->_id, 'name' => $node->title);
         $review->author = array('reference' => Auth::user()->_id, 'name' => Auth::user()->name);
