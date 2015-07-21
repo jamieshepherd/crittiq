@@ -672,7 +672,8 @@ section.cover {
     overflow: hidden;
     box-sizing: border-box;
     padding: 0 80px 80px 80px;
-    color: #d2d2d2; }
+    color: #d2d2d2;
+    width: 100%; }
     section.cover .details .score {
       float: right;
       font-weight: 100;
