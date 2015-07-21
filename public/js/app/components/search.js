@@ -1,4 +1,4 @@
-Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
+//Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
 
 /*
  * Vue: User review component
@@ -17,17 +17,13 @@ new Vue({
             event.preventDefault();
 
             if(this.query.length < 2) {
-                this.nodes = [];
                 return false;
             }
 
-            //this.nodes = this.$http.get('/api/v1/films/search', { query: this.query });
             this.$http.get('/api/v1/films/search', { query: this.query }, function(response) {
                 this.nodes = response;
-            })
-        },
-        foo: function(e) {
-            console.log("oi");
+            });
+
         }
     },
 
@@ -46,8 +42,6 @@ new Vue({
 
 $('.search-button').click(function() {
     $('#search').slideToggle(300, function() {
-        //$('body').css({'overflow': 'hidden'});
         $('#search-input').focus();
     });
-    //$('#review-content').slideToggle(300);
 });

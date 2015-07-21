@@ -23,7 +23,32 @@
     <script src="/js/vendor/rangeslider.js"></script>
 </head>
 <body>
-    @yield('body')
+    {{-- Preloader on every page --}}
+    <div id="loading">
+        <div id="preloader"><span></span><span></span><span></span><span></span></div>
+    </div>
+
+    {{-- Modal background fader on every page --}}
+    <div id="modal"></div>
+
+    {{-- Account login box on every page --}}
+    <div id="account">
+        <form method="POST" action="/auth/login">
+            <img class="logo" src="/images/logo-dark.svg">
+            <span>Sign in to your Crittiq Account</span>
+            {!! csrf_field() !!}
+            <input type="text" name="email" placeholder="Email address">
+            <input type="password" name="password" placeholder="Password">
+            <input class="btn green full" type="submit" value="Sign in">
+        </form>
+    </div>
+
+    {{-- Yield the main page content --}}
+    <div id="page">
+        @yield('body')
+    </div>
+
+    {{-- Include any custom javascript at the end --}}
     <script src="/js/app/app.js"></script>
 </body>
 </html>

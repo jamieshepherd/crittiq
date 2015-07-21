@@ -20,6 +20,10 @@ nav {
 
     display: table-row;
 
+    .btn {
+        display: inline;
+    }
+
     @include user-select();
     a, a:link, a:visited {
         color: white;

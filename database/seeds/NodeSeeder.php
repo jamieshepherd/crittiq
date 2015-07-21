@@ -16,6 +16,8 @@ class NodeSeeder extends Seeder
         // Inception
         $node = new Node();
         $node->category = 'films';
+        $node->themoviedb_id = 27205;
+        $node->imdb_id       = 'tt1375666';
         $node->title    = 'Inception';
         $node->slug     = 'inception';
         $node->director = "Christopher Nolan";
@@ -27,7 +29,9 @@ class NodeSeeder extends Seeder
         // 28 Days Later
         $node = new Node();
         $node->category = 'films';
-        $node->title    = '28 Days Later';
+        $node->themoviedb_id = 170;
+        $node->imdb_id       = 'tt0289043';
+        $node->title    = '28 Days Later...';
         $node->slug     = '28-days-later';
         $node->director = "Danny Boyle";
         $node->cover    = "50634dbcbe4617f17bb159d1.jpg";
@@ -38,6 +42,8 @@ class NodeSeeder extends Seeder
         // Interstellar
         $node = new Node();
         $node->category = 'films';
+        $node->themoviedb_id = 157336;
+        $node->imdb_id       = 'tt0816692';
         $node->title    = 'Interstellar';
         $node->slug     = 'interstellar';
         $node->director = "Christopher Nolan";
@@ -49,6 +55,8 @@ class NodeSeeder extends Seeder
         // Nosferatu
         $node = new Node();
         $node->category = 'films';
+        $node->themoviedb_id = 653;
+        $node->imdb_id       = 'tt0013442';
         $node->title    = 'Nosferatu';
         $node->slug     = 'nosferatu';
         $node->director = "F.W. Murnau";

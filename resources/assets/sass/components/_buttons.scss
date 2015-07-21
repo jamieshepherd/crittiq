@@ -9,6 +9,7 @@ a.btn, button, input[type='submit'], input[type='button'] {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    display: inline-block;
     &:hover {
         opacity: 0.9;
         text-decoration: none;

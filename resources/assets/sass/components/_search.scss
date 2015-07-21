@@ -34,7 +34,7 @@
         border-bottom: 1px solid #333;
         display: block;
         ul {
-            overflow: auto;
+            //overflow: auto;
             li {
                 overflow: auto;
                 margin-bottom: 40px;
@@ -42,6 +42,10 @@
                     float: left;
                     margin-right: 30px;
                 }
+            }
+            span {
+                display: block;
+                margin-bottom: 40px;
             }
         }
     }

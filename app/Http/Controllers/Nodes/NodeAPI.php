@@ -44,7 +44,6 @@ class NodeAPI extends Controller
             return response()->json($node);
         }
         return null;
-
     }
 
     /**
@@ -80,4 +79,5 @@ class NodeAPI extends Controller
 
         return response()->json($reviews);
     }
+
 }

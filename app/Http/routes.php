@@ -30,6 +30,10 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+// Application category routes
 Route::get('/{category}', 'Nodes\NodeController@index');
+Route::get('/{category}/create/confirm/{id}', 'Nodes\NodeController@createConfirm');
+Route::post('/{category}/create/confirm/{id}', 'Nodes\NodeController@store');
+Route::get('/{category}/create/{query}', 'Nodes\NodeController@create');
 Route::get('/{category}/{slug}', 'Nodes\NodeController@show');
 Route::post('/{category}/{slug}', 'Reviews\ReviewController@create');

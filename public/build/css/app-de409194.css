@@ -315,9 +315,6 @@ a, a:link, a:visited {
     -transform: translateX(0px) translateY(0px) rotate(360deg);
     border-radius: 0px; } }
 
-#page {
-  background: #000; }
-
 nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
   nav .logo {
@@ -342,6 +339,8 @@ nav {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+  .mini-nav .btn {
+    display: inline; }
   .mini-nav a, .mini-nav a:link, .mini-nav a:visited {
     color: white; }
   .mini-nav .user-info {
@@ -504,7 +503,8 @@ a.btn, button, input[type='submit'], input[type='button'] {
   border: none;
   font-size: 14px;
   font-weight: 600;
-  cursor: pointer; }
+  cursor: pointer;
+  display: inline-block; }
   a.btn:hover, button:hover, input[type='submit']:hover, input[type='button']:hover {
     opacity: 0.9;
     text-decoration: none; }
@@ -565,14 +565,15 @@ input[type="text"], input[type="password"] {
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     display: block; }
-    #search #search-results ul {
-      overflow: auto; }
-      #search #search-results ul li {
-        overflow: auto;
-        margin-bottom: 40px; }
-        #search #search-results ul li .thumbnail {
-          float: left;
-          margin-right: 30px; }
+    #search #search-results ul li {
+      overflow: auto;
+      margin-bottom: 40px; }
+      #search #search-results ul li .thumbnail {
+        float: left;
+        margin-right: 30px; }
+    #search #search-results ul span {
+      display: block;
+      margin-bottom: 40px; }
 
 #modal {
   position: absolute;
@@ -655,7 +656,7 @@ section.cover, section.information {
 section.cover {
   float: left;
   background: #000000;
-  background-position: center -150px;
+  background-position: center top;
   background-size: cover;
   color: #ffffff;
   position: fixed;
@@ -690,7 +691,7 @@ section.cover {
       vertical-align: bottom;
       padding-bottom: 2px; }
     section.cover .details span {
-      margin-left: 10px; }
+      margin-right: 10px; }
     section.cover .details .tag {
       font-size: 15px;
       border: 1px solid #646464;
@@ -747,6 +748,12 @@ section .user-review {
     border-radius: 5px; }
     section .user-review input[type="text"]:focus {
       outline: none; }
+  section .user-review .user-review-content {
+    font-family: "Merriweather", serif;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 20px;
+    display: inline-block; }
   section .user-review textarea {
     font-family: "Merriweather", serif;
     font-size: 18px;

@@ -9,6 +9,7 @@ $(window).load(function(){
 // Convert any sliders to HTML
 $('input[type="range"]').rangeslider({ polyfill: false });
 
+// When modal is clicked, hide account
 $('#modal').click(function () {
     $('#modal').fadeOut(300);
     $('#account').fadeOut(300);
