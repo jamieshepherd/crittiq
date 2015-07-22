@@ -34,9 +34,11 @@
         border-bottom: 1px solid #333;
         display: block;
         ul {
-            //overflow: auto;
+            overflow: auto;
             li {
-                overflow: auto;
+                clear: both;
+                display: inline-block;
+                width: 100%;
                 margin-bottom: 40px;
                 .thumbnail {
                     float: left;

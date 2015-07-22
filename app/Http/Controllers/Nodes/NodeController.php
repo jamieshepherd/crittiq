@@ -82,7 +82,7 @@ class NodeController extends Controller
         $url = 'https://image.tmdb.org/t/p/w92/'.$response['poster_path'];
         $img = 'images/uploads/films/poster/'.$node->_id.'.jpg';
         file_put_contents($img, file_get_contents($url));
-        $node->poster = $node->_id.'jpg';
+        $node->poster = $node->_id.'.jpg';
 
         // Get the cover image
         $url = 'https://image.tmdb.org/t/p/original/'.$response['backdrop_path'];
@@ -125,12 +125,18 @@ class NodeController extends Controller
             $avg = "&mdash;";
         }
 
+        $reviewCount = Review::where('node.reference', $node->_id)->count();
+
         $userReview = null;
-        if(Auth::user()) {
+        if($reviewCount > 0 && Auth::user()) {
             $userReview = Review::where('node.reference', $node->_id)->where('author.reference', Auth::user()->id)->first();
         }
 
-        return view('nodes.show')->with('node', $node)->with('avg', $avg)->with('userReview', $userReview);
+        return view('nodes.show')
+            ->with('node', $node)
+            ->with('avg', $avg)
+            ->with('userReview', $userReview)
+            ->with('reviewCount', $reviewCount);
     }
 
     /**

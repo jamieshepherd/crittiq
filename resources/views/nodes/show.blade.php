@@ -16,10 +16,13 @@
             <p>{{ $node->synopsis }}</p>
             <div class="stats">
 
-                <span class="tag" title="Number of comments"><i class="fa fa-comments-o"></i> 51</span>
-                <span class="tag" title="Number of views"><i class="fa fa-eye"></i> 12,010</span>
+                <span class="tag" title="Number of comments"><i class="fa fa-comments-o"></i> {{ $reviewCount }} REVIEWS</span>
+                <!--span class="tag" title="Number of views"><i class="fa fa-eye"></i> 12,010</span-->
+                @if($node->themoviedb_id)
+                    <a href="http://themoviedb.org/movie/{{ $node->themoviedb_id }}" target="_blank"><span class="tag" title="The Movie DB link"><i class="fa fa-external-link"></i> TMDB </span></a>
+                @endif
                 @if($node->imdb_id)
-                    <a href="http://imdb.com/title/{{ $node->imdb_id }}" target="_blank"><span class="tag" title="Number of views"><i class="fa fa-external-link"></i> IMDB </span></a>
+                    <a href="http://imdb.com/title/{{ $node->imdb_id }}" target="_blank"><span class="tag" title="IMDB link"><i class="fa fa-external-link"></i> IMDB </span></a>
                 @endif
 
             </div>
@@ -39,7 +42,7 @@
             <div id="search-results">
                 <ul class="list-group">
                     <li v-repeat="nodes">
-                        <img src='http://placehold.it/125x125' class='thumbnail'>
+                        <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
                         <a href='/@{{ category }}/@{{ slug }}'>
                             <h3>@{{ title }}</h3>
                         </a>

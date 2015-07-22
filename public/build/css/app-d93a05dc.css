@@ -577,15 +577,19 @@ input[type="text"], input[type="password"] {
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
     display: block; }
-    #search #search-results ul li {
-      overflow: auto;
-      margin-bottom: 40px; }
-      #search #search-results ul li .thumbnail {
-        float: left;
-        margin-right: 30px; }
-    #search #search-results ul span {
-      display: block;
-      margin-bottom: 40px; }
+    #search #search-results ul {
+      overflow: auto; }
+      #search #search-results ul li {
+        clear: both;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 40px; }
+        #search #search-results ul li .thumbnail {
+          float: left;
+          margin-right: 30px; }
+      #search #search-results ul span {
+        display: block;
+        margin-bottom: 40px; }
 
 #modal {
   position: absolute;
