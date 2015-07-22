@@ -4,8 +4,7 @@
     <div class="gradient">
         {{-- Top left logo, not really navigation --}}
         <nav>
-            <a href="/">
-                <img class="logo" src="/images/logo.svg">
+            <a href="/" class="logo">
             </a>
         </nav>
         {{-- Bottom left cover details --}}

@@ -318,8 +318,20 @@ a, a:link, a:visited {
 nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
   nav .logo {
-    padding: 30px 80px 25px;
-    height: 23px; }
+    padding: 30px 0 25px;
+    height: 25px;
+    display: block;
+    transition: none; }
+    nav .logo.background--light {
+      background-image: url("/images/logo-dark.svg");
+      background-size: 122px 23px;
+      background-position: 80px center;
+      background-repeat: no-repeat; }
+    nav .logo.background--dark {
+      background-image: url("/images/logo.svg");
+      background-size: 122px 23px;
+      background-position: 80px center;
+      background-repeat: no-repeat; }
 
 .mini-nav {
   z-index: 3;

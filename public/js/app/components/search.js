@@ -29,7 +29,7 @@ new Vue({
 
     computed: {
         noResults: function() {
-            if(this.query.length > 2) {
+            if(this.query.length > 1) {
                 if(this.nodes.length === 0) {
                     return true;
                 }

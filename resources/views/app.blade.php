@@ -20,6 +20,7 @@
     <script src="/js/vendor/jquery-2.1.4.js"></script>
     <script src="/js/vendor/vue-0.12.6.js"></script>
     <script src="/js/vendor/vue-resource.js"></script>
+    <script src="/js/vendor/background-check.min.js"></script>
     <script src="/js/vendor/rangeslider.js"></script>
 </head>
 <body>
