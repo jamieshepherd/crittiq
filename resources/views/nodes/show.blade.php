@@ -50,7 +50,12 @@
                             <span class='tag'><i class="fa fa-comments-o"></i> 0</span>
                         </li>
                     </a>
-                    <span v-if='noResults'>We couldn't find <strong>'@{{ query }}'</strong>. Would you like to <a href='/films/create/@{{ query }}'>create it</a>?</span>
+                    <a href='/films/create/@{{ query }}' v-show='minResults'>
+                        <br><br>
+                        <li>
+                            <i class="fa fa-plus-circle"></i> &nbsp;Can't find what you're looking for? Click here to create it!
+                        </li>
+                    </a>
                 </ul>
             </div>
         </div>
