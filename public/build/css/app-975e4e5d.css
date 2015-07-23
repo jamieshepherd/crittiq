@@ -496,14 +496,64 @@ html, body {
 
 #loading {
   background: #222;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 2015;
   height: 100%;
   width: 100%;
-  text-align: middle;
-  vertical-align: middle; }
+  overflow: hidden; }
+  #loading #preloader {
+    display: none;
+    width: 50%;
+    height: 50px;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center; }
+    #loading #preloader img {
+      height: 50px;
+      -webkit-animation: loading 0.75s linear infinite;
+      animation: loading 0.75s linear infinite; }
+    #loading #preloader span {
+      display: none;
+      display: block;
+      font-size: 14px;
+      color: #333333;
+      margin-top: 15px;
+      text-transform: uppercase; }
+
+@-webkit-keyframes "loading" {
+  0% {
+    -webkit-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+    opacity: 0.5; }
+  50% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 1.0; }
+  100% {
+    -webkit-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+    opacity: 0.5; } }
+
+@keyframes "loading" {
+  0% {
+    -webkit-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+    opacity: 0.5; }
+  50% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    opacity: 1.0; }
+  100% {
+    -webkit-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9);
+    opacity: 0.5; } }
 
 a.btn, button, input[type='submit'], input[type='button'] {
   border-radius: 3px;
@@ -586,7 +636,9 @@ input[type="text"], input[type="password"] {
         margin-bottom: 40px; }
         #search #search-results ul li .thumbnail {
           float: left;
-          margin-right: 30px; }
+          margin-right: 30px;
+          box-shadow: 2px 2px 5px #222222;
+          border-radius: 3px; }
       #search #search-results ul span {
         display: block;
         margin-bottom: 40px; }

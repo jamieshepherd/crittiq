@@ -26,7 +26,10 @@
 <body>
     {{-- Preloader on every page --}}
     <div id="loading">
-        <div id="preloader"><span></span><span></span><span></span><span></span></div>
+        <div id="preloader">
+            <img src="/images/q.svg">
+            <span>LOADING</span>
+        </div>
     </div>
 
     {{-- Modal background fader on every page --}}

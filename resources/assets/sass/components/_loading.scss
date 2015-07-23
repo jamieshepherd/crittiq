@@ -1,11 +1,39 @@
 #loading {
     background: #222;
-    position: absolute;
+    position: relative;
     top:0;
     left:0;
     z-index: 2015;
     height: 100%;
     width: 100%;
-    text-align: middle;
-    vertical-align: middle;
+    overflow: hidden;
+    #preloader {
+        display: none;
+        width: 50%;
+        //height: 75px;
+        height: 50px;
+        overflow: hidden;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        text-align: center;
+        img {
+            height: 50px;
+            animation: loading 0.75s linear infinite;
+        }
+        span {
+            display: none;
+            display: block;
+            font-size: 14px;
+            color: #333333;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+@keyframes "loading" {
+    0% {transform: scale(0.9, 0.9); opacity: 0.5;}
+    50% {transform: scale(1.0, 1.0); opacity: 1.0;}
+    100% {transform: scale(0.9, 0.9); opacity: 0.5;}
 }

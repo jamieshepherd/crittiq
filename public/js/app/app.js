@@ -1,6 +1,15 @@
 // Vue debugging (true/false)
 Vue.config.debug = true;
 
+// Show the preloader if it's been loading for more than 1 second
+setTimeout(function(){
+  $('#loading > #preloader').fadeIn();
+}, 1000);
+setTimeout(function(){
+  $('#loading > #preloader').animate({ 'height': '80px'});
+  $('#loading > #preloader > span').fadeIn();
+}, 5000);
+
 // Loading overlay
 $(window).load(function(){
     $('#loading').fadeOut(500);
@@ -15,9 +24,9 @@ $('#modal').click(function () {
     $('#account').fadeOut(300);
 });
 
-// Logo
+// Logo on black or white
 BackgroundCheck.init({
   targets: '.logo',
   images: '.cover',
-  threshold: 80
+  threshold: 70
 });
