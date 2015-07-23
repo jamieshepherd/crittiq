@@ -37,9 +37,7 @@ new Vue({
         },
         minResults: function() {
             if(this.query.length > 1) {
-                if(this.nodes.length > 0) {
-                    return true;
-                }
+                return true;
             }
         }
     }
