@@ -74,7 +74,6 @@ class NodeController extends Controller
         $node->title    = $response['title'];
         $node->year     = date('Y',strtotime($response['release_date']));
         $node->synopsis = $response['overview'];
-        dd($response['overview']);
 
         // Save the node
         $node->save();
