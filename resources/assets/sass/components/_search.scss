@@ -13,6 +13,7 @@
     bottom: 0;
     right: 0;
     width: 50%;
+    overflow-y: auto;
     .category {
         font-size: 14px;
     }
@@ -28,28 +29,38 @@
         padding: 0;
     }
     #search-results {
-        padding-top: 40px;
+        padding-top: 0px;
+        padding-bottom: 20px;
         margin-top: 40px;
-        border-top: 1px solid #333;
-        border-bottom: 1px solid #333;
-        display: block;
+        //border-top: 1px solid #333;
+        //border-bottom: 1px solid #333;
         ul {
-            overflow: auto;
+            a {
+                color: white;
+                &:hover {
+                    color: white;
+                }
+            }
             li {
                 clear: both;
                 display: inline-block;
                 width: 100%;
-                margin-bottom: 40px;
+                padding: 20px;
+                background: #262626;
+                margin-bottom: 5px;
+                box-sizing: border-box;
                 .thumbnail {
                     float: left;
                     margin-right: 30px;
                     box-shadow: 2px 2px 5px #222222;
-                    border-radius: 3px;
                 }
-            }
-            span {
-                display: block;
-                margin-bottom: 40px;
+                .tag {
+                    margin-top: 15px;
+                    margin-right: 5px;
+                }
+                &:hover {
+                    background: #333;
+                }
             }
         }
     }

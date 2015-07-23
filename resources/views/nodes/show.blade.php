@@ -41,13 +41,15 @@
                    placeholder="Start typing to search...">
             <div id="search-results">
                 <ul class="list-group">
-                    <li v-repeat="nodes">
-                        <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
-                        <a href='/@{{ category }}/@{{ slug }}'>
-                            <h3>@{{ title }}</h3>
-                        </a>
-                        <p><strong>@{{ year }}</strong> directed by <strong>@{{ director }}</strong></p>
-                    </li>
+                    <a v-repeat="nodes" href='/@{{ category }}/@{{ slug }}'>
+                        <li >
+                            <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
+                                <h3>@{{ title }}</h3>
+                            <p>@{{ year }} directed by @{{ director }}</p>
+                            <span class='tag'><i class="fa fa-bar-chart"></i> 8.9</span>
+                            <span class='tag'><i class="fa fa-comments-o"></i> 0</span>
+                        </li>
+                    </a>
                     <span v-if='noResults'>We couldn't find <strong>'@{{ query }}'</strong>. Would you like to <a href='/films/create/@{{ query }}'>create it</a>?</span>
                 </ul>
             </div>

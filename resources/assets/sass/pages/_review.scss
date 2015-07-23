@@ -55,20 +55,6 @@ section {
             span {
                 margin-right: 10px;
             }
-            .tag {
-                font-size: 15px;
-                border: 1px solid #646464;
-                color: #646464;
-                border-radius: 5px;
-                padding: 5px 8px;
-                text-transform: uppercase;
-                display: inline-block;
-                cursor: pointer;
-                &:hover {
-                    color: #d2d2d2;
-                    border-color: #d2d2d2;
-                }
-            }
             .stats {
                 border-top: #333 1px solid;
                 margin-top: 30px;
@@ -152,7 +138,7 @@ section {
         .user-review-actions {
             display: none;
             margin: 0px 0 40px;
-            transition: $transition;
+            @include transition(0.1s);
             width: 100%;
             overflow: hidden;
             .user-review-actions-left {
@@ -172,7 +158,7 @@ section {
         }
         .character-count {
             opacity: 0;
-            transition: $transition;
+            @include transition(0.1s);
             position: relative;
             display: block;
             font-size: 14px;

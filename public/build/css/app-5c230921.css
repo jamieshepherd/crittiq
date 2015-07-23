@@ -74,7 +74,7 @@ h2 {
   margin-bottom: 30px; }
 
 h3 {
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 600;
   color: white;
   margin-bottom: 10px; }
@@ -608,7 +608,8 @@ input[type="text"], input[type="password"] {
   top: 80px;
   bottom: 0;
   right: 0;
-  width: 50%; }
+  width: 50%;
+  overflow-y: auto; }
   #search .category {
     font-size: 14px; }
   #search #search-input {
@@ -622,26 +623,30 @@ input[type="text"], input[type="password"] {
     width: 100%;
     padding: 0; }
   #search #search-results {
-    padding-top: 40px;
-    margin-top: 40px;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
-    display: block; }
-    #search #search-results ul {
-      overflow: auto; }
-      #search #search-results ul li {
-        clear: both;
-        display: inline-block;
-        width: 100%;
-        margin-bottom: 40px; }
-        #search #search-results ul li .thumbnail {
-          float: left;
-          margin-right: 30px;
-          box-shadow: 2px 2px 5px #222222;
-          border-radius: 3px; }
-      #search #search-results ul span {
-        display: block;
-        margin-bottom: 40px; }
+    padding-top: 0px;
+    padding-bottom: 20px;
+    margin-top: 40px; }
+    #search #search-results ul a {
+      color: white; }
+      #search #search-results ul a:hover {
+        color: white; }
+    #search #search-results ul li {
+      clear: both;
+      display: inline-block;
+      width: 100%;
+      padding: 20px;
+      background: #262626;
+      margin-bottom: 5px;
+      box-sizing: border-box; }
+      #search #search-results ul li .thumbnail {
+        float: left;
+        margin-right: 30px;
+        box-shadow: 2px 2px 5px #222222; }
+      #search #search-results ul li .tag {
+        margin-top: 15px;
+        margin-right: 5px; }
+      #search #search-results ul li:hover {
+        background: #333; }
 
 #modal {
   position: absolute;
@@ -717,6 +722,19 @@ input[type="text"], input[type="password"] {
 .rangeslider__handle:active {
   background: #54d0bf; }
 
+.tag {
+  font-size: 15px;
+  border: 1px solid #646464;
+  color: #646464;
+  border-radius: 5px;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  display: inline-block;
+  cursor: pointer; }
+  .tag:hover {
+    color: #d2d2d2;
+    border-color: #d2d2d2; }
+
 section.cover, section.information {
   width: 50%;
   height: 100%; }
@@ -761,18 +779,6 @@ section.cover {
       padding-bottom: 2px; }
     section.cover .details span {
       margin-right: 10px; }
-    section.cover .details .tag {
-      font-size: 15px;
-      border: 1px solid #646464;
-      color: #646464;
-      border-radius: 5px;
-      padding: 5px 8px;
-      text-transform: uppercase;
-      display: inline-block;
-      cursor: pointer; }
-      section.cover .details .tag:hover {
-        color: #d2d2d2;
-        border-color: #d2d2d2; }
     section.cover .details .stats {
       border-top: #333 1px solid;
       margin-top: 30px;
@@ -842,7 +848,7 @@ section .user-review {
   section .user-review .user-review-actions {
     display: none;
     margin: 0px 0 40px;
-    transition: all 0.5s;
+    transition: all linear 0.1s;
     width: 100%;
     overflow: hidden; }
     section .user-review .user-review-actions .user-review-actions-left {
@@ -858,7 +864,7 @@ section .user-review {
       text-align: right; }
   section .user-review .character-count {
     opacity: 0;
-    transition: all 0.5s;
+    transition: all linear 0.1s;
     position: relative;
     display: block;
     font-size: 14px;
