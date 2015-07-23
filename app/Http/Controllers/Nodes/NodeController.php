@@ -73,7 +73,8 @@ class NodeController extends Controller
         $node->slug     = \Input::get('slug');
         $node->title    = $response['title'];
         $node->year     = date('Y',strtotime($response['release_date']));
-        $node->synposis = $response['overview'];
+        $node->synopsis = $response['overview'];
+        dd($response['overview']);
 
         // Save the node
         $node->save();
