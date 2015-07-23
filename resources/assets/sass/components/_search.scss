@@ -46,7 +46,8 @@
                 clear: both;
                 display: inline-block;
                 width: 100%;
-                padding: 30px 0 30px 20px;
+                padding: 30px 0 30px 0;
+                        @include transition(0.1s);
                 //background: #262626;
                 box-sizing: border-box;
                 font-weight: 400;
@@ -62,6 +63,19 @@
                 }
                 &:hover {
                     background: #252525;
+                        padding-left: 20px;
+                        @include transition(0.1s);
+                }
+                &.create-it {
+                    padding-left: 0;
+                    @include transition(0.1s);
+                    em {
+                        color: $blue;
+                    }
+                    &:hover {
+                        padding-left: 20px;
+                        @include transition(0.1s);
+                    }
                 }
             }
         }

@@ -51,8 +51,8 @@
                         </li>
                     </a>
                     <a href='/films/create/@{{ query }}' v-show='minResults'>
-                        <li>
-                            <i class="fa fa-plus-circle"></i> &nbsp;Can't find what you're looking for? Click here to create it!
+                        <li class="create-it">
+                            <span>Can't find what you're looking for? <em>Click to create it!</em></span>
                         </li>
                     </a>
                 </ul>
