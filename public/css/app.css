@@ -651,14 +651,15 @@ input[type="text"], input[type="password"] {
         background: #252525;
         padding-left: 20px;
         transition: all linear 0.1s; }
-      #search #search-results ul li.create-it {
-        padding-left: 0;
-        transition: all linear 0.1s; }
-        #search #search-results ul li.create-it em {
-          color: #24d9f7; }
-        #search #search-results ul li.create-it:hover {
-          padding-left: 20px;
-          transition: all linear 0.1s; }
+    #search #search-results ul .create-it {
+      padding-top: 30px;
+      border-top: 1px solid #3a3a3a; }
+      #search #search-results ul .create-it a {
+        color: #24d9f7;
+        display: inline;
+        transition: none; }
+        #search #search-results ul .create-it a:hover {
+          border-bottom: 1px solid #24d9f7; }
 
 #modal {
   position: absolute;

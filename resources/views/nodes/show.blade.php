@@ -50,11 +50,10 @@
                             <span class='tag'><i class="fa fa-comments-o"></i> 0</span>
                         </li>
                     </a>
-                    <a href='/films/create/@{{ query }}' v-show='minResults'>
-                        <li class="create-it">
-                            <span>Can't find what you're looking for? <em>Click to create it!</em></span>
-                        </li>
-                    </a>
+
+                    <div class="create-it" v-show='minResults'>
+                        <span>Can't find what you're looking for? <a href='/films/create/@{{ query }}' >Click to create it!</a></span>
+                    </div>
                 </ul>
             </div>
         </div>
