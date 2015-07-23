@@ -627,15 +627,15 @@ input[type="text"], input[type="password"] {
     padding-bottom: 20px;
     margin-top: 40px; }
     #search #search-results ul a {
-      color: white; }
+      color: white;
+      display: block; }
       #search #search-results ul a:hover {
         color: white; }
     #search #search-results ul li {
       clear: both;
       display: inline-block;
       width: 100%;
-      padding: 20px 0;
-      margin-bottom: 5px;
+      padding: 30px 0 30px 20px;
       box-sizing: border-box;
       font-weight: 400;
       border-top: 1px solid #3a3a3a; }
@@ -646,6 +646,8 @@ input[type="text"], input[type="password"] {
       #search #search-results ul li .tag {
         margin-top: 15px;
         margin-right: 5px; }
+      #search #search-results ul li:hover {
+        background: #252525; }
 
 #modal {
   position: absolute;
