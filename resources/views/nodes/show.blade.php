@@ -154,6 +154,7 @@
             <span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
         </div>
     </section>
+    <script src="/js/app/components/cover.js"></script>
     <script src="/js/app/components/review.js"></script>
     <script src="/js/app/components/user-info.js"></script>
     <script src="/js/app/components/search.js"></script>

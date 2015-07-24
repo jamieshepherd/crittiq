@@ -24,9 +24,4 @@ $('#modal').click(function () {
     $('#account').fadeOut(300);
 });
 
-// Logo on black or white
-BackgroundCheck.init({
-  targets: '.logo',
-  images: '.cover',
-  threshold: 70
-});
+
