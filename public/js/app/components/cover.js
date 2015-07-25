@@ -2,5 +2,5 @@
 BackgroundCheck.init({
   targets: '.logo',
   images: '.cover',
-  threshold: 70
+  threshold: 75
 });

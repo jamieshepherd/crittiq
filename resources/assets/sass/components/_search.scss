@@ -59,6 +59,10 @@
                 .tag {
                     margin-top: 15px;
                     margin-right: 5px;
+                    &:hover {
+                        border-color: #646464;
+                        color: #646464;
+                    }
                 }
                 &:hover {
                     background: #252525;

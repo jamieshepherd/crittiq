@@ -1,20 +1,21 @@
 nav {
     border-bottom: 1px solid rgba(255,255,255,0.3);
     .logo {
-        padding: 30px 0 25px;
-        height: 25px;
-        display: block;
+        margin: 30px 0 25px 80px;
+        width: 122px;
+        height: 23px;
+        display: inline-block;
         transition: none;
         &.background--light {
             background-image: url("/images/logo-dark.svg");
             background-size: 122px 23px;
-            background-position: 80px center;
+            background-position: 0 center;
             background-repeat: no-repeat;
         }
         &.background--dark {
             background-image: url("/images/logo.svg");
             background-size: 122px 23px;
-            background-position: 80px center;
+            background-position: 0 center;
             background-repeat: no-repeat;
         }
     }

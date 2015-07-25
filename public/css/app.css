@@ -100,19 +100,20 @@ a, a:link, a:visited {
 nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
   nav .logo {
-    padding: 30px 0 25px;
-    height: 25px;
-    display: block;
+    margin: 30px 0 25px 80px;
+    width: 122px;
+    height: 23px;
+    display: inline-block;
     transition: none; }
     nav .logo.background--light {
       background-image: url("/images/logo-dark.svg");
       background-size: 122px 23px;
-      background-position: 80px center;
+      background-position: 0 center;
       background-repeat: no-repeat; }
     nav .logo.background--dark {
       background-image: url("/images/logo.svg");
       background-size: 122px 23px;
-      background-position: 80px center;
+      background-position: 0 center;
       background-repeat: no-repeat; }
 
 .mini-nav {
@@ -429,6 +430,9 @@ input[type="text"], input[type="password"] {
       #search #search-results ul li .tag {
         margin-top: 15px;
         margin-right: 5px; }
+        #search #search-results ul li .tag:hover {
+          border-color: #646464;
+          color: #646464; }
       #search #search-results ul li:hover {
         background: #252525;
         padding-left: 20px;
