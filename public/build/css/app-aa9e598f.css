@@ -734,6 +734,7 @@ section #review-feed {
       background: none;
       border: 1px solid #5c5d5d;
       border-radius: 3px;
+      box-sizing: border-box;
       color: white;
       font-family: "Merriweather", serif;
       font-size: 20px;

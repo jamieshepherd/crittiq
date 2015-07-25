@@ -154,6 +154,5 @@
     </section>
     <script src="/js/app/components/cover.js"></script>
     <script src="/js/app/components/review.js"></script>
-    <script src="/js/app/components/user-info.js"></script>
     <script src="/js/app/components/search.js"></script>
 @endsection

@@ -2,6 +2,23 @@
 Vue.config.debug = true;
 Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
 
+// Master Vue instance
+new Vue({
+
+    el: '#page',
+
+    methods: {
+        showLogin: function() {
+            $('#modal').fadeIn(300);
+            $('#account').fadeIn(300);
+        },
+        showAccountPanel: function() {
+            $('.account-menu').slideToggle(150);
+        }
+    }
+
+});
+
 // Show the preloader if it's been loading for more than 1 second
 setTimeout(function(){
   $('#loading > #preloader').fadeIn();
@@ -23,21 +40,5 @@ $('input[type="range"]').rangeslider({ polyfill: false });
 $('#modal').click(function () {
     $('#modal').fadeOut(300);
     $('#account').fadeOut(300);
-});
-
-new Vue({
-
-    el: '#page',
-
-    methods: {
-        showLogin: function() {
-            $('#modal').fadeIn(300);
-            $('#account').fadeIn(300);
-        },
-        showAccountPanel: function() {
-            $('.account-menu').slideToggle(150);
-        }
-    }
-
 });
 

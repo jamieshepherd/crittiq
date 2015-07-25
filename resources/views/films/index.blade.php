@@ -10,7 +10,5 @@
             <span><a v-on="click:showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
         </div>
     </div>
-    <script src="/js/app/components/review.js"></script>
-    <script src="/js/app/components/user-info.js"></script>
     <script src="/js/app/components/search.js"></script>
 @endsection
