@@ -1,5 +1,3 @@
-Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
-
 var path = window.location.pathname;
 var characterLimit = 250;
 
@@ -26,14 +24,12 @@ new Vue({
 
         var that = this;
         setInterval(function() {
-            that.$http.get('/api/v1' + path + '/reviews', function(response) {
-                that.reviews = response;
-            });
-        }, 15000);
+            that.getReviews();
+        }, 5000);
     },
 
     methods: {
-        updateCounter: function(e) {
+        updateCounter: function() {
             this.count = characterLimit - this.review.length;
             $('.character-count').css('color', '');
             if(this.count < 50) {
@@ -45,10 +41,18 @@ new Vue({
                 }
             }
         },
-        showActions: function(e) {
+        showActions: function() {
             $('#user-review').animate({ 'min-height': "220px" }, 300);
             $('.user-review-actions').fadeIn(300);
             $('.character-count').css({ 'opacity': 1 }, 300);
+        },
+        getReviews: function() {
+            this.$http.get('/api/v1' + path + '/reviews', function(response) {
+                this.reviews = response;
+            });
+        },
+        sortBy: function(sortKey) {
+
         }
     }
 

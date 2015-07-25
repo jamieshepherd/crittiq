@@ -1,4 +1,4 @@
-.tag {
+.tag, a.tag {
     font-size: 13px;
     border: 1px solid #646464;
     color: #646464;
@@ -7,6 +7,7 @@
     text-transform: uppercase;
     display: inline-block;
     cursor: pointer;
+    margin-right: 10px;
     &:hover {
         color: #d2d2d2;
         border-color: #d2d2d2;

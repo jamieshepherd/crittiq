@@ -1,0 +1,40 @@
+.category-search {
+    background: #2c2c2c;
+    height: 100%;
+    .search {
+        margin: 0 auto;
+        width: 640px;
+        text-align: center;
+        padding: 80px 0;
+        h1 {
+            font-size: 45px;
+            margin: 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            background: none;
+            border: 1px solid #5c5d5d;
+            border-radius: 3px;
+            //box-sizing: border-box;
+            color: white;
+            font-family: "Merriweather", serif;
+            font-size: 20px;
+            padding: 20px 30px;
+            margin: 50px 0 60px;
+            font-weight: 300;
+            &::placeholder {
+                color: #464646;
+            }
+        }
+        span {
+            font-weight: 16px;
+            font-weight: 300;
+            font-style: italic;
+            color: #4d4c4c;
+            font-family: "Merriweather", serif;
+            a {
+                font-weight: 300;
+            }
+        }
+    }
+}

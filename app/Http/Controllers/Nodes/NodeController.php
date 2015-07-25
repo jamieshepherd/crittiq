@@ -18,9 +18,9 @@ class NodeController extends Controller
      *
      * @return Response
      */
-    public function index($category, $slug)
+    public function index($category)
     {
-        //
+        return view($category.'.index');
     }
 
     /**

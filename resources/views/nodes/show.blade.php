@@ -1,11 +1,10 @@
 @extends('app')
 @section('body')
-    <section class="cover" @if($node->cover) style="background-image: url('/images/uploads/{{ $node->category }}/cover/{{ $node->cover }}')" @else style="background-image: url('/images/uploads/{{ $node->category }}/cover/{{ $node->category }}.jpg')" @endif>
+    <section class="cover background" @if($node->cover) style="background-image: url('/images/uploads/{{ $node->category }}/cover/{{ $node->cover }}')" @else style="background-image: url('/images/uploads/{{ $node->category }}/cover/{{ $node->category }}.jpg')" @endif>
     <div class="gradient">
         {{-- Top left logo, not really navigation --}}
-        <nav>
-            <a href="/" class="logo">
-            </a>
+        <nav class='small'>
+            <a href="/" class="logo"></a>
         </nav>
         {{-- Bottom left cover details --}}
         <div class="details">
@@ -19,10 +18,10 @@
                 <span class="tag" title="Number of comments"><i class="fa fa-comments-o"></i> {{ $reviewCount }} REVIEWS</span>
                 <!--span class="tag" title="Number of views"><i class="fa fa-eye"></i> 12,010</span-->
                 @if($node->themoviedb_id)
-                    <a href="http://themoviedb.org/movie/{{ $node->themoviedb_id }}" target="_blank"><span class="tag" title="The Movie DB link"><i class="fa fa-external-link"></i> TMDB </span></a>
+                    <a class="tag" href="http://themoviedb.org/movie/{{ $node->themoviedb_id }}" target="_blank" title="The Movie DB link"><i class="fa fa-external-link"></i> TMDB</a>
                 @endif
                 @if($node->imdb_id)
-                    <a href="http://imdb.com/title/{{ $node->imdb_id }}" target="_blank"><span class="tag" title="IMDB link"><i class="fa fa-external-link"></i> IMDB </span></a>
+                    <a class="tag" href="http://imdb.com/title/{{ $node->imdb_id }}" target="_blank" title="IMDB link"><i class="fa fa-external-link"></i> IMDB</a>
                 @endif
 
             </div>
@@ -36,13 +35,13 @@
             <span class="category">FILM <i class="fa fa-caret-down"></i></span>
             <input type="text"
                    id="search-input"
-                   v-on="keyup: search"
                    v-model="query"
+                   v-on="keyup: search($event)"
                    placeholder="Start typing to search...">
             <div id="search-results">
                 <ul class="list-group">
                     <a v-repeat="nodes" href='/@{{ category }}/@{{ slug }}'>
-                        <li >
+                        <li>
                             <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
                                 <h3>@{{ title }}</h3>
                             <p>@{{ year }} directed by @{{ director }}</p>
@@ -64,7 +63,7 @@
                 <span class="avatar">
                     <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=44" >
                 </span>
-                <span class="user-name" v-on="click:dropdown">
+                <span class="user-name" v-on="click:showAccountPanel">
                     {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
                 </span>
                 <div class="account-menu">
@@ -90,7 +89,7 @@
                 <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
                 @else
                 <a class="btn outlined" href="/auth/register">Sign up</a>
-                <a class="btn green" class="login" v-on="click:openModal">Log in</a>
+                <a class="btn green" class="login" v-on="click:showLogin">Log in</a>
                 @endif
             </div>
             <div class="search-button">
@@ -129,10 +128,10 @@
                 @endif
                 <div class="sort">
                     <ul>
-                        <li><a href="#" class="current">Latest</a></li>
-                        <li><a href="#">Popular</a></li>
-                        <li><a href="#">Highest rated</a></li>
-                        <li><a href="#">Lowest rated</a></li>
+                        <li><a v-on="click: sortBy('latest')" href="#" class="current">Latest</a></li>
+                        <li><a v-on="click: sortBy('oldest')" href="#">Oldest</a></li>
+                        <li><a v-on="click: sortBy('highest')" href="#">Highest rated</a></li>
+                        <li><a v-on="click: sortBy('lowest')" href="#">Lowest rated</a></li>
                     </ul>
                 </div>
             </div>
@@ -145,7 +144,6 @@
                     </div>
                     <div class="details">
                     @{{ _id }}
-                        <span class="date"><i class="fa fa-clock-o"></i><a href="review/@{{ _id }}">@{{ Date(created_at.sec) }}</a></span>
                         <span class="user"><i class="fa fa-user"></i><a href="/users/@{{ author.reference }}">@{{ author.name }}</a></span>
                         <span class="thumbs"><i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
                     </div>

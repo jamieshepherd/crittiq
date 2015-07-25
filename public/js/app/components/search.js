@@ -1,5 +1,3 @@
-//Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
-
 /*
  * Vue: User review component
  */
@@ -13,10 +11,11 @@ new Vue({
     },
 
     methods: {
-        search: function(e) {
+        search: function(event) {
             event.preventDefault();
 
-            if(this.query.length < 2) {
+            if(this.query.length < 1) {
+                this.nodes = [];
                 return false;
             }
 
@@ -28,13 +27,6 @@ new Vue({
     },
 
     computed: {
-        noResults: function() {
-            if(this.query.length > 1) {
-                if(this.nodes.length === 0) {
-                    return true;
-                }
-            }
-        },
         minResults: function() {
             if(this.query.length > 1) {
                 return true;
@@ -43,7 +35,6 @@ new Vue({
     }
 
 });
-
 
 $('.search-button').click(function() {
     $('#search').slideToggle(300, function() {

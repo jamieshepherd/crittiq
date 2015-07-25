@@ -37,8 +37,11 @@ strong {
     font-weight: 900;
 }
 a, a:link, a:visited {
+    cursor: pointer;
     color: $blue;
     font-weight: 600;
     text-decoration: none;
-    @include transition(0.3s);
+}
+p a:hover, span a:hover {
+    border-bottom: 1px solid $blue;
 }

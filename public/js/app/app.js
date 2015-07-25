@@ -1,5 +1,6 @@
 // Vue debugging (true/false)
 Vue.config.debug = true;
+Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
 
 // Show the preloader if it's been loading for more than 1 second
 setTimeout(function(){
@@ -24,4 +25,19 @@ $('#modal').click(function () {
     $('#account').fadeOut(300);
 });
 
+new Vue({
+
+    el: '#page',
+
+    methods: {
+        showLogin: function() {
+            $('#modal').fadeIn(300);
+            $('#account').fadeIn(300);
+        },
+        showAccountPanel: function() {
+            $('.account-menu').slideToggle(150);
+        }
+    }
+
+});
 
