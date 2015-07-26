@@ -38,18 +38,86 @@
         }
     }
     .previews {
-        .row {
-            max-width: 100%;
-            height: 300px;
-            .cell {
+        width: 100%;
+        tr {
+            td {
                 width: 25%;
-                float: left;
-                height: 100%;
                 background: #ffffff;
+                //min-height: 320px;
+                //height: 320px;
+                .content {
+                    vertical-align: middle;
+                    display: inline-block;
+                    padding: 40px 50px;
+                }
                 &.background {
                     background-size: cover;
+                    text-align: center;
+                    .title {
+                        font-size: 25px;
+                        font-weight: 600;
+                        display: block;
+                        margin-bottom: 10px;
+                        color: white;
+                    }
+                    .author {
+                        font-family: "Merriweather", serif;
+                        font-size: 16px;
+                        font-style: italic;
+                        color: $blue;
+                    }
+                }
+                &.review {
+                    font-family: "Merriweather", serif;
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: #4f4f4f;
                 }
             }
         }
     }
+    // .previews {
+    //     .row {
+    //         max-width: 100%;
+    //         //height: 320px;
+    //         .cell {
+    //             width: 25%;
+    //             float: left;
+    //             background: #ffffff;
+    //             display: inline-block;
+    //             min-height: 300px;
+    //             .content {
+    //                 // position: relative;
+    //                 // top: 50%;
+    //                 // transform: translateY(-50%);
+    //                 padding: 40px 50px;
+    //                 // box-sizing: border-box;
+    //             }
+    //             &.background {
+    //                 background-size: cover;
+    //                 color: white;
+    //                 text-align: center;
+    //                 height: 100%;
+    //                 .title {
+    //                     font-size: 25px;
+    //                     font-weight: 600;
+    //                     display: block;
+    //                     margin-bottom: 10px;
+    //                 }
+    //                 .author {
+    //                     font-family: "Merriweather", serif;
+    //                     font-size: 16px;
+    //                     font-style: italic;
+    //                     color: $blue;
+    //                 }
+    //             }
+    //             &.review {
+    //                 font-family: "Merriweather", serif;
+    //                 font-size: 16px;
+    //                 line-height: 26px;
+    //                 color: #4f4f4f;
+    //             }
+    //         }
+    //     }
+    // }
 }
