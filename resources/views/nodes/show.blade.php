@@ -98,6 +98,8 @@
         </div>
         {{-- Review content, including user review and feed --}}
         <div id="review-content">
+
+            @if(true)
             {{-- User review --}}
             <div class="user-review">
                 @if(!$userReview)
@@ -150,6 +152,12 @@
                 </div>
             </div>
             <span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
+            @else
+                <div class="user-review">
+                    <h2>3d 14h 13m 11s</h2>
+                    <p>Sorry, this film hasn't been released yet so you can't review it. Why not search for another?</p>
+                </div>
+            @endif
         </div>
     </section>
     <script src="/js/app/components/cover.js"></script>

@@ -757,3 +757,13 @@ section #review-feed {
       font-family: "Merriweather", serif; }
       .category-search .search span a {
         font-weight: 300; }
+  .category-search .previews .row {
+    max-width: 100%;
+    height: 300px; }
+    .category-search .previews .row .cell {
+      width: 25%;
+      float: left;
+      height: 100%;
+      background: #ffffff; }
+      .category-search .previews .row .cell.background {
+        background-size: cover; }
