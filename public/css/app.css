@@ -719,6 +719,11 @@ section #review-feed {
       text-align: right; }
       section #review-feed .review .details .fa {
         margin: 0 3px 0 10px; }
+      section #review-feed .review .details .thumbs {
+        cursor: pointer;
+        color: #ddd; }
+        section #review-feed .review .details .thumbs:hover {
+          color: #999; }
 
 .category-search {
   margin: 0 auto;

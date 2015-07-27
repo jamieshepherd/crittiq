@@ -56,6 +56,10 @@ new Vue({
         },
         sortBy: function(sortKey) {
 
+        },
+        thumbsUp: function(id) {
+            console.log("hey");
+            console.log(id);
         }
     }
 

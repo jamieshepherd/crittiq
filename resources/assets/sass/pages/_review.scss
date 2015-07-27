@@ -210,6 +210,13 @@ section {
                 .fa {
                     margin: 0 3px 0 10px;
                 }
+                .thumbs {
+                    cursor: pointer;
+                    color: #ddd;
+                    &:hover {
+                        color: #999;
+                    }
+                }
             }
         }
     }

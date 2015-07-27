@@ -10,7 +10,7 @@
         <div class="details">
             <div class="score">{{ $avg }}</div>
             <h1>{{ $node->title }}</h1>
-            <h6><strong>{{ $node->year }}</strong> film directed by <strong>{{ $node->director }}</strong></a></h6>
+            <h6><strong>{{ $node->year }}</strong> film @if(!empty($node->director)) directed by <strong>{{ $node->director }}</strong>@endif</h6>
             <p>{{ $node->synopsis }}</p>
             <div class="stats">
 
@@ -128,9 +128,8 @@
                         <p>@{{ review }}</p>
                     </div>
                     <div class="details">
-                    @{{ _id }}
                         <span class="user"><i class="fa fa-user"></i><a href="/users/@{{ author.reference }}">@{{ author.name }}</a></span>
-                        <span class="thumbs"><i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
+                        <span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
                     </div>
                 </div>
             </div>
