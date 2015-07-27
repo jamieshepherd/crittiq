@@ -22,10 +22,13 @@ new Vue({
             this.reviews = response;
         });
 
+        this.getReviews();
+        /*
         var that = this;
         setInterval(function() {
             that.getReviews();
-        }, 5000);
+        }, 15000);
+        */
     },
 
     methods: {

@@ -49,7 +49,7 @@ class NodeController extends Controller
             $client = new \GuzzleHttp\Client();
             $response = $client->get($api)->json();
 
-            return view('nodes.create_confirm')->with('response', $response);
+            return view('nodes.createConfirm')->with('response', $response);
         } else {
             return "That already exists in the DB bro";
         }
@@ -84,16 +84,24 @@ class NodeController extends Controller
         $node->save();
 
         // Get the poster image
-        $url = 'https://image.tmdb.org/t/p/w92/'.$response['poster_path'];
-        $img = 'images/uploads/films/poster/'.$node->_id.'.jpg';
-        file_put_contents($img, file_get_contents($url));
-        $node->poster = $node->_id.'.jpg';
+        if($response['poster_path']) {
+            $url = 'https://image.tmdb.org/t/p/w92/'.$response['poster_path'];
+            $img = 'images/uploads/films/poster/'.$node->_id.'.jpg';
+            file_put_contents($img, file_get_contents($url));
+            $node->poster = $node->_id.'.jpg';
+        } else {
+            $node->poster = $category.'.jpg';
+        }
 
         // Get the cover image
-        $url = 'https://image.tmdb.org/t/p/original/'.$response['backdrop_path'];
-        $img = 'images/uploads/films/cover/'.$node->_id.'.jpg';
-        file_put_contents($img, file_get_contents($url));
-        $node->cover = $node->_id.'.jpg';
+        if($response['backdrop_path']) {
+            $url = 'https://image.tmdb.org/t/p/original/'.$response['backdrop_path'];
+            $img = 'images/uploads/films/cover/'.$node->_id.'.jpg';
+            file_put_contents($img, file_get_contents($url));
+            $node->cover = $node->_id.'.jpg';
+        } else {
+            $node->cover = $category.'.jpg';
+        }
 
         // Get the director
         $api = "http://api.themoviedb.org/3/movie/".$id."/casts?api_key=6bf6b9f2b6f6902c19e0e94c66c22ebb";
