@@ -53,7 +53,11 @@ class ReviewController extends Controller
             $node->increment('overall_positive');
         }
 
-        return redirect()->back();
+        $node->avg = number_format(round(Review::where('node.reference', $node->_id)->avg('score'),1),1);
+        $node->increment('reviewCount');
+        $node->save();
+
+        return back();
     }
 
 }

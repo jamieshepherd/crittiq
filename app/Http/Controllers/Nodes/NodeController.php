@@ -139,23 +139,14 @@ class NodeController extends Controller
 
         $node = Node::where('category', $category)->where('slug', $slug)->first();
 
-        $avg = number_format(round(Review::where('node.reference', $node->_id)->avg('score'),1),1);
-        if($avg == "0.0") {
-            $avg = "&mdash;";
-        }
-
-        $reviewCount = Review::where('node.reference', $node->_id)->count();
-
         $userReview = null;
-        if($reviewCount > 0 && Auth::user()) {
+        if($node->reviewCount > 0 && Auth::user()) {
             $userReview = Review::where('node.reference', $node->_id)->where('author.reference', Auth::user()->id)->first();
         }
 
         return view('nodes.show')
             ->with('node', $node)
-            ->with('avg', $avg)
-            ->with('userReview', $userReview)
-            ->with('reviewCount', $reviewCount);
+            ->with('userReview', $userReview);
     }
 
     /**

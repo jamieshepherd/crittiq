@@ -8,13 +8,13 @@
         </nav>
         {{-- Bottom left cover details --}}
         <div class="details">
-            <div class="score">{{ $avg }}</div>
+            <div class="score">{{ $node->avg or '&mdash;' }}</div>
             <h1>{{ $node->title }}</h1>
             <h6><strong>{{ $node->year }}</strong> film @if(!empty($node->director)) directed by <strong>{{ $node->director }}</strong>@endif</h6>
             <p>{{ $node->synopsis }}</p>
             <div class="stats">
 
-                <span class="tag" title="Number of comments"><i class="fa fa-comments-o"></i> {{ $reviewCount }} REVIEWS</span>
+                <span class="tag" title="Number of comments"><i class="fa fa-comments-o"></i> {{ $node->reviewCount or '0' }} REVIEWS</span>
                 <!--span class="tag" title="Number of views"><i class="fa fa-eye"></i> 12,010</span-->
                 @if($node->themoviedb_id)
                     <a class="tag" href="http://themoviedb.org/movie/{{ $node->themoviedb_id }}" target="_blank" title="The Movie DB link"><i class="fa fa-external-link"></i> TMDB</a>
@@ -44,13 +44,13 @@
                             <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
                                 <h3>@{{ title }}</h3>
                             <p>@{{ release_date }} directed by @{{ director }}</p>
-                            <span class='tag'><i class="fa fa-bar-chart"></i> 8.9</span>
-                            <span class='tag'><i class="fa fa-comments-o"></i> 0</span>
+                            <span class='tag'><i class="fa fa-bar-chart"></i> @{{ avg }}</span>
+                            <span class='tag'><i class="fa fa-comments-o"></i> @{{ reviewCount }}</span>
                         </li>
                     </a>
 
                     <div class="create-it" v-show='minResults'>
-                        <span>Can't find what you're looking for? <a href='/films/create/@{{ query }}' >Click to create it!</a></span>
+                        <span>Can't find what you're looking for? <a href='/films/create/@{{ query }}    ' >Click to create it!</a></span>
                     </div>
                 </ul>
             </div>
