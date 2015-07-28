@@ -622,6 +622,8 @@ section .user-review {
         section .user-review .sort li a.current {
           color: #24d9f7;
           border-bottom: 1px solid #24d9f7; }
+          section .user-review .sort li a.current:hover {
+            border-bottom: 1px solid #24d9f7; }
         section .user-review .sort li a:hover {
           border-bottom: 1px solid #8a8a8a; }
   section .user-review input[type="text"] {

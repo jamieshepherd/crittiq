@@ -44,7 +44,7 @@
                             <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
                                 <h3>@{{ title }}</h3>
                             <p>@{{ release_date }} directed by @{{ director }}</p>
-                            <span class='tag'><i class="fa fa-bar-chart"></i> @{{ avg }}</span>
+                            <span class='tag'><i class="fa fa-line-chart"></i> @{{ avg }}</span>
                             <span class='tag'><i class="fa fa-comments-o"></i> @{{ reviewCount }}</span>
                         </li>
                     </a>
@@ -113,10 +113,26 @@
                 @endif
                 <div class="sort">
                     <ul>
-                        <li><a v-on="click: sortBy('latest')" href="#" class="current">Latest</a></li>
-                        <li><a v-on="click: sortBy('oldest')" href="#">Oldest</a></li>
-                        <li><a v-on="click: sortBy('highest')" href="#">Highest rated</a></li>
-                        <li><a v-on="click: sortBy('lowest')" href="#">Lowest rated</a></li>
+                        <li>
+                            <a v-on="click: sortBy('latest')"
+                               v-class="current: filter == 'latest'"
+                               href="#">Latest</a>
+                        </li>
+                        <li>
+                            <a v-on="click: sortBy('oldest')"
+                               v-class="current: filter == 'oldest'"
+                               href="#">Oldest</a>
+                        </li>
+                        <li>
+                            <a v-on="click: sortBy('highest')"
+                               v-class="current: filter == 'highest'"
+                               href="#">Highest rated</a>
+                        </li>
+                        <li>
+                            <a v-on="click: sortBy('lowest')"
+                               v-class="current: filter == 'lowest'
+                               "href="#">Lowest rated</a>
+                        </li>
                     </ul>
                 </div>
             </div>

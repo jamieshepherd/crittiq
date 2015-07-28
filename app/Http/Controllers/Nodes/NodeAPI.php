@@ -72,10 +72,39 @@ class NodeAPI extends Controller
     {
         $node = Node::where('category', $category)->where('slug', $slug)->first();
 
-        $reviews = DB::collection('reviews')
-            ->where('node.reference', $node->_id)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $filter = isset($_GET['filter']) ? $_GET['filter'] : null;
+        switch ($filter) {
+            case 'newest':
+                $reviews = DB::collection('reviews')
+                    ->where('node.reference', $node->_id)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+                break;
+            case 'oldest':
+                $reviews = DB::collection('reviews')
+                    ->where('node.reference', $node->_id)
+                    ->orderBy('created_at', 'asc')
+                    ->get();
+                break;
+            case 'highest':
+                $reviews = DB::collection('reviews')
+                    ->where('node.reference', $node->_id)
+                    ->orderBy('score', 'desc')
+                    ->get();
+                break;
+            case 'lowest':
+                $reviews = DB::collection('reviews')
+                    ->where('node.reference', $node->_id)
+                    ->orderBy('score', 'asc')
+                    ->get();
+                break;
+            default:
+                $reviews = DB::collection('reviews')
+                    ->where('node.reference', $node->_id)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+                break;
+        }
 
         return response()->json($reviews);
     }
