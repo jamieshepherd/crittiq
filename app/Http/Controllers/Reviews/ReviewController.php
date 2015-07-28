@@ -45,6 +45,14 @@ class ReviewController extends Controller
         $review->thumbs = 0;
         $review->save();
 
+        if($review->score < 4) {
+            $node->increment('overall_negative');
+        } else if($review->score < 7) {
+            $node->increment('overall_mixed');
+        } else {
+            $node->increment('overall_positive');
+        }
+
         return redirect()->back();
     }
 

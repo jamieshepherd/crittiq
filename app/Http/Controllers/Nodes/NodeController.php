@@ -72,7 +72,13 @@ class NodeController extends Controller
         $node->themoviedb_id = $response['id'];
         $node->slug     = \Input::get('slug');
         $node->title    = $response['title'];
+        $node->release_date = $response['release_date'];
         $node->year     = date('Y',strtotime($response['release_date']));
+
+        $node->overall_positive = 0;
+        $node->overall_mixed = 0;
+        $node->negative = 0;
+
         if(strlen($response['overview']) > 150) {
             $node->synopsis = substr($response['overview'],0,150).'...';
         } else {

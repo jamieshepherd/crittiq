@@ -43,7 +43,7 @@
                         <li>
                             <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
                                 <h3>@{{ title }}</h3>
-                            <p>@{{ year }} directed by @{{ director }}</p>
+                            <p>@{{ release_date }} directed by @{{ director }}</p>
                             <span class='tag'><i class="fa fa-bar-chart"></i> 8.9</span>
                             <span class='tag'><i class="fa fa-comments-o"></i> 0</span>
                         </li>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="details">
                         <span class="user"><i class="fa fa-user"></i><a href="/users/@{{ author.reference }}">@{{ author.name }}</a></span>
-                        <span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span>
+                        <!--span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span-->
                     </div>
                 </div>
             </div>
