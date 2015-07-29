@@ -705,34 +705,53 @@ section #review-feed {
     color: #2b2b2b;
     font-size: 15px;
     line-height: 24px;
-    padding: 50px 70px 20px 70px;
+    padding: 45px 70px 45px 70px;
     margin-bottom: 15px;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
     transition: all linear 0.1s; }
     section #review-feed .review:hover {
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
-    section #review-feed .review .score {
-      color: #54d0bf;
+    section #review-feed .review .avatar {
       float: left;
-      display: inline-block;
-      font-weight: 600;
-      font-size: 24px;
-      text-align: center; }
+      display: inline-block; }
+      section #review-feed .review .avatar img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%; }
+      section #review-feed .review .avatar span {
+        margin-top: 10px;
+        display: block;
+        max-width: 75px;
+        text-align: center;
+        line-height: 16px;
+        font-size: 14px; }
     section #review-feed .review .review-content {
       font-family: "Merriweather", serif;
       display: block;
-      border-left: 1px solid #e7e7e7;
-      margin-left: 50px;
-      padding-left: 30px; }
+      margin-left: 100px; }
     section #review-feed .review .details {
-      color: #999;
+      color: #dedddd;
       font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
       font-size: 13px;
-      margin-top: 20px;
+      margin-left: 100px;
+      margin-top: 30px;
       width: 100%;
-      text-align: right; }
+      text-align: left; }
       section #review-feed .review .details .fa {
         margin: 0 3px 0 10px; }
+      section #review-feed .review .details span {
+        margin-right: 25px;
+        font-size: 16px;
+        font-weight: 600; }
+        section #review-feed .review .details span.score {
+          background: #60c813;
+          padding: 4px 8px;
+          color: white;
+          font-family: "Merriweather", serif;
+          font-size: 13px;
+          font-weight: 300; }
+        section #review-feed .review .details span.date {
+          text-transform: uppercase; }
       section #review-feed .review .details .thumbs {
         cursor: pointer;
         color: #ddd; }

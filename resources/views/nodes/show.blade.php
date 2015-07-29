@@ -141,12 +141,22 @@
             {{-- Review feed --}}
             <div id="review-feed">
                 <div class="review" v-repeat="reviews">
-                    <span class="score">@{{ score.toFixed(1); }}</span>
+                    <!--span class="score">@{{ score.toFixed(1); }}</span-->
+                    <div class="avatar">
+                        <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=150" >
+                        <span class="username"><a>@{{ author.name }}</a></span>
+                    </div>
+
                     <div class="review-content">
                         <p>@{{ review }}</p>
                     </div>
                     <div class="details">
-                        <span class="user"><i class="fa fa-user"></i><a href="/users/@{{ author.reference }}">@{{ author.name }}</a></span>
+                        <span class="score"><strong>@{{ score }}</strong> / 10</span>
+                        <span class="date">3 days ago</span>
+                        <span class="hearts"><i class="fa fa-heart"></i> 0</span>
+                        <span class="comment"><i class="fa fa-comment"></i> 1</span>
+                        <span class="more"><i class="fa fa-ellipsis-h"></i></span>
+
                         <!--span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span-->
                     </div>
                 </div>

@@ -194,7 +194,7 @@ section {
             color: #2b2b2b;
             font-size: 15px;
             line-height: 24px;
-            padding: 50px 70px 20px 70px;
+            padding: 45px 70px 45px 70px;
             margin-bottom: 15px;
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
             @include transition(0.1s);
@@ -202,30 +202,58 @@ section {
                 //padding: 55px 70px 25px 70px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
             }
-            .score {
-                color: $green;
+            .avatar {
                 float: left;
                 display: inline-block;
-                font-weight: 600;
-                font-size: 24px;
-                text-align: center;
+                img {
+                    width: 75px;
+                    height: 75px;
+                    border-radius: 50%;
+                }
+                span {
+                    margin-top: 10px;
+                    display: block;
+                    max-width: 75px;
+                    text-align: center;
+                    line-height: 16px;
+                    font-size: 14px;
+                }
             }
             .review-content {
                 font-family: "Merriweather", serif;
                 display: block;
-                border-left: 1px solid #e7e7e7;
-                margin-left: 50px;
-                padding-left: 30px;
+                //border-left: 1px solid #e7e7e7;
+                margin-left: 100px;
             }
             .details {
-                color: #999;
+                color: #dedddd;
                 font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
                 font-size: 13px;
-                margin-top: 20px;
+                margin-left: 100px;
+                margin-top: 30px;
                 width: 100%;
-                text-align: right;
+                text-align: left;
                 .fa {
                     margin: 0 3px 0 10px;
+                }
+                span {
+                    margin-right: 25px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    &.score {
+                        background: #60c813;
+                        padding: 4px 8px;
+                        color: white;
+                        font-family: "Merriweather", serif;
+                        font-size: 13px;
+                        font-weight: 300;
+                    }
+                    &.date {
+                        text-transform: uppercase;
+                    }
+                    &.more {
+                        //font-size: 22px;
+                    }
                 }
                 .thumbs {
                     cursor: pointer;
