@@ -81,23 +81,33 @@ section {
         padding: 40px 80px 20px 80px;
         border-bottom: 1px solid #f0f0f0;
         .sort {
-            margin-top: 30px;
+            //border-top: 1px solid #f0f0f0;
+            margin-top: 10px;
             text-transform: uppercase;
             li {
                 display: inline-block;
-                margin-right: 20px;
+
+                margin-right: 25px;
                 font-weight: 600;
+                &:before {
+                    color: #e7e7e7;
+                    margin-right: 25px;
+                    content: '\2022';
+                }
+                &:first-of-type {
+                    &:before {
+                        content: '';
+                        margin: 0;
+                    }
+                }
                 a {
-                    color: #8a8a8a;
+                    color: #bab8b8;
                     &.current {
                         color: $blue;
                         border-bottom: 1px solid $blue;
-                        &:hover {
-                            border-bottom: 1px solid $blue;
-                        }
                     }
                     &:hover {
-                        border-bottom: 1px solid #8a8a8a;
+                        border-bottom: 1px solid $blue;
                     }
                 }
             }
@@ -120,6 +130,11 @@ section {
             line-height: 28px;
             margin-bottom: 20px;
             display: inline-block;
+            blockquote {
+                .quote {
+                    color: #ccc;
+                }
+            }
         }
         textarea {
             font-family: "Merriweather", serif;

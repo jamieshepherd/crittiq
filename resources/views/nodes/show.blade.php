@@ -111,7 +111,7 @@
                 </form>
                 @else
                     <h2>You said...</h2>
-                    <span class='user-review-content'>&ldquo;{{ $userReview->review }}&rdquo;</span>
+                    <span class='user-review-content'><blockquote><span class='quote'>&ldquo;</span>{{ $userReview->review }}<span class='quote'>&rdquo;</span></blockquote></span>
                 @endif
                 <div class="sort">
                     <ul>
