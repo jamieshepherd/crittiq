@@ -148,6 +148,7 @@
                         <!--span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span-->
                     </div>
                 </div>
+                <a v-on="click: getMoreReviews">Show more</a>
             </div>
             <span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
             @else

@@ -13,7 +13,8 @@ new Vue({
         review: "",
         count: characterLimit,
         rangeCount: 5,
-        filter: 'latest'
+        filter: 'latest',
+        skip: 0
     },
 
     ready: function() {
@@ -40,13 +41,20 @@ new Vue({
             $('.character-count').css({ 'opacity': 1 }, 300);
         },
         getReviews: function() {
-            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter }, function(response) {
+            this.skip = 0;
+            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter, skip: this.skip }, function(response) {
                 this.reviews = response;
+            });
+        },
+        getMoreReviews: function() {
+            this.skip += 10;
+            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter, skip: this.skip }, function(response) {
+                this.reviews.push.apply(this.reviews, response);
             });
         },
         sortBy: function(sortKey) {
             this.filter = sortKey;
-            this.getReviews();
+            this.reviews = this.getReviews();
         },
         thumbsUp: function(id) {
             console.log("hey");
