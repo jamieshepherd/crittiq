@@ -175,6 +175,20 @@ section {
     }
     #review-feed {
         padding: 10px;
+        .more-reviews {
+            background: #fff;
+            padding: 15px;
+            display: block;
+            text-align: center;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eee;
+            color: #bbb;
+            font-weight: 400;
+            &:hover {
+                color: #999;
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+            }
+        }
         .review {
             background: #ffffff;
             color: #2b2b2b;
