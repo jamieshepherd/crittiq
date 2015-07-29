@@ -36,7 +36,9 @@
                    id="search-input"
                    v-model="query"
                    v-on="keyup: search($event)"
-                   placeholder="Start typing to search...">
+                   placeholder="Start typing to search..."
+                   debounce="500">
+
             <div id="search-results">
                 <ul class="list-group">
                     <a v-repeat="nodes" href='/@{{ category }}/@{{ slug }}'>
