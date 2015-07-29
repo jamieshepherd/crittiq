@@ -707,6 +707,7 @@ section #review-feed {
     line-height: 24px;
     padding: 45px 70px 45px 70px;
     margin-bottom: 8px;
+    min-height: 100px;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
     transition: all linear 0.1s; }
     section #review-feed .review:hover {
@@ -751,6 +752,12 @@ section #review-feed {
           font-family: "Merriweather", serif;
           font-size: 13px;
           font-weight: 300; }
+          section #review-feed .review .details span.score.positive {
+            background: #60c813; }
+          section #review-feed .review .details span.score.mixed {
+            background: #f5ac5d; }
+          section #review-feed .review .details span.score.negative {
+            background: #f5655d; }
         section #review-feed .review .details span.date {
           text-transform: uppercase; }
       section #review-feed .review .details .thumbs {

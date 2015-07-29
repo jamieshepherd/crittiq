@@ -151,7 +151,11 @@
                         <p>@{{ review }}</p>
                     </div>
                     <div class="details">
-                        <span class="score"><strong>@{{ score }}</strong> / 10</span>
+                        <span class="score"
+                              v-class="positive: (score > 6.5),
+                                       mixed   : (score < 7 && score > 3.5),
+                                       negative: (score < 4)"
+                        ><strong>@{{ score }}</strong> / 10</span>
                         <span class="date">3 days ago</span>
                         <span class="hearts"><i class="fa fa-heart"></i> 0</span>
                         <span class="comment"><i class="fa fa-comment"></i> 1</span>

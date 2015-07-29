@@ -196,6 +196,7 @@ section {
             line-height: 24px;
             padding: 45px 70px 45px 70px;
             margin-bottom: 8px;
+            min-height: 100px;
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
             @include transition(0.1s);
             &:hover {
@@ -248,6 +249,15 @@ section {
                         font-family: "Merriweather", serif;
                         font-size: 13px;
                         font-weight: 300;
+                        &.positive {
+                            background: #60c813;
+                        }
+                        &.mixed {
+                            background: #f5ac5d;
+                        }
+                        &.negative {
+                            background: #f5655d;
+                        }
                     }
                     &.date {
                         text-transform: uppercase;
