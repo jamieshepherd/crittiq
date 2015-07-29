@@ -710,7 +710,8 @@ section #review-feed {
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
     transition: all linear 0.1s; }
     section #review-feed .review:hover {
-      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+      background: #f5f8fa; }
     section #review-feed .review .avatar {
       float: left;
       display: inline-block; }
@@ -719,7 +720,7 @@ section #review-feed {
         height: 75px;
         border-radius: 50%; }
       section #review-feed .review .avatar span {
-        margin-top: 10px;
+        margin-top: 5px;
         display: block;
         max-width: 75px;
         text-align: center;
