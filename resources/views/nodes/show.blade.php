@@ -37,7 +37,7 @@
                    v-model="query"
                    v-on="keyup: search($event)"
                    placeholder="Start typing to search..."
-                   debounce="200">
+                   >
 
             <div id="search-results">
                 <ul class="list-group">
