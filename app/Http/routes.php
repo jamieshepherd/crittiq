@@ -23,6 +23,8 @@ Route::get('/api/v1/{category}/{slug}/reviews', 'Nodes\NodeAPI@reviews');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('auth/login/{provider}', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/login/{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 

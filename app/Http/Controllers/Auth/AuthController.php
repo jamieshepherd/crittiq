@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Socialite;
 
 class AuthController extends Controller
 {
@@ -96,6 +97,45 @@ class AuthController extends Controller
         Auth::logout();
 
         return back();
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $socialite = Socialite::driver($provider)->user();
+
+        // If OAuth One
+        if($provider == 'twitter') {
+            $token = $socialite->token;
+            $tokenSecret = $socialite->tokenSecret;
+        } else {
+            $token = $socialite->token;
+        }
+
+        $user = new User();
+        // All Providers
+        $user->provider_id = $socialite->getId();
+        $user->nickname    = $socialite->getNickname();
+        $user->name        = $socialite->getName();
+        $user->email       = $socialite->getEmail();
+        //$socialite->getAvatar();
+        //dd($user);
+        $user->save();
+        dd($user);
     }
 
 }

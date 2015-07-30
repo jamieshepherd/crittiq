@@ -200,7 +200,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Moloquent' => Jenssegers\Mongodb\Model::class,
-        'Socialize' => Laravel\Socialite\Facades\Socialite::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
