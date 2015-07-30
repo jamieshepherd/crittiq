@@ -716,7 +716,8 @@ section #review-feed {
     margin-bottom: 8px;
     min-height: 100px;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
-    transition: all linear 0.1s; }
+    transition: all linear 0.1s;
+    cursor: pointer; }
     section #review-feed .review:hover {
       box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
       background: #f5f8fa; }
@@ -747,7 +748,7 @@ section #review-feed {
       width: 100%;
       text-align: left; }
       section #review-feed .review .details .fa {
-        margin: 0 3px 0 10px; }
+        padding-left: 1px; }
       section #review-feed .review .details span {
         margin-right: 25px;
         font-size: 16px;
@@ -765,6 +766,10 @@ section #review-feed {
             background: #f5ac5d; }
           section #review-feed .review .details span.score.negative {
             background: #f5655d; }
+        section #review-feed .review .details span.hearts:hover {
+          color: #f5655d; }
+        section #review-feed .review .details span.comments:hover, section #review-feed .review .details span.more:hover {
+          color: #2b2b2b; }
         section #review-feed .review .details span.date {
           text-transform: uppercase; }
       section #review-feed .review .details .thumbs {

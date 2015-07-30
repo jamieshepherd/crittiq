@@ -158,7 +158,7 @@
                         ><strong>@{{ score }}</strong> / 10</span>
                         <span class="date">3 days ago</span>
                         <span class="hearts"><i class="fa fa-heart"></i> 0</span>
-                        <span class="comment"><i class="fa fa-comment"></i> 1</span>
+                        <span class="comments"><i class="fa fa-comment"></i> 1</span>
                         <span class="more"><i class="fa fa-ellipsis-h"></i></span>
 
                         <!--span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span-->

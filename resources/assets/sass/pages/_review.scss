@@ -214,6 +214,7 @@ section {
             min-height: 100px;
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
             @include transition(0.1s);
+            cursor: pointer;
             &:hover {
                 //padding: 55px 70px 25px 70px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -251,7 +252,7 @@ section {
                 width: 100%;
                 text-align: left;
                 .fa {
-                    margin: 0 3px 0 10px;
+                    padding-left: 1px;
                 }
                 span {
                     margin-right: 25px;
@@ -272,6 +273,16 @@ section {
                         }
                         &.negative {
                             background: #f5655d;
+                        }
+                    }
+                    &.hearts {
+                        &:hover {
+                            color: #f5655d;
+                        }
+                    }
+                    &.comments, &.more {
+                        &:hover {
+                            color: #2b2b2b;
                         }
                     }
                     &.date {
