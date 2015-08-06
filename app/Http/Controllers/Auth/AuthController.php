@@ -143,6 +143,7 @@ class AuthController extends Controller
                 $oauth_facebook['id']     = $socialite->getId();
                 $oauth_facebook['token'] = $socialite->token;
                 $user->name              = $socialite->getName();
+                $user->email             = $socialite->getEmail();
                 $user->level             = 1;
                 $user->points            = 10;
                 $user->oauth_facebook = $oauth_facebook;
