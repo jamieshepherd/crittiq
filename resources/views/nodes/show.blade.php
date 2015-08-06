@@ -145,8 +145,8 @@
                 <div class="review" v-repeat="reviews">
                     <!--span class="score">@{{ score.toFixed(1); }}</span-->
                     <div class="avatar">
-                        <img src="http://www.gravatar.com/avatar/072bce9a71fc97034cf16c99e821f93d?s=150" >
-                        <span class="username"><a>Jamie</a></span>
+                        <img src="http://www.gravatar.com/avatar/@{{ author.gravatar }}?s=150" >
+                        <span class="username"><a>@{{ author.name }}</a></span>
                     </div>
 
                     <div class="review-content">

@@ -39,7 +39,7 @@ class ReviewController extends Controller
         // Create the review
         $review = new Review();
         $review->node   = array('reference' => $node->_id, 'name' => $node->title);
-        $review->author = array('reference' => Auth::user()->_id, 'name' => Auth::user()->name);
+        $review->author = array('reference' => Auth::user()->_id, 'name' => Auth::user()->name, 'gravatar' => md5( strtolower( trim(Auth::user()->email))) );
         $review->score  = (double)$score;
         $review->review = Input::get('review');
         $review->thumbs = 0;
