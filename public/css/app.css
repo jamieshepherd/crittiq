@@ -142,7 +142,12 @@ nav {
   .mini-nav .btn {
     display: inline; }
   .mini-nav a, .mini-nav a:link, .mini-nav a:visited {
-    color: white; }
+    color: #24d9f7;
+    font-weight: 100; }
+  .mini-nav .logged-out {
+    font-family: "Merriweather", serif;
+    font-style: italic;
+    font-weight: 100; }
   .mini-nav .user-info {
     display: inline-block;
     float: left;

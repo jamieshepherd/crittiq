@@ -47,7 +47,13 @@ nav.small {
 
     @include user-select();
     a, a:link, a:visited {
-        color: white;
+        color: $blue;
+        font-weight: 100;
+    }
+    .logged-out {
+        font-family: "Merriweather", serif;
+        font-style: italic;
+        font-weight: 100;
     }
     .user-info {
         display: inline-block;

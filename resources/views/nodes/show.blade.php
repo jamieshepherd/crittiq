@@ -73,8 +73,10 @@
                 <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
                 <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
                 @else
-                <a class="btn outlined" href="/auth/register">Sign up</a>
-                <a class="btn green" class="login" v-on="click:showLogin">Log in</a>
+                <span class="logged-out">
+                    <a v-on="click:showLogin">Login</a> or
+                    <a href="/auth/register">join crittiq</a> now
+                </span>
                 @endif
             </div>
             <div class="search-button">
