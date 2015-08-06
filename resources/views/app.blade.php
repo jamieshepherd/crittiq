@@ -45,6 +45,10 @@
             <input type="password" name="password" placeholder="Password">
             <input class="btn green full" type="submit" value="Sign in">
         </form>
+        <br>
+        <a href='/auth/login/facebook'>Sign in with Facebook</a><br><br>
+        <a href='/auth/login/twitter'>Sign in with Twitter</a>
+
     </div>
 
     {{-- Yield the main page content --}}

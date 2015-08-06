@@ -118,24 +118,41 @@ class AuthController extends Controller
     {
         $socialite = Socialite::driver($provider)->user();
 
-        // If OAuth One
         if($provider == 'twitter') {
-            $token = $socialite->token;
-            $tokenSecret = $socialite->tokenSecret;
+            $user = User::where('oauth_twitter.id', $socialite->getId())->first();
+            if(!$user) {
+                $user = new User();
+                $oauth_twitter = [];
+                $oauth_twitter['active'] = true;
+                $oauth_twitter['id']     = $socialite->getId();
+                $oauth_twitter['token']  = $socialite->token;
+                $oauth_twitter['secret'] = $socialite->tokenSecret;
+                $user->name              = $socialite->getName();
+                $user->level             = 1;
+                $user->points            = 10;
+                $user->oauth_twitter     = $oauth_twitter;
+                $user->save();
+            }
+            Auth::login($user);
+        } elseif($provider == 'facebook') {
+            $user = User::where('oauth_facebook.id', $socialite->getId())->first();
+            if(!$user) {
+                $user = new User();
+                $oauth_facebook = [];
+                $oauth_facebook['active'] = true;
+                $oauth_facebook['id']     = $socialite->getId();
+                $oauth_facebook['token'] = $socialite->token;
+                $user->name              = $socialite->getName();
+                $user->level             = 1;
+                $user->points            = 10;
+                $user->oauth_facebook = $oauth_facebook;
+                $user->save();
+            }
+            Auth::login($user);
         } else {
-            $token = $socialite->token;
+            return "Sorry, that provider is not supported";
         }
-
-        $user = new User();
-        // All Providers
-        $user->provider_id = $socialite->getId();
-        $user->nickname    = $socialite->getNickname();
-        $user->name        = $socialite->getName();
-        $user->email       = $socialite->getEmail();
-        //$socialite->getAvatar();
-        //dd($user);
-        $user->save();
-        dd($user);
+        return back();
     }
 
 }

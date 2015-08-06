@@ -15,6 +15,10 @@ Route::get('/', function () {
     return redirect('/films');
 });
 
+Route::get('/home', function() {
+   return redirect('/films/inception');
+});
+
 // API Version 1
 Route::get('/api/v1/{category}', 'Nodes\NodeAPI@index');
 Route::get('/api/v1/{category}/search', 'Nodes\NodeAPI@search');
