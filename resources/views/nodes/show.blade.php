@@ -86,7 +86,7 @@
         {{-- Review content, including user review and feed --}}
         <div id="review-content">
 
-            @if(true)
+            @if($node->release_date < date("Y-m-d"))
             {{-- User review --}}
             <div class="user-review">
                 @if(!$userReview)
@@ -171,7 +171,18 @@
             <span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
             @else
                 <div class="user-review">
-                    <h2>3d 14h 13m 11s</h2>
+                    <script src="/js/vendor/jquery.countdown.min.js"></script>
+                    <h2 class='countdown'></h2>
+                    <script type="text/javascript">
+                        $(".countdown").countdown("{{ $node->release_date }}", function(event) {
+                            $(this).html(event.strftime(''
+                                + '<span>%w</span> weeks&nbsp;&nbsp;&nbsp;'
+                                + '<span>%d</span> days&nbsp;&nbsp;&nbsp;'
+                                + '<span>%H</span> hr&nbsp;&nbsp;&nbsp;'
+                                + '<span>%M</span> min&nbsp;&nbsp;&nbsp;'
+                                + '<span>%S</span> sec'));
+                        });
+                    </script>
                     <p>Sorry, this film hasn't been released yet so you can't review it. Why not search for another?</p>
                 </div>
             @endif

@@ -697,6 +697,14 @@ section .user-review {
     color: #ddd;
     top: -35px;
     left: 25px; }
+  section .user-review h2.countdown {
+    font-size: 20px;
+    color: #333;
+    font-weight: 400; }
+    section .user-review h2.countdown span {
+      font-size: 36px;
+      color: #000;
+      font-weight: 600; }
 
 section #review-feed {
   padding: 8px; }
