@@ -1,0 +1,103 @@
+.welcome {
+    background: #2d2d2d;
+}
+.main-search {
+    margin: 0 auto;
+    width: 640px;
+    text-align: center;
+    padding: 80px 0 380px;
+    h1 {
+        font-size: 45px;
+        margin: 0;
+    }
+    .search-box {
+        border-radius: 3px;
+        border: 1px solid #5c5d5d;
+        background: url('/images/search@2x.png') 95% center;
+        background-size: 18px 18px;
+        background-repeat: no-repeat;
+        margin: 50px 0 60px;
+        .selector {
+            background: #2b2b2a;
+            float: left;
+            width: 100px;
+            padding: 25px 0;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: center;
+            border-right: 1px solid #484847;
+        }
+        input[type="text"] {
+            width: auto;
+            display: block;
+            background: none;
+            border-radius: 3px;
+            border: none;
+            box-sizing: border-box;
+            color: white;
+            font-family: "Merriweather", serif;
+            font-size: 20px;
+            padding: 20px 30px;
+            font-weight: 300;
+            //search@2x.png
+
+            &::placeholder {
+                color: #464646;
+            }
+        }
+
+    }
+    span {
+        font-weight: 16px;
+        font-weight: 300;
+        font-style: italic;
+        color: #4d4c4c;
+        font-family: "Merriweather", serif;
+        a {
+            font-weight: 300;
+        }
+    }
+}
+.previews {
+    width: 100%;
+    tr {
+        td {
+            width: 25%;
+            background: #ffffff;
+            .content {
+                vertical-align: middle;
+                display: inline-block;
+                padding: 40px 50px 40px 50px;
+            }
+            &.background {
+                background-size: cover;
+                text-align: center;
+                .title {
+                    font-size: 25px;
+                    font-weight: 600;
+                    display: block;
+                    margin-bottom: 10px;
+                    color: white;
+                }
+                .author {
+                    font-family: "Merriweather", serif;
+                    font-size: 16px;
+                    font-style: italic;
+                    color: $blue;
+                }
+            }
+            &.review {
+                font-family: "Merriweather", serif;
+                font-size: 16px;
+                line-height: 26px;
+                color: #4f4f4f;
+                &:hover {
+                    background: $green;
+                    color: white;
+                }
+            }
+        }
+    }
+}

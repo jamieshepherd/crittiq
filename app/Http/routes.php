@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/films');
+    return view('welcome');
 });
 
 Route::get('/home', function() {

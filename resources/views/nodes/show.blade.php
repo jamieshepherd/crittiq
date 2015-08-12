@@ -101,13 +101,19 @@
                               maxlength="250"></textarea>
                     <span class="character-count">@{{ count }} characters remaining</span>
                     <div class="user-review-actions">
-                        <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
-                        <div class="user-review-actions-left">
-                            <input type="checkbox"><label>My review contains spoilers</label>
+                        <span class="ratingLabel">Rating</span>
+                        <span class="rangeCount">@{{ rangeCount }}/10</span>
+                        <div class="slider">
+                            <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
                         </div>
-                        <div class="user-review-actions-right">
-                            <span class="rangeCount">@{{ rangeCount }}/10</span>
-                            <input class="btn green" type="submit" value="Submit">
+                        <br>
+                        <div class="user-review-actions-post">
+                            <div class='spoilers'>
+                                <label>Contains spoilers</label><input type="checkbox">
+                            </div>
+                            <input class="btn green" type="submit" value="Post crittiq">
+                        </div>
+                        <div class="user-review-actions-post">
                         </div>
                     </div>
                 </form>
