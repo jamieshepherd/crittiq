@@ -100,21 +100,16 @@
                               placeholder="Enter your micro review here..."
                               maxlength="250"></textarea>
                     <span class="character-count">@{{ count }} characters remaining</span>
+                    <div class='spoilers'>
+                        <label>My review contains spoilers</label><input type="checkbox">
+                    </div>
                     <div class="user-review-actions">
                         <span class="ratingLabel">Rating</span>
                         <span class="rangeCount">@{{ rangeCount }}/10</span>
                         <div class="slider">
                             <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
                         </div>
-                        <br>
-                        <div class="user-review-actions-post">
-                            <div class='spoilers'>
-                                <label>Contains spoilers</label><input type="checkbox">
-                            </div>
-                            <input class="btn green" type="submit" value="Post crittiq">
-                        </div>
-                        <div class="user-review-actions-post">
-                        </div>
+                        <input class="btn green" type="submit" value="Post crittiq">
                     </div>
                 </form>
                 @else
