@@ -8,7 +8,16 @@
         </nav>
         {{-- Bottom left cover details --}}
         <div class="details">
-            <div class="score">{{ $node->avg or '&mdash;' }}</div>
+            @if($node->avg)
+            <script src="/js/vendor/jquery.circliful.js"></script>
+            <div id="myStat" data-dimension="80" data-text="{{ $node->avg }}" data-width="1" data-fontsize="26" data-percent="{{ ($node->avg*10) }}" data-fgcolor="#54d0bf" data-bgcolor="#1f2527" class='score'></div>
+            <script>
+                $( document ).ready(function() {
+                    $('#myStat').circliful();
+                });
+            </script>
+            @endif
+
             <h1>{{ $node->title }}</h1>
             <h6><strong>{{ $node->year }}</strong> film @if(!empty($node->director)) directed by <strong>{{ $node->director }}</strong>@endif</h6>
             <p>{{ $node->synopsis }}</p>

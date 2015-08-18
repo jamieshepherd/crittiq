@@ -56,6 +56,23 @@ table {
 .expand-enter, .expand-leave {
   opacity: 0; }
 
+.circliful {
+  position: relative; }
+
+.circle-text, .circle-info, .circle-text-half, .circle-info-half {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  display: inline-block; }
+
+.circle-info, .circle-info-half {
+  color: #999; }
+
+.circliful .fa {
+  margin: -10px 3px 0 3px;
+  position: relative;
+  bottom: 4px; }
+
 body, input, textarea, button {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   color: #2b2b2b; }
@@ -667,16 +684,8 @@ section.cover {
     section.cover .details .score {
       float: right;
       font-weight: 100;
-      font-size: 32px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      padding: 8px;
       line-height: 50px;
-      margin-top: 10px;
-      border: 2px solid #54d0bf;
-      color: white;
-      text-align: center; }
+      margin-top: 10px; }
     section.cover .details .graph {
       margin-right: 5px;
       vertical-align: bottom;

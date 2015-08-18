@@ -31,21 +31,8 @@ section {
             .score {
                 float: right;
                 font-weight: 100;
-                font-size: 32px;
-
-                border-radius: 50%;
-
-                width: 50px;
-                height: 50px;
-                padding: 8px;
                 line-height: 50px;
-
                 margin-top: 10px;
-
-                border: 2px solid $green;
-                color: white;
-                text-align: center;
-
             }
             .graph {
                 margin-right: 5px;
