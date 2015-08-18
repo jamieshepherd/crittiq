@@ -579,7 +579,8 @@ input[type="text"], input[type="password"] {
     border-color: #d2d2d2; }
 
 .welcome {
-  background: #272727 url("/images/homepage-bg.jpg") top center no-repeat; }
+  background: #272727 url("/images/homepage-bg.jpg") top center no-repeat;
+  background-size: cover; }
 
 .main-search {
   margin: 0 auto;
