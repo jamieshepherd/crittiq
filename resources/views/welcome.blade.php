@@ -15,7 +15,7 @@
     </header>
     <div class="previews">
         <div class="preview">
-            <span class='category'>Films</span>
+            <span class="category">Films</span>
             <img src="/images/features/preview-child44.jpg">
             <div class="content">
                 <div class="reaction-bar">
@@ -26,32 +26,35 @@
                 <h3>Child 44</h3>
                 <p><strong>2010</strong> directed by <strong>Christopher Nolan</strong></p>
             </div>
+            <span class="sublink">Discover and crittiq <a href="/films">films</a></span>
         </div>
         <div class="preview">
-            <span class='category'>TV</span>
-            <img src="/images/features/preview-child44.jpg">
+            <span class="category">TV</span>
+            <img src="/images/features/preview-gameofthrones.jpg">
             <div class="content">
                 <div class="reaction-bar">
                     <div class="part negative"></div>
                     <div class="part mixed"></div>
                     <div class="part positive"></div>
                 </div>
-                <h3>Child 44</h3>
-                <p><strong>2010</strong> directed by <strong>Christopher Nolan</strong></p>
+                <h3>Game of Thrones</h3>
+                <p><strong>2011</strong> produced by <strong>HBO</strong></p>
             </div>
+            <span class="sublink">Discover and crittiq <a href="/films">TV</a></span>
         </div>
         <div class="preview">
-            <span class='category'>Games</span>
-            <img src="/images/features/preview-child44.jpg">
+            <span class="category">Games</span>
+            <img src="/images/features/preview-bioshock.jpg">
             <div class="content">
                 <div class="reaction-bar">
                     <div class="part negative"></div>
                     <div class="part mixed"></div>
                     <div class="part positive"></div>
                 </div>
-                <h3>Child 44</h3>
-                <p><strong>2010</strong> directed by <strong>Christopher Nolan</strong></p>
+                <h3>BioShock Infinite</h3>
+                <p><strong>2013</strong> developed by <strong>Irrational Games</strong></p>
             </div>
+            <span class="sublink">Discover and crittiq <a href="/films">games</a></span>
         </div>
     </div>
     <br><br><br><br><br><br><br><br><br><br><br><br>

@@ -45,3 +45,19 @@ a, a:link, a:visited {
 p a:hover, span a:hover {
     border-bottom: 1px solid $blue;
 }
+
+// Specific span styles
+.sublink {
+    display: block;
+    text-align: center;
+    font-family: "Merriweather", serif;
+    font-style: italic;
+    color: #a5a5a5;
+    margin-top: 30px;
+    a {
+        color: #fd2c64;
+        &:hover {
+            border-color: #fd2c64;
+        }
+    }
+}
