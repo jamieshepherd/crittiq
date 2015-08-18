@@ -625,36 +625,47 @@ input[type="text"], input[type="password"] {
       font-weight: 300; }
 
 .previews {
-  width: 100%; }
-  .previews tr td {
-    width: 25%;
-    background: #ffffff; }
-    .previews tr td .content {
-      vertical-align: middle;
-      display: inline-block;
-      padding: 40px 50px 40px 50px; }
-    .previews tr td.background {
-      background-size: cover;
-      text-align: center; }
-      .previews tr td.background .title {
-        font-size: 25px;
-        font-weight: 600;
-        display: block;
-        margin-bottom: 10px;
-        color: white; }
-      .previews tr td.background .author {
-        font-family: "Merriweather", serif;
-        font-size: 16px;
-        font-style: italic;
-        color: #24d9f7; }
-    .previews tr td.review {
-      font-family: "Merriweather", serif;
-      font-size: 16px;
-      line-height: 26px;
-      color: #4f4f4f; }
-      .previews tr td.review:hover {
-        background: #54d0bf;
-        color: white; }
+  margin-top: -300px;
+  width: 100%;
+  text-align: center; }
+  .previews .preview {
+    text-align: left;
+    display: inline-block;
+    max-width: 350px;
+    margin: 0 15px; }
+    .previews .preview .category {
+      font-size: 15px;
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase; }
+    .previews .preview img {
+      display: block;
+      margin-top: 12px;
+      width: 100%; }
+    .previews .preview .content {
+      background: #ffffff;
+      padding: 20px 20px 40px 20px;
+      color: #6d6d6d;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1); }
+      .previews .preview .content h3 {
+        color: #232323;
+        margin-bottom: 5px; }
+      .previews .preview .content .reaction-bar {
+        box-sizing: border-box;
+        margin-bottom: 30px; }
+        .previews .preview .content .reaction-bar .part {
+          height: 4px;
+          display: inline-block;
+          float: left; }
+        .previews .preview .content .reaction-bar .negative {
+          background: #f5655d;
+          width: 30%; }
+        .previews .preview .content .reaction-bar .mixed {
+          background: #fdc916;
+          width: 30%; }
+        .previews .preview .content .reaction-bar .positive {
+          background: #7fd242;
+          width: 40%; }
 
 section.cover, section.information {
   width: 50%;

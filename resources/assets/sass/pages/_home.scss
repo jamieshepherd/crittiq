@@ -61,41 +61,53 @@
     }
 }
 .previews {
+    margin-top: -300px;
     width: 100%;
-    tr {
-        td {
-            width: 25%;
+    text-align: center;
+    .preview {
+        text-align: left;
+        display: inline-block;
+        max-width: 350px;
+        margin: 0 15px;
+        .category {
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+        }
+        img {
+            display: block;
+            margin-top: 12px;
+            width: 100%;
+        }
+        .content {
             background: #ffffff;
-            .content {
-                vertical-align: middle;
-                display: inline-block;
-                padding: 40px 50px 40px 50px;
+            padding: 20px 20px 40px 20px;
+            color: #6d6d6d;
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+            h3 {
+                color: #232323;
+                margin-bottom: 5px;
             }
-            &.background {
-                background-size: cover;
-                text-align: center;
-                .title {
-                    font-size: 25px;
-                    font-weight: 600;
-                    display: block;
-                    margin-bottom: 10px;
-                    color: white;
+            .reaction-bar {
+                box-sizing: border-box;
+                margin-bottom: 30px;
+                .part {
+                    height: 4px;
+                    display: inline-block;
+                    float: left;
                 }
-                .author {
-                    font-family: "Merriweather", serif;
-                    font-size: 16px;
-                    font-style: italic;
-                    color: $blue;
+                .negative {
+                    background: #f5655d;
+                    width: 30%;
                 }
-            }
-            &.review {
-                font-family: "Merriweather", serif;
-                font-size: 16px;
-                line-height: 26px;
-                color: #4f4f4f;
-                &:hover {
-                    background: $green;
-                    color: white;
+                .mixed {
+                    background: #fdc916;
+                    width: 30%;
+                }
+                .positive {
+                    background: #7fd242;
+                    width: 40%;
                 }
             }
         }
