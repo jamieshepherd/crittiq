@@ -29,6 +29,9 @@
             text-transform: uppercase;
             text-align: center;
             border-right: 1px solid #484847;
+            .fa {
+                color: #bababa;
+            }
         }
         input[type="text"] {
             width: auto;

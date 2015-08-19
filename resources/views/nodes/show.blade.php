@@ -31,7 +31,6 @@
                 @if($node->imdb_id)
                     <a class="tag" href="http://imdb.com/title/{{ $node->imdb_id }}" target="_blank" title="IMDB link"><i class="fa fa-external-link"></i> IMDB</a>
                 @endif
-
             </div>
         </div>
     </div>

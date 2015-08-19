@@ -154,6 +154,14 @@ nav {
       background-size: 122px 23px;
       background-position: 0 center;
       background-repeat: no-repeat; }
+  nav .nav-account {
+    float: right;
+    margin-top: 17px;
+    margin-right: 80px; }
+    nav .nav-account .login {
+      margin-left: 10px; }
+    nav .nav-account .signup {
+      margin-left: 10px; }
 
 .mini-nav {
   z-index: 3;
@@ -612,6 +620,8 @@ input[type="text"], input[type="password"] {
       text-transform: uppercase;
       text-align: center;
       border-right: 1px solid #484847; }
+      .main-search .search-box .selector .fa {
+        color: #bababa; }
     .main-search .search-box input[type="text"] {
       width: auto;
       display: block;

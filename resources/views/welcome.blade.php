@@ -3,11 +3,15 @@
     <header class="welcome">
         <nav>
             <a href="/" class="logo"></a>
+            <div class="nav-account">
+                <a v-on="click:showLogin" class="btn outlined login">Log in</a>
+                <a href="/auth/register" class="btn outlined signup">Sign up</a>
+            </div>
         </nav>
         <div class="main-search">
             <h1>Find or create micro reviews</h1>
             <div class="search-box">
-                <div class="selector">Film</div>
+                <div class="selector">Film <i class="fa fa-caret-down"></i></div>
                 <input type="text" placeholder="Search...">
             </div>
             <span><a v-on="click:showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>

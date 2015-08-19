@@ -22,6 +22,17 @@ nav {
             background-repeat: no-repeat;
         }
     }
+    .nav-account {
+        float: right;
+        margin-top: 17px;
+        margin-right: 80px;
+        .login {
+            margin-left: 10px;
+        }
+        .signup {
+            margin-left: 10px;
+        }
+    }
 }
 nav.small {
 
