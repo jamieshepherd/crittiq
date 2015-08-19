@@ -57,7 +57,11 @@
             <span class="sublink">Discover and crittiq <a href="/films">games</a></span>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="feature">
+        <h2>The pulse of the people.</h2>
+        <p><em>Tap into the mood of the people or add your voice to the conversation.</em></p>
+        <img src="/images/misc/example-review.jpg" class="example">
+    </div>
 
 
     <script src="/js/app/components/search.js"></script>
