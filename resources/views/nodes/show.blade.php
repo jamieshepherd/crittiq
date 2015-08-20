@@ -67,27 +67,40 @@
         </div>
         {{-- Top right navigation bar --}}
         <div class="mini-nav">
-            <div class="user-info">
+
                 @if(Auth::check())
-                <span class="avatar">
-                    <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=44" >
-                </span>
-                <span class="user-name" v-on="click:showAccountPanel">
-                    {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
-                </span>
-
-                @include('components.accountMenu')
-
-                <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
-                <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
+                    @include('components.user-info')
                 @else
-                <span class="logged-out">
-                    <a v-on="click:showLogin">Login</a> or
-                    <a href="/auth/register">join crittiq</a> now
-                </span>
+                    <span class="logged-out">
+                        <a v-on="click:showLogin">Login</a> or
+                        <a href="/auth/register">join crittiq</a> now
+                    </span>
                 @endif
-            </div>
-            <span class="search-button"></span>
+                <span class="search-button"></span>
+
+            {{--
+                <div class="user-info">
+                    @if(Auth::check())
+                    <span class="avatar">
+                        <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=44" >
+                    </span>
+                    <span class="user-name" v-on="click:showAccountPanel">
+                        {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+                    </span>
+
+                    @include('components.user-info_menu')
+
+                    <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
+                    <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
+                    @else
+                    <span class="logged-out">
+                        <a v-on="click:showLogin">Login</a> or
+                        <a href="/auth/register">join crittiq</a> now
+                    </span>
+                    @endif
+                </div>
+                <span class="search-button"></span>
+            --}}
         </div>
         {{-- Review content, including user review and feed --}}
         <div id="review-content">
