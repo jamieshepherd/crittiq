@@ -1,13 +1,7 @@
 @extends('app')
 @section('body')
     <header class="welcome">
-        <nav>
-            <a href="/" class="logo"></a>
-            <div class="nav-account">
-                <a v-on="click:showLogin" class="btn outlined login">Log in</a>
-                <a href="/auth/register" class="btn outlined signup">Sign up</a>
-            </div>
-        </nav>
+        @include('components.navigation')
         <div class="main-search">
             <h1>Find or create micro reviews</h1>
             <div class="search-box">

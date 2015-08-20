@@ -47,13 +47,19 @@ nav.small {
     position: fixed;
     top: 0;
     right: 0;
-    font-size: 14px;
-    font-weight: 600;
 
     display: table-row;
 
     .btn {
         display: inline;
+    }
+
+    .user-info {
+        float: left;
+        padding: 32px 0 32px 80px;
+        .account-menu {
+            left: 80px;
+        }
     }
 
     @include user-select();
@@ -66,63 +72,35 @@ nav.small {
         font-style: italic;
         font-weight: 100;
     }
-    .user-info {
-        display: inline-block;
-        float: left;
-        padding: 32px 0 32px 80px;
-        .btn {
-            margin-right: 10px;
-        }
-        .avatar {
-            vertical-align: middle;
-            display: inline-block;
-            margin-right: 10px;
-            img {
-                border-radius: 50%;
-                width: 22px;
-                height: 22px;
-            }
-        }
-        .level {
-            color: $blue;
-            margin-left: 15px;
-            /* CIRCLE
-            padding: 3px 9px;
-            text-align: center;
-            color: white;
-            border-radius: 50%;
-            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-        }
-        .points {
-            margin-left: 15px;
-            color: $green;
-        }
-    }
     .search-button {
-        background: #222222;
         float: right;
-        padding: 0 80px;
         cursor: pointer;
         z-index: 3;
         position: relative;
+        right: 60px;
         height: 80px;
-        text-transform: uppercase;
-        span {
-            text-transform: uppercase;
-            margin: auto;
-            position: absolute;
-            padding: 32px 0;
-        }
+        padding: 0 20px;
         &:hover {
             background: #262626;
+            color: $blue;
+            transition: $transition;
         }
         &:after {
             display: inline-block;
             margin-top: 32px;
             font-family: "FontAwesome";
             content: "\f002";
-            margin-left: 60px;
         }
+    }
+}
+.user-info {
+    display: inline-block;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 0;
+    .btn {
+        margin-right: 10px;
     }
     .user-name {
         cursor: pointer;
@@ -132,12 +110,36 @@ nav.small {
             color: #999;
         }
     }
+    .avatar {
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 10px;
+        img {
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+        }
+    }
+    .level {
+        color: $blue;
+        margin-left: 15px;
+        /* CIRCLE
+        padding: 3px 9px;
+        text-align: center;
+        color: white;
+        border-radius: 50%;
+        behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    }
+    .points {
+        margin-left: 15px;
+        color: $green;
+    }
     .account-menu {
         position: absolute;
         background: #ffffff;
         width: 290px;
         top: 70px;
-        left: 80px;
+        right: 120px;
         clear: both;
         z-index: 3;
         display: none;

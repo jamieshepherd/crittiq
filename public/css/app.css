@@ -172,8 +172,6 @@ nav {
   position: fixed;
   top: 0;
   right: 0;
-  font-size: 14px;
-  font-weight: 600;
   display: table-row;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -183,6 +181,11 @@ nav {
   user-select: none; }
   .mini-nav .btn {
     display: inline; }
+  .mini-nav .user-info {
+    float: left;
+    padding: 32px 0 32px 80px; }
+    .mini-nav .user-info .account-menu {
+      left: 80px; }
   .mini-nav a, .mini-nav a:link, .mini-nav a:visited {
     color: #24d9f7;
     font-weight: 100; }
@@ -190,116 +193,114 @@ nav {
     font-family: "Merriweather", serif;
     font-style: italic;
     font-weight: 100; }
-  .mini-nav .user-info {
-    display: inline-block;
-    float: left;
-    padding: 32px 0 32px 80px; }
-    .mini-nav .user-info .btn {
-      margin-right: 10px; }
-    .mini-nav .user-info .avatar {
-      vertical-align: middle;
-      display: inline-block;
-      margin-right: 10px; }
-      .mini-nav .user-info .avatar img {
-        border-radius: 50%;
-        width: 22px;
-        height: 22px; }
-    .mini-nav .user-info .level {
-      color: #24d9f7;
-      margin-left: 15px;
-      /* CIRCLE
-            padding: 3px 9px;
-            text-align: center;
-            color: white;
-            border-radius: 50%;
-            behavior: url(PIE.htc); /* remove if you don't care about IE8 */ }
-    .mini-nav .user-info .points {
-      margin-left: 15px;
-      color: #54d0bf; }
   .mini-nav .search-button {
-    background: #222222;
     float: right;
-    padding: 0 80px;
     cursor: pointer;
     z-index: 3;
     position: relative;
+    right: 60px;
     height: 80px;
-    text-transform: uppercase; }
-    .mini-nav .search-button span {
-      text-transform: uppercase;
-      margin: auto;
-      position: absolute;
-      padding: 32px 0; }
+    padding: 0 20px; }
     .mini-nav .search-button:hover {
-      background: #262626; }
+      background: #262626;
+      color: #24d9f7;
+      transition: all 0.5s; }
     .mini-nav .search-button:after {
       display: inline-block;
       margin-top: 32px;
       font-family: "FontAwesome";
-      content: "\f002";
-      margin-left: 60px; }
-  .mini-nav .user-name {
+      content: "\f002"; }
+
+.user-info {
+  display: inline-block;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 0; }
+  .user-info .btn {
+    margin-right: 10px; }
+  .user-info .user-name {
     cursor: pointer;
     text-transform: uppercase; }
-    .mini-nav .user-name .fa {
+    .user-info .user-name .fa {
       padding-left: 3px;
       color: #999; }
-  .mini-nav .account-menu {
+  .user-info .avatar {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 10px; }
+    .user-info .avatar img {
+      border-radius: 50%;
+      width: 22px;
+      height: 22px; }
+  .user-info .level {
+    color: #24d9f7;
+    margin-left: 15px;
+    /* CIRCLE
+        padding: 3px 9px;
+        text-align: center;
+        color: white;
+        border-radius: 50%;
+        behavior: url(PIE.htc); /* remove if you don't care about IE8 */ }
+  .user-info .points {
+    margin-left: 15px;
+    color: #54d0bf; }
+  .user-info .account-menu {
     position: absolute;
     background: #ffffff;
     width: 290px;
     top: 70px;
-    left: 80px;
+    right: 120px;
     clear: both;
     z-index: 3;
     display: none;
     color: #2b2b2b;
     font-weight: 400;
     box-shadow: 0px 5px 27px 0px rgba(0, 0, 0, 0.22); }
-    .mini-nav .account-menu .padding {
+    .user-info .account-menu .padding {
       padding: 30px; }
-    .mini-nav .account-menu .account-details {
+    .user-info .account-menu .account-details {
       text-align: center; }
-      .mini-nav .account-menu .account-details .avatar {
+      .user-info .account-menu .account-details .avatar {
         width: 60px;
         height: 60px;
         border-radius: 50%;
         margin-bottom: 20px;
         box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.05); }
-    .mini-nav .account-menu .account-menu-name {
+    .user-info .account-menu .account-menu-name {
       font-size: 25px;
       font-weight: 600;
       margin-bottom: 5px;
       display: block; }
-    .mini-nav .account-menu .account-menu-email {
+    .user-info .account-menu .account-menu-email {
       font-size: 15px;
       font-weight: 300;
       margin-bottom: 15px;
       color: #aaa9a9;
       display: block; }
-    .mini-nav .account-menu .progress-outer {
+    .user-info .account-menu .progress-outer {
       background: #92e1d6;
       height: 25px;
       width: 100%;
       margin: 20px 0;
       position: relative; }
-      .mini-nav .account-menu .progress-outer .progress-inner {
+      .user-info .account-menu .progress-outer .progress-inner {
         background: #54d0bf;
         height: 100%;
         width: 75%; }
-      .mini-nav .account-menu .progress-outer .progress-text {
+      .user-info .account-menu .progress-outer .progress-text {
         position: absolute;
         left: 5px;
         top: 5px;
         color: white;
         z-index: 5; }
-    .mini-nav .account-menu li {
+    .user-info .account-menu li {
       font-size: 16px;
       margin-top: 10px; }
-      .mini-nav .account-menu li a {
+      .user-info .account-menu li a {
         color: #2b2b2b;
         font-weight: 400; }
-    .mini-nav .account-menu .sign-out {
+    .user-info .account-menu .sign-out {
       display: block;
       width: 100%;
       text-align: center;
@@ -309,12 +310,12 @@ nav {
       font-size: 16px;
       font-weight: 400;
       transition: all linear 0.1s; }
-      .mini-nav .account-menu .sign-out:hover {
+      .user-info .account-menu .sign-out:hover {
         border-top: 1px solid #f62459;
         text-decoration: none;
         background: #f62459;
         color: white; }
-    .mini-nav .account-menu:before {
+    .user-info .account-menu:before {
       content: '';
       position: absolute;
       top: -5px;

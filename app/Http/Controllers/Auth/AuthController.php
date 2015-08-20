@@ -117,7 +117,7 @@ class AuthController extends Controller
     public function handleProviderCallback($provider)
     {
         $socialite = Socialite::driver($provider)->user();
-
+        dd($socialite->getAvatar());
         if($provider == 'twitter') {
             $user = User::where('oauth_twitter.id', $socialite->getId())->first();
             if(!$user) {

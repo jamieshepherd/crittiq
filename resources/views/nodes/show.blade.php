@@ -87,9 +87,7 @@
                 </span>
                 @endif
             </div>
-            <div class="search-button">
-                <span>Search</span>
-            </div>
+            <span class="search-button"></span>
         </div>
         {{-- Review content, including user review and feed --}}
         <div id="review-content">
