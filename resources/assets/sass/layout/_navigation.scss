@@ -8,7 +8,7 @@ nav {
         display: inline-block;
         transition: none;
 
-        background-image: url("/images/logo.svg");
+        background-image: url("/images/logo-dark.svg");
         background-size: 122px 23px;
         background-position: 0 center;
         background-repeat: no-repeat;
@@ -21,7 +21,14 @@ nav {
             background-position: 0 center;
             background-repeat: no-repeat;
         }
+        &.background--dark {
+            background-image: url("/images/logo.svg");
+            background-size: 122px 23px;
+            background-position: 0 center;
+            background-repeat: no-repeat;
+        }
     }
+    .user-info { color: #333; }
     .nav-account {
         float: right;
         margin-top: 17px;

@@ -143,7 +143,7 @@ nav {
     height: 23px;
     display: inline-block;
     transition: none;
-    background-image: url("/images/logo.svg");
+    background-image: url("/images/logo-dark.svg");
     background-size: 122px 23px;
     background-position: 0 center;
     background-repeat: no-repeat; }
@@ -154,6 +154,13 @@ nav {
       background-size: 122px 23px;
       background-position: 0 center;
       background-repeat: no-repeat; }
+    nav .logo.background--dark {
+      background-image: url("/images/logo.svg");
+      background-size: 122px 23px;
+      background-position: 0 center;
+      background-repeat: no-repeat; }
+  nav .user-info {
+    color: #333; }
   nav .nav-account {
     float: right;
     margin-top: 17px;
@@ -336,24 +343,18 @@ html, body {
 #page {
   background: #f4f4f4; }
 
-header nav .logo {
-  background-image: url("/images/logo-dark.svg"); }
-
-header nav .user-info {
-  color: #333; }
-
-header nav a.btn.outlined {
-  border-color: #333;
-  color: #333; }
-  header nav a.btn.outlined:hover {
-    background: #333;
-    color: white; }
-
 header.dark nav .logo {
   background-image: url("/images/logo.svg"); }
 
 header.dark nav .user-info {
   color: white; }
+
+header.dark nav a.btn.outlined {
+  border-color: white;
+  color: white; }
+  header.dark nav a.btn.outlined:hover {
+    background: white;
+    color: #333; }
 
 #loading {
   background: #222;
@@ -437,15 +438,16 @@ a.btn, button, input[type='submit'], input[type='button'] {
     width: 100%; }
   a.btn.outlined, button.outlined, input[type='submit'].outlined, input[type='button'].outlined {
     background: none;
-    border: 1px solid white; }
+    border: 1px solid #333;
+    color: #333; }
     a.btn.outlined.green, button.outlined.green, input[type='submit'].outlined.green, input[type='button'].outlined.green {
       border-color: #54d0bf; }
       a.btn.outlined.green:hover, button.outlined.green:hover, input[type='submit'].outlined.green:hover, input[type='button'].outlined.green:hover {
         background: #54d0bf;
         color: white; }
     a.btn.outlined:hover, button.outlined:hover, input[type='submit'].outlined:hover, input[type='button'].outlined:hover {
-      background: white;
-      color: #2d2d2d;
+      background: #333;
+      color: white;
       text-decoration: none; }
 
 input {
@@ -547,7 +549,7 @@ input[type="text"], input[type="password"] {
   background: white;
   width: 375px;
   padding: 50px 40px;
-  z-index: 12;
+  z-index: 13;
   text-align: center; }
   #account .btn {
     padding: 17px 22px; }
@@ -618,7 +620,7 @@ input[type="text"], input[type="password"] {
   background-size: cover; }
 
 #search {
-  z-index: 20;
+  z-index: 12;
   position: relative; }
   #search .search-box {
     position: relative; }
