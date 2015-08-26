@@ -336,6 +336,25 @@ html, body {
 #page {
   background: #f4f4f4; }
 
+header nav .logo {
+  background-image: url("/images/logo-dark.svg"); }
+
+header nav .user-info {
+  color: #333; }
+
+header nav a.btn.outlined {
+  border-color: #333;
+  color: #333; }
+  header nav a.btn.outlined:hover {
+    background: #333;
+    color: white; }
+
+header.dark nav .logo {
+  background-image: url("/images/logo.svg"); }
+
+header.dark nav .user-info {
+  color: white; }
+
 #loading {
   background: #222;
   position: fixed;
@@ -439,7 +458,7 @@ input[type="text"], input[type="password"] {
   border: 1px solid #d8d8d8;
   outline: none; }
 
-#search {
+.information #search {
   color: white;
   z-index: 2;
   background: #222222;
@@ -452,9 +471,9 @@ input[type="text"], input[type="password"] {
   right: 0;
   width: 50%;
   overflow-y: auto; }
-  #search .category {
+  .information #search .category {
     font-size: 14px; }
-  #search #search-input {
+  .information #search #search-input {
     margin-top: 20px;
     font-size: 28px;
     display: block;
@@ -464,16 +483,16 @@ input[type="text"], input[type="password"] {
     color: white;
     width: 100%;
     padding: 0; }
-  #search #search-results {
+  .information #search #search-results {
     padding-top: 0px;
     padding-bottom: 20px;
     margin-top: 40px; }
-    #search #search-results ul a {
+    .information #search #search-results ul a {
       color: white;
       display: block; }
-      #search #search-results ul a:hover {
+      .information #search #search-results ul a:hover {
         color: white; }
-    #search #search-results ul li {
+    .information #search #search-results ul li {
       clear: both;
       display: inline-block;
       width: 100%;
@@ -482,28 +501,28 @@ input[type="text"], input[type="password"] {
       box-sizing: border-box;
       font-weight: 400;
       border-top: 1px solid #3a3a3a; }
-      #search #search-results ul li .thumbnail {
+      .information #search #search-results ul li .thumbnail {
         float: left;
         margin-right: 30px;
         box-shadow: 2px 2px 5px #222222; }
-      #search #search-results ul li .tag {
+      .information #search #search-results ul li .tag {
         margin-top: 15px;
         margin-right: 5px; }
-        #search #search-results ul li .tag:hover {
+        .information #search #search-results ul li .tag:hover {
           border-color: #646464;
           color: #646464; }
-      #search #search-results ul li:hover {
+      .information #search #search-results ul li:hover {
         background: #252525;
         padding-left: 20px;
         transition: all linear 0.1s; }
-    #search #search-results ul .create-it {
+    .information #search #search-results ul .create-it {
       padding-top: 30px;
       border-top: 1px solid #3a3a3a; }
-      #search #search-results ul .create-it a {
+      .information #search #search-results ul .create-it a {
         color: #24d9f7;
         display: inline;
         transition: none; }
-        #search #search-results ul .create-it a:hover {
+        .information #search #search-results ul .create-it a:hover {
           border-bottom: 1px solid #24d9f7; }
 
 #modal {
@@ -598,62 +617,116 @@ input[type="text"], input[type="password"] {
   background: #272727 url("/images/homepage-bg.jpg") top center no-repeat;
   background-size: cover; }
 
-.main-search {
-  margin: 0 auto;
-  width: 640px;
-  text-align: center;
-  padding: 80px 0 380px; }
-  .main-search h1 {
-    font-size: 45px;
-    margin: 0; }
-  .main-search .search-box {
+#search {
+  z-index: 20;
+  position: relative; }
+  #search .search-box {
+    position: relative; }
+  #search #search-results {
+    position: absolute;
+    top: 80px;
+    margin: 0 auto;
+    width: 100%;
+    background: white;
     border-radius: 3px;
-    border: 1px solid #5c5d5d;
-    background: url("/images/search@2x.png") 95% center;
-    background-size: 18px 18px;
-    background-repeat: no-repeat;
-    margin: 50px 0 60px; }
-    .main-search .search-box .selector {
-      background: #2b2b2a;
-      float: left;
-      width: 100px;
-      padding: 25px 0;
-      color: white;
-      font-size: 15px;
-      font-weight: 600;
-      text-transform: uppercase;
-      text-align: center;
-      border-right: 1px solid #484847; }
-      .main-search .search-box .selector .fa {
-        color: #bababa; }
-    .main-search .search-box input[type="text"] {
-      width: auto;
-      display: block;
-      background: none;
-      border-radius: 3px;
-      border: none;
+    color: #333; }
+    #search #search-results ul h3 {
+      color: #333; }
+    #search #search-results ul a {
+      color: #333;
+      display: block; }
+      #search #search-results ul a:hover {
+        color: #333; }
+    #search #search-results ul li {
+      clear: both;
+      display: inline-block;
+      width: 100%;
+      padding: 30px;
+      transition: all linear 0.1s;
       box-sizing: border-box;
-      color: white;
-      font-family: "Merriweather", serif;
-      font-size: 20px;
-      padding: 20px 30px;
-      font-weight: 300; }
-      .main-search .search-box input[type="text"]::-webkit-input-placeholder {
-        color: #464646; }
-      .main-search .search-box input[type="text"]::-moz-placeholder {
-        color: #464646; }
-      .main-search .search-box input[type="text"]:-ms-input-placeholder {
-        color: #464646; }
-      .main-search .search-box input[type="text"]::placeholder {
-        color: #464646; }
-  .main-search span {
-    font-weight: 16px;
-    font-weight: 300;
-    font-style: italic;
-    color: #4d4c4c;
-    font-family: "Merriweather", serif; }
-    .main-search span a {
-      font-weight: 300; }
+      font-weight: 400;
+      border-top: 1px solid #3a3a3a;
+      text-align: left;
+      color: #333; }
+      #search #search-results ul li .thumbnail {
+        float: left;
+        margin-right: 30px;
+        box-shadow: 2px 2px 5px #222222; }
+      #search #search-results ul li .tag {
+        margin-top: 15px;
+        margin-right: 5px; }
+        #search #search-results ul li .tag:hover {
+          border-color: #646464;
+          color: #646464; }
+      #search #search-results ul li:hover {
+        background: #f0f0f0;
+        padding-left: 20px;
+        transition: all linear 0.1s; }
+    #search #search-results ul .create-it {
+      padding: 30px 0;
+      border-top: 1px solid #3a3a3a; }
+      #search #search-results ul .create-it a {
+        color: #24d9f7;
+        display: inline;
+        transition: none; }
+        #search #search-results ul .create-it a:hover {
+          border-bottom: 1px solid #24d9f7; }
+  #search .main-search {
+    margin: 0 auto;
+    width: 640px;
+    text-align: center;
+    padding: 80px 0 380px; }
+    #search .main-search h1 {
+      font-size: 45px;
+      margin: 0; }
+    #search .main-search .search-box {
+      border-radius: 3px;
+      border: 1px solid #5c5d5d;
+      background: url("/images/search@2x.png") 95% center;
+      background-size: 18px 18px;
+      background-repeat: no-repeat;
+      margin: 50px 0 60px; }
+      #search .main-search .search-box .selector {
+        background: #2b2b2a;
+        float: left;
+        width: 100px;
+        padding: 25px 0;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        border-right: 1px solid #484847; }
+        #search .main-search .search-box .selector .fa {
+          color: #bababa; }
+      #search .main-search .search-box input[type="text"] {
+        width: auto;
+        display: block;
+        background: none;
+        border-radius: 3px;
+        border: none;
+        box-sizing: border-box;
+        color: white;
+        font-family: "Merriweather", serif;
+        font-size: 20px;
+        padding: 20px 30px;
+        font-weight: 300; }
+        #search .main-search .search-box input[type="text"]::-webkit-input-placeholder {
+          color: #464646; }
+        #search .main-search .search-box input[type="text"]::-moz-placeholder {
+          color: #464646; }
+        #search .main-search .search-box input[type="text"]:-ms-input-placeholder {
+          color: #464646; }
+        #search .main-search .search-box input[type="text"]::placeholder {
+          color: #464646; }
+    #search .main-search span {
+      font-weight: 16px;
+      font-weight: 300;
+      font-style: italic;
+      color: #4d4c4c;
+      font-family: "Merriweather", serif; }
+      #search .main-search span a {
+        font-weight: 300; }
 
 .previews {
   margin-top: -300px;

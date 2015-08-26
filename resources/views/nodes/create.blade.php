@@ -1,6 +1,8 @@
 @extends('app')
 @section('body')
-
+    <header>
+        @include('components.navigation')
+    </header>
     <h2>Create an entry in films</h2>
     <p>Data courtesy of The Movie DB</p>
     <hr>
@@ -14,5 +16,5 @@
         </li>
         @endforeach
     </ul>
-
 @endsection
+

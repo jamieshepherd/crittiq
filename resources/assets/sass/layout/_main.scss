@@ -3,5 +3,23 @@ html, body {
 }
 #page {
     background: #f4f4f4;
-    //background: #2c2c2c;
+}
+
+// Light and dark headers
+header {
+    nav {
+        .logo { background-image: url("/images/logo-dark.svg"); }
+        .user-info { color: #333; }
+        a.btn.outlined {
+            border-color: #333; color: #333;
+            &:hover {
+                background: #333;
+                color: white;
+            }
+        }
+    }
+    &.dark nav {
+        .logo { background-image: url("/images/logo.svg"); }
+        .user-info { color: white; }
+    }
 }

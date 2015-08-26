@@ -67,40 +67,15 @@
         </div>
         {{-- Top right navigation bar --}}
         <div class="mini-nav">
-
-                @if(Auth::check())
-                    @include('components.user-info')
-                @else
-                    <span class="logged-out">
-                        <a v-on="click:showLogin">Login</a> or
-                        <a href="/auth/register">join crittiq</a> now
-                    </span>
-                @endif
-                <span class="search-button"></span>
-
-            {{--
-                <div class="user-info">
-                    @if(Auth::check())
-                    <span class="avatar">
-                        <img src="http://www.gravatar.com/avatar/{{ md5(strtolower(trim( Auth::user()->email ))) }}?s=44" >
-                    </span>
-                    <span class="user-name" v-on="click:showAccountPanel">
-                        {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
-                    </span>
-
-                    @include('components.user-info_menu')
-
-                    <span class="level"><i class="fa fa-trophy"></i> {{ Auth::user()->level }}</span>
-                    <span class="points"><i class="fa fa-diamond"></i> {{ Auth::user()->points }} </span>
-                    @else
-                    <span class="logged-out">
-                        <a v-on="click:showLogin">Login</a> or
-                        <a href="/auth/register">join crittiq</a> now
-                    </span>
-                    @endif
-                </div>
-                <span class="search-button"></span>
-            --}}
+            @if(Auth::check())
+                @include('components.user-info')
+            @else
+                <span class="logged-out">
+                    <a v-on="click:showLogin">Login</a> or
+                    <a href="/auth/register">join crittiq</a> now
+                </span>
+            @endif
+            <span class="search-button"></span>
         </div>
         {{-- Review content, including user review and feed --}}
         <div id="review-content">
@@ -165,7 +140,7 @@
                 <div class="review" v-repeat="reviews">
                     <!--span class="score">@{{ score.toFixed(1); }}</span-->
                     <div class="avatar">
-                        <img src="http://www.gravatar.com/avatar/@{{ author.gravatar }}?s=150" >
+                        <img src="http://www.gravatar.com/avatar/@{{ author.gravatar }}?d=http%3A%2F%2Fjamie.sh%2Fimages%2Fuploads%2Fdefault.png?s=150" >
                         <span class="username"><a>@{{ author.name }}</a></span>
                     </div>
 
