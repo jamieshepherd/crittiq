@@ -103,6 +103,9 @@
                         <div class="slider">
                             <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
                         </div>
+                        <script>
+                            $('input[type="range"]').rangeslider({ polyfill: false });
+                        </script>
                         <input class="btn green" type="submit" value="Post crittiq">
                     </div>
                 </form>
@@ -185,5 +188,5 @@
     </section>
     <script src="/js/app/components/cover.js"></script>
     <script src="/js/app/components/review.js"></script>
-    <script src="/js/app/components/search.js"></script>
+    <script src="/js/app/components/main-search.js"></script>
 @endsection

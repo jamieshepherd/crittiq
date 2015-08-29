@@ -1,6 +1,7 @@
 process.env.DISABLE_NOTIFIER = true;
 
 var elixir = require('laravel-elixir');
+             require('laravel-elixir-livereload');
 
 /*
  |--------------------------------------------------------------------------
@@ -17,5 +18,6 @@ elixir.config.sourcemaps = false;
 
 elixir(function(mix) {
     mix.sass('app.scss')
-       .version("css/app.css");;
+       .version("css/app.css")
+       .livereload();
 });

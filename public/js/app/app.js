@@ -6,7 +6,7 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('con
 var $modal = $('#modal');
 
 // Master Vue instance
-new Vue({
+var app = new Vue({
 
     el: '#page',
 
@@ -35,10 +35,7 @@ setTimeout(function(){
 // Loading overlay
 $(window).load(function(){
     $('#loading').fadeOut(500);
-})
-
-// Convert any sliders to HTML
-$('input[type="range"]').rangeslider({ polyfill: false });
+});
 
 // When modal is clicked, hide account
 $modal.click(function () {

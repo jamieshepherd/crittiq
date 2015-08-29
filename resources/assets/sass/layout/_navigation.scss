@@ -1,5 +1,8 @@
-nav {
+header.dark nav {
     border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+nav {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     width: 100%;
     .logo {
         margin: 30px 0 25px 80px;

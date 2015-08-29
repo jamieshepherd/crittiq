@@ -74,7 +74,7 @@
             margin: 0 auto;
             width: 640px;
             text-align: center;
-            padding: 80px 0 380px;
+            padding: 80px 0 0;
             h1 {
                 font-size: 45px;
                 margin: 0;
@@ -121,16 +121,19 @@
                 }
 
             }
-            span {
-                font-weight: 16px;
-                font-weight: 300;
-                font-style: italic;
-                color: #4d4c4c;
-                font-family: "Merriweather", serif;
-                a {
-                    font-weight: 300;
-                }
-            }
+        }
+    }
+    .instruction {
+        display: block;
+        padding-bottom: 380px;
+        text-align: center;
+        font-weight: 16px;
+        font-weight: 300;
+        font-style: italic;
+        color: #4d4c4c;
+        font-family: "Merriweather", serif;
+        a {
+            font-weight: 300;
         }
     }
 }

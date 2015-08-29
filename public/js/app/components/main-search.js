@@ -23,12 +23,14 @@ new Vue({
             $modal.fadeIn();
             $('#search').css('z-index', 3000);
 
+            this.getResults();
+        },
+        getResults: function() {
             this.$http.get('/api/v1/films/search', { query: this.query, take: 5 }, function(response) {
                 this.nodes = response;
-                console.log(response);
             });
-
         }
+
     },
 
     computed: {

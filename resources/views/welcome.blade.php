@@ -10,7 +10,8 @@
                     <input type="text"
                            v-model="query"
                            v-on="keyup: search($event)"
-                           placeholder="Search...">
+                           placeholder="Search..."
+                           autofocus>
                     <div id="search-results">
                         <ul class="list-group">
                             <a v-repeat="nodes" href='/@{{ category }}/@{{ slug }}'>
@@ -29,9 +30,9 @@
                         </ul>
                     </div>
                 </div>
-                <span><a v-on="click:showLogin(event)">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
             </div>
         </div>
+        <span class="instruction"><a v-on="click:showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
     </header>
     <div class="previews">
         <div class="preview">

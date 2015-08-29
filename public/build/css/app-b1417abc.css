@@ -134,8 +134,11 @@ em {
   font-style: italic;
   color: #a5a5a5; }
 
+header.dark nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
 nav {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%; }
   nav .logo {
     margin: 30px 0 25px 80px;
@@ -338,9 +341,7 @@ nav {
       border-right: solid 5px transparent; }
 
 html, body {
-  height: 100%; }
-
-#page {
+  height: 100%;
   background: #f4f4f4; }
 
 header.dark nav .logo {
@@ -619,7 +620,7 @@ input[type="text"], input[type="password"] {
   background: #272727 url("/images/homepage-bg.jpg") top center no-repeat;
   background-size: cover; }
   .welcome #search {
-    z-index: 12;
+    z-index: 1;
     position: relative; }
     .welcome #search .search-box {
       position: relative; }
@@ -676,7 +677,7 @@ input[type="text"], input[type="password"] {
       margin: 0 auto;
       width: 640px;
       text-align: center;
-      padding: 80px 0 380px; }
+      padding: 80px 0 0; }
       .welcome #search .main-search h1 {
         font-size: 45px;
         margin: 0; }
@@ -720,14 +721,17 @@ input[type="text"], input[type="password"] {
             color: #464646; }
           .welcome #search .main-search .search-box input[type="text"]::placeholder {
             color: #464646; }
-      .welcome #search .main-search span {
-        font-weight: 16px;
-        font-weight: 300;
-        font-style: italic;
-        color: #4d4c4c;
-        font-family: "Merriweather", serif; }
-        .welcome #search .main-search span a {
-          font-weight: 300; }
+  .welcome .instruction {
+    display: block;
+    padding-bottom: 380px;
+    text-align: center;
+    font-weight: 16px;
+    font-weight: 300;
+    font-style: italic;
+    color: #4d4c4c;
+    font-family: "Merriweather", serif; }
+    .welcome .instruction a {
+      font-weight: 300; }
 
 .previews {
   margin-top: -300px;
