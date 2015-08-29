@@ -2,6 +2,9 @@
 Vue.config.debug = true;
 Vue.http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
 
+// Get modal element
+var $modal = $('#modal');
+
 // Master Vue instance
 new Vue({
 
@@ -9,7 +12,8 @@ new Vue({
 
     methods: {
         showLogin: function() {
-            $('#modal').fadeIn(300);
+            console.log('here');
+            $modal.fadeIn(300);
             $('#account').fadeIn(300);
         },
         showAccountPanel: function() {
@@ -37,8 +41,7 @@ $(window).load(function(){
 $('input[type="range"]').rangeslider({ polyfill: false });
 
 // When modal is clicked, hide account
-$('#modal').click(function () {
-    $('#modal').fadeOut(300);
+$modal.click(function () {
+    $(this).fadeOut(300);
     $('#account').fadeOut(300);
 });
-

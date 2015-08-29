@@ -14,15 +14,18 @@ new Vue({
         search: function(event) {
             event.preventDefault();
 
-            if(this.query.length < 1) {
+            if(this.query.length === 0) {
                 this.nodes = [];
-                $("#modal").fadeOut();
+                $modal.fadeOut();
+                $('#search').css('z-index', 1);
                 return false;
             }
-            $("#modal").fadeIn();
+            $modal.fadeIn();
+            $('#search').css('z-index', 3000);
 
-            this.$http.get('/api/v1/films/search', { query: this.query }, function(response) {
+            this.$http.get('/api/v1/films/search', { query: this.query, take: 5 }, function(response) {
                 this.nodes = response;
+                console.log(response);
             });
 
         }
@@ -30,7 +33,7 @@ new Vue({
 
     computed: {
         minResults: function() {
-            if(this.query.length > 1) {
+            if(this.query.length != 0) {
                 return true;
             }
         }

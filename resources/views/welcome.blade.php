@@ -29,7 +29,7 @@
                         </ul>
                     </div>
                 </div>
-                <span><a v-on="click:showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
+                <span><a v-on="click:showLogin(event)">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
             </div>
         </div>
     </header>

@@ -35,10 +35,12 @@ class NodeAPI extends Controller
     {
         if(isset($_GET['query'])) {
             $term = $_GET['query'];
+            $take = (isset($_GET['take'])) ? 5 : 10;
 
             $node = DB::collection('nodes')
             ->where('category', $category)
             ->where('title',  'like', '%'.$term.'%')
+            ->take($take)
             ->get();
 
             return response()->json($node);
