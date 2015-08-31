@@ -4,7 +4,7 @@
         @include('components.navigation')
         <div id="search">
             <div class="main-search">
-                <h1>TESTFind or create micro reviews</h1>
+                <h1>Find or create micro reviews</h1>
                 <div class="search-box">
                     <div class="selector">Film <i class="fa fa-caret-down"></i></div>
                     <input type="text"

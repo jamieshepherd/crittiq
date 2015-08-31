@@ -3,6 +3,7 @@
 /public/images/uploads
 Homestead.yaml
 .env
+deploy.sh
 
 #Except
 !/public/images/uploads/films/cover/50634dbcbe4617f17bb159d0.jpg
