@@ -3,35 +3,7 @@
     <header class="dark welcome">
         @include('components.navigation')
         <div id="search">
-            <div class="main-search">
-                <h1>Find or create micro reviews</h1>
-                <div class="search-box">
-                    <div class="selector">Film <i class="fa fa-caret-down"></i></div>
-                    <input type="text"
-                           v-model="query"
-                           v-on="keyup: search($event)"
-                           placeholder="Search..."
-                           autofocus>
-                    <div id="search-results">
-                        <ul class="list-group">
-                            <a v-repeat="nodes" href='/@{{ category }}/@{{ slug }}'>
-                                <li>
-                                    <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
-                                        <h3>@{{ title }}</h3>
-                                    <p>@{{ release_date }} directed by @{{ director }}</p>
-                                    <span class='tag'><i class="fa fa-line-chart"></i> @{{ avg }}</span>
-                                    <span class='tag'><i class="fa fa-comments-o"></i> @{{ reviewCount }}</span>
-                                </li>
-                            </a>
 
-                            <div class="create-it" v-show='minResults'>
-                                <i class="fa fa-cog fa-spin loading"></i>
-                                <span>Can't find what you're looking for? <a href='/films/create/@{{ query }}    ' >Click to create it!</a></span>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
         <span class="instruction"><a v-on="click:showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
     </header>
@@ -84,7 +56,4 @@
         <p><em>Tap into the mood of the people or add your voice to the conversation.</em></p>
         <img src="/images/misc/example-review.jpg" class="example">
     </div>
-
-
-    <script src="/js/app/components/main-search.js"></script>
 @endsection

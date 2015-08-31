@@ -9,7 +9,6 @@
         {{-- Bottom left cover details --}}
         <div class="details">
             @if($node->avg)
-            <script src="/js/vendor/jquery.circliful.js"></script>
             <div id="myStat" data-dimension="80" data-text="{{ $node->avg }}" data-width="1" data-fontsize="26" data-percent="{{ ($node->avg*10) }}" data-fgcolor="#54d0bf" data-bgcolor="#1f2527" class='score'></div>
             <script>
                 $( document ).ready(function() {
@@ -186,7 +185,11 @@
             @endif
         </div>
     </section>
-    <script src="/js/app/components/cover.js"></script>
-    <script src="/js/app/components/review.js"></script>
-    <script src="/js/app/components/main-search.js"></script>
+    <script>
+        BackgroundCheck.init({
+            targets: '.logo',
+            images: '.background',
+            threshold: 75
+        });
+    </script>
 @endsection

@@ -10,9 +10,12 @@ var app = new Vue({
 
     el: '#page',
 
+    created: function() {
+        console.log("app created");
+    },
+
     methods: {
         showLogin: function() {
-            console.log('here');
             $modal.fadeIn(300);
             $('#account').fadeIn(300);
         },

@@ -17,6 +17,10 @@ new Vue({
         skip: 0
     },
 
+    created: function() {
+        console.log("review created");
+    },
+
     ready: function() {
         this.updateCounter();
         this.getReviews();
