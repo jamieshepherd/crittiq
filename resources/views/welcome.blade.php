@@ -25,6 +25,7 @@
                             </a>
 
                             <div class="create-it" v-show='minResults'>
+                                <i class="fa fa-cog fa-spin loading"></i>
                                 <span>Can't find what you're looking for? <a href='/films/create/@{{ query }}    ' >Click to create it!</a></span>
                             </div>
                         </ul>

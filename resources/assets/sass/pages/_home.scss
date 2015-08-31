@@ -15,6 +15,9 @@
             background: white;
             border-radius: 3px;
             color: #333;
+            .loading {
+                display: none;
+            }
             ul {
                 h3 {
                     color: #333;

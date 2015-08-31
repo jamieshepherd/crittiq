@@ -12,8 +12,7 @@ new Vue({
 
     methods: {
         search: function(event) {
-            event.preventDefault();
-
+            if(event.keyCode === 27) this.query = '';
             if(this.query.length === 0) {
                 this.nodes = [];
                 $modal.fadeOut();
@@ -26,8 +25,10 @@ new Vue({
             this.getResults();
         },
         getResults: function() {
+            $('#search').find('.loading').delay(1000).show(0);
             this.$http.get('/api/v1/films/search', { query: this.query, take: 5 }, function(response) {
                 this.nodes = response;
+                $('#search').find('.loading').dequeue().hide(0);
             });
         }
 

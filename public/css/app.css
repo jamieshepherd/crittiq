@@ -632,6 +632,8 @@ input[type="text"], input[type="password"] {
       background: white;
       border-radius: 3px;
       color: #333; }
+      .welcome #search #search-results .loading {
+        display: none; }
       .welcome #search #search-results ul h3 {
         color: #333; }
       .welcome #search #search-results ul a {
