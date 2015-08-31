@@ -56,4 +56,7 @@
         <p><em>Tap into the mood of the people or add your voice to the conversation.</em></p>
         <img src="/images/misc/example-review.jpg" class="example">
     </div>
+    <script>
+        React.render(React.createElement(MainSearch), document.getElementById('search'));
+    </script>
 @endsection

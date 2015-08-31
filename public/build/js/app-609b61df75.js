@@ -122,21 +122,134 @@ new Vue({
  * Main search component
  */
 
-"use strict";
+'use strict';
 
-var HelloMessage = React.createClass({
-  displayName: "HelloMessage",
+var MainSearch = React.createClass({
+    displayName: 'MainSearch',
 
-  render: function render() {
-    return React.createElement(
-      "h1",
-      null,
-      "Hello world"
-    );
-  }
+    getInitialState: function getInitialState() {
+        return {
+            query: '',
+            nodes: []
+        };
+    },
+
+    getResults: function getResults() {
+        var that = this;
+        reqwest({
+            url: 'api/v1/films/search',
+            method: 'get',
+            data: {
+                query: this.state.query,
+                take: 5
+            },
+            success: function success(response) {
+                that.setState({
+                    nodes: response
+                });
+            }
+        });
+    },
+
+    nodeSearch: function nodeSearch(queryText) {
+
+        this.setState({
+            query: queryText
+        });
+
+        if (event.keyCode === 27) this.state.query = '';
+        if (this.state.query.length === 0) {
+            this.state.nodes = [];
+            $modal.fadeOut();
+            $('#search').css('z-index', 1);
+            return false;
+        }
+        $modal.fadeIn();
+        $('#search').css('z-index', 3000);
+
+        this.getResults();
+    },
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            { className: 'main-search' },
+            React.createElement(
+                'h1',
+                null,
+                'Find or create micro reviews'
+            ),
+            React.createElement(
+                'div',
+                { className: 'search-box' },
+                React.createElement(
+                    'div',
+                    { className: 'selector' },
+                    'Film ',
+                    React.createElement('i', { className: 'fa fa-caret-down' })
+                ),
+                React.createElement(SearchBox, { query: this.state.query, nodeSearch: this.nodeSearch }),
+                React.createElement(SearchResults, { nodes: this.state.nodes })
+            )
+        );
+    }
 });
 
-React.render(React.createElement(HelloMessage, { name: "John" }), document.getElementById('search'));
+var SearchBox = React.createClass({
+    displayName: 'SearchBox',
+
+    search: function search() {
+        this.props.nodeSearch(this.refs.searchInput.getDOMNode().value);
+    },
+
+    render: function render() {
+        return React.createElement('input', { type: 'text', ref: 'searchInput', placeholder: 'Search...', autofocus: true, value: this.props.query, onChange: this.search });
+    }
+});
+
+var SearchResults = React.createClass({
+    displayName: 'SearchResults',
+
+    render: function render() {
+        var results = [];
+        this.props.nodes.forEach(function (node) {
+            results.push(React.createElement(
+                'a',
+                null,
+                React.createElement(
+                    'li',
+                    null,
+                    node.title
+                )
+            ));
+        });
+        return React.createElement(
+            'div',
+            { id: 'search-results' },
+            React.createElement(
+                'ul',
+                { className: 'list-group' },
+                results,
+                React.createElement(
+                    'div',
+                    { className: 'create-it', 'v-show': 'minResults' },
+                    React.createElement('i', { className: 'fa fa-cog fa-spin loading' }),
+                    React.createElement(
+                        'span',
+                        null,
+                        'Can\'t find what you\'re looking for? ',
+                        React.createElement(
+                            'a',
+                            { href: '/films/create/:QUERY:' },
+                            'Click to create it!'
+                        )
+                    )
+                )
+            )
+        );
+    }
+
+});
 
 /*
  * Vue: Reusable search component

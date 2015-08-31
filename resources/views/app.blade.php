@@ -17,6 +17,7 @@
 
     <!-- Scripts -->
     <script src="{{ elixir('js/vendor.js') }}"></script>
+    <script src="{{ elixir('js/app.js') }}"></script>
 </head>
 <body>
     {{-- Preloader on every page --}}
@@ -53,6 +54,5 @@
     </div>
 
     {{-- Include any custom javascript at the end --}}
-    <script src="{{ elixir('js/app.js') }}"></script>
 </body>
 </html>
