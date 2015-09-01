@@ -12,10 +12,6 @@ var app = new Vue({
 
     el: '#page',
 
-    created: function created() {
-        console.log("app created");
-    },
-
     methods: {
         showLogin: function showLogin() {
             $modal.fadeIn(300);
@@ -39,7 +35,9 @@ setTimeout(function () {
 
 // Loading overlay
 $(window).load(function () {
-    $('#loading').fadeOut(500);
+    $('#loading').fadeOut(500, function () {
+        $(this).remove();
+    });
 });
 
 // When modal is clicked, hide account
@@ -47,6 +45,7 @@ $modal.click(function () {
     $(this).fadeOut(300);
     $('#account').fadeOut(300);
 });
+"use strict";
 'use strict';
 
 var path = window.location.pathname;
@@ -66,10 +65,6 @@ new Vue({
         rangeCount: 5,
         filter: 'latest',
         skip: 0
-    },
-
-    created: function created() {
-        console.log("review created");
     },
 
     ready: function ready() {

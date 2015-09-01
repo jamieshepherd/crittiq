@@ -10,10 +10,6 @@ var app = new Vue({
 
     el: '#page',
 
-    created: function() {
-        console.log("app created");
-    },
-
     methods: {
         showLogin: function() {
             $modal.fadeIn(300);
@@ -37,7 +33,9 @@ setTimeout(function(){
 
 // Loading overlay
 $(window).load(function(){
-    $('#loading').fadeOut(500);
+    $('#loading').fadeOut(500, function() {
+        $(this).remove();
+    });
 });
 
 // When modal is clicked, hide account

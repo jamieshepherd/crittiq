@@ -1,8 +1,10 @@
+#Ignore
 /vendor
 /node_modules
 /public/images/uploads
 Homestead.yaml
 .env
+npm-debug.log
 deploy.sh
 
 #Except

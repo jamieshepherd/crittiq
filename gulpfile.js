@@ -2,7 +2,6 @@ process.env.DISABLE_NOTIFIER = true;
 
 var gulp   = require('gulp');
 var elixir = require('laravel-elixir');
-             require('laravel-elixir-livereload');
 var babel  = require("gulp-babel");
 var concat = require("gulp-concat");
 
@@ -28,7 +27,6 @@ elixir(function(mix) {
         'js/vendor.js',
         'js/app.js'
     ]);
-    mix.livereload();
 });
 
 gulp.task('smash', function() {
