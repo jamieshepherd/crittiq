@@ -3,9 +3,11 @@
     <header class="dark welcome">
         @include('components.navigation')
         <div id="search">
-
+            <script>
+                React.render(React.createElement(MainSearch), document.getElementById('search'));
+            </script>
         </div>
-        <span class="instruction"><a v-on="click:showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
+        <span class="instruction"><a class="showLogin">Login</a> or <a href='/auth/register'>join crittiq</a> now to start making micro reviews about films you love.</span>
     </header>
     <div class="previews">
         <div class="preview">
@@ -56,7 +58,4 @@
         <p><em>Tap into the mood of the people or add your voice to the conversation.</em></p>
         <img src="/images/misc/example-review.jpg" class="example">
     </div>
-    <script>
-        React.render(React.createElement(MainSearch), document.getElementById('search'));
-    </script>
 @endsection

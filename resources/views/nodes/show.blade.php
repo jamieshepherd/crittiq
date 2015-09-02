@@ -38,31 +38,9 @@
     <section class="information">
         {{-- Entire search element --}}
         <div id="search">
-            <span class="category">FILM <i class="fa fa-caret-down"></i></span>
-            <input type="text"
-                   id="search-input"
-                   v-model="query"
-                   v-on="keyup: search($event)"
-                   placeholder="Start typing to search..."
-                   >
-
-            <div id="search-results">
-                <ul class="list-group">
-                    <a v-repeat="nodes" href='/@{{ category }}/@{{ slug }}'>
-                        <li>
-                            <img src="/images/uploads/@{{ category }}/poster/@{{ poster }}" class='thumbnail'>
-                                <h3>@{{ title }}</h3>
-                            <p>@{{ release_date }} directed by @{{ director }}</p>
-                            <span class='tag'><i class="fa fa-line-chart"></i> @{{ avg }}</span>
-                            <span class='tag'><i class="fa fa-comments-o"></i> @{{ reviewCount }}</span>
-                        </li>
-                    </a>
-
-                    <div class="create-it" v-show='minResults'>
-                        <span>Can't find what you're looking for? <a href='/films/create/@{{ query }}    ' >Click to create it!</a></span>
-                    </div>
-                </ul>
-            </div>
+            <script>
+                React.render(React.createElement(SideSearch), document.getElementById('search'));
+            </script>
         </div>
         {{-- Top right navigation bar --}}
         <div class="mini-nav">
@@ -70,7 +48,7 @@
                 @include('components.user-info')
             @else
                 <span class="logged-out">
-                    <a v-on="click:showLogin">Login</a> or
+                    <a class="showLogin">Login</a> or
                     <a href="/auth/register">join crittiq</a> now
                 </span>
             @endif

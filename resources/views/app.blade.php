@@ -32,7 +32,7 @@
     <div id="modal"></div>
 
     {{-- Account login box on every page --}}
-    <div id="account">
+    <div id="login">
         <form method="POST" action="/auth/login">
             <img class="logo" src="/images/logo-dark.svg">
             <span>Sign in to your Crittiq Account</span>
