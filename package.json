@@ -3,7 +3,8 @@
   "devDependencies": {
     "gulp": "^3.8.8",
     "gulp-babel": "^5.2.1",
-    "gulp-concat": "^2.6.0"
+    "gulp-concat": "^2.6.0",
+    "gulp-plumber": "^1.0.1"
   },
   "dependencies": {
     "laravel-elixir": "v2.0.0",

@@ -1,9 +1,10 @@
 process.env.DISABLE_NOTIFIER = true;
 
-var gulp   = require('gulp');
-var elixir = require('laravel-elixir');
-var babel  = require("gulp-babel");
-var concat = require("gulp-concat");
+var gulp    = require("gulp");
+var elixir  = require("laravel-elixir");
+var babel   = require("gulp-babel");
+var concat  = require("gulp-concat");
+var plumber = require("gulp-plumber")
 
 /*
  |--------------------------------------------------------------------------
@@ -17,11 +18,13 @@ var concat = require("gulp-concat");
  */
 
 elixir.config.sourcemaps = false;
+elixir.config.production = true;
 
 elixir(function(mix) {
     mix.task('smash', 'resources/assets/js/**');
     mix.sass('app.scss');
     mix.scriptsIn('resources/assets/js/vendor', 'public/js/vendor.js');
+
     mix.version([
         'css/app.css',
         'js/vendor.js',
@@ -31,6 +34,7 @@ elixir(function(mix) {
 
 gulp.task('smash', function() {
     return gulp.src('resources/assets/js/app/**/*')
+            .pipe(plumber())
             .pipe(babel())
             .pipe(concat("app.js"))
             .pipe(gulp.dest('public/js'));
