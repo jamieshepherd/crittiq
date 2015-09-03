@@ -1,6 +1,7 @@
 process.env.DISABLE_NOTIFIER = true;
 
 var gulp    = require("gulp");
+var del     = require("del");
 var elixir  = require("laravel-elixir");
 var babel   = require("gulp-babel");
 var concat  = require("gulp-concat");
@@ -24,7 +25,6 @@ elixir(function(mix) {
     mix.task('smash', 'resources/assets/js/**');
     mix.sass('app.scss');
     mix.scriptsIn('resources/assets/js/vendor', 'public/js/vendor.js');
-
     mix.version([
         'css/app.css',
         'js/vendor.js',
@@ -38,4 +38,11 @@ gulp.task('smash', function() {
             .pipe(babel())
             .pipe(concat("app.js"))
             .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('cleanup', function() {
+    return del([
+        'public/js',
+        'public/css'
+    ]);
 });

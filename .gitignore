@@ -1,9 +1,10 @@
 #Ignore
 /.idea
-/vendor
 /node_modules
 /public/images/uploads
-Homestead.yaml
+/public/js
+/public/css
+/vendor
 .env
 npm-debug.log
 deploy.sh
