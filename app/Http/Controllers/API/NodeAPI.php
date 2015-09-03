@@ -1,6 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Nodes;
+/*
+|--------------------------------------------------------------------------
+| API - Nodes
+|--------------------------------------------------------------------------
+|
+| api/v1/{category}
+| - Returns all films from a category
+|
+| api/v1/{category}/search
+| - Takes parameters :query: (search query) and :take: (amount wanted)
+|
+| api/v1/{category}/{slug}
+| - Returns a specific node, referenced by it's unique category/slug
+|
+| api/v1/{category}/{slug}/reviews
+| - Returns all of the reviews for a specific node
+| - Takes parameters :filter: (newest, oldest) :skip: (first 10) and :take: (10)
+|
+*/
+
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 
@@ -12,6 +32,7 @@ use DB;
 class NodeAPI extends Controller
 {
     /**
+     * api/v1/{category}
      * Get all of the nodes
      *
      * @return Response
@@ -26,9 +47,10 @@ class NodeAPI extends Controller
     }
 
     /**
+     * api/v1/{category}/search
      * Search for a specified term.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return Response
      */
     public static function search($category)
@@ -49,6 +71,7 @@ class NodeAPI extends Controller
     }
 
     /**
+     * api/v1/{category}/{slug}
      * Display the specified resource.
      *
      * @param  int  $id
@@ -65,6 +88,7 @@ class NodeAPI extends Controller
     }
 
     /**
+     * api/v1/{category}/{slug}/reviews
      * Get reviews for a node.
      *
      * @param  int  $id

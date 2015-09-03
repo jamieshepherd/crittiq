@@ -5,7 +5,6 @@ var elixir  = require("laravel-elixir");
 var babel   = require("gulp-babel");
 var concat  = require("gulp-concat");
 var plumber = require("gulp-plumber");
-var notify  = require("gulp-notify");
 
 /*
  |--------------------------------------------------------------------------

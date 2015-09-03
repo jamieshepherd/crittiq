@@ -33,11 +33,11 @@ var MainSearch = React.createClass({
                 this.setState({
                     nodes: []
                 });
-                $modal.fadeOut();
+                $("#modal").fadeOut();
                 $('#search').css('z-index', 1);
                 return false;
             }
-            $modal.fadeIn();
+            $("#modal").fadeIn();
             $('#search').css('z-index', 3000);
 
             this.getResults();
@@ -51,7 +51,7 @@ var MainSearch = React.createClass({
 
         $('#search').find('.loading').delay(1000).show(0);
         reqwest({
-            url: 'api/v1/films/search',
+            url: '/api/v1/films/search',
             method: 'get',
             data: {
                 query: this.state.query,

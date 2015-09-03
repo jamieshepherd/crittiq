@@ -52,7 +52,7 @@
                     <a href="/auth/register">join crittiq</a> now
                 </span>
             @endif
-            <span class="search-button"></span>
+            <span class="search-button" onClick="showSideNav()"></span>
         </div>
         {{-- Review content, including user review and feed --}}
         <div id="review-content">

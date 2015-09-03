@@ -38,11 +38,13 @@ function showLogin() {
 function showModal() {
     $('#modal').fadeIn(300);
 }
-'use strict';
+"use strict";
 
-Vue.filter('getYear', function (value) {
-    return value.split('').reverse().join('');
-});
+function showSideNav() {
+    $('#search').slideToggle(300, function () {
+        $(this).find(":input").focus();
+    });
+}
 /*
 |--------------------------------------------------------------------------
 | Instant search component
@@ -81,11 +83,11 @@ var MainSearch = React.createClass({
                 this.setState({
                     nodes: []
                 });
-                $modal.fadeOut();
+                $("#modal").fadeOut();
                 $('#search').css('z-index', 1);
                 return false;
             }
-            $modal.fadeIn();
+            $("#modal").fadeIn();
             $('#search').css('z-index', 3000);
 
             this.getResults();
@@ -97,7 +99,7 @@ var MainSearch = React.createClass({
 
         $('#search').find('.loading').delay(1000).show(0);
         reqwest({
-            url: 'api/v1/films/search',
+            url: '/api/v1/films/search',
             method: 'get',
             data: {
                 query: this.state.query,
@@ -175,12 +177,8 @@ var SideSearch = React.createClass({
                 this.setState({
                     nodes: []
                 });
-                $modal.fadeOut();
-                $('#search').css('z-index', 1);
                 return false;
             }
-            $modal.fadeIn();
-            $('#search').css('z-index', 3000);
 
             this.getResults();
         });
@@ -190,17 +188,18 @@ var SideSearch = React.createClass({
         var that = this;
 
         $('#search').find('.loading').delay(1000).show(0);
-        reqwest({
-            url: 'api/v1/films/search',
-            method: 'get',
+        $.ajax({
+            url: "/api/v1/films/search",
+            type: "get",
             data: {
                 query: this.state.query,
                 take: 5
             },
-            success: function success(response) {
+            context: this,
+            success: function success(data) {
                 $('#search').find('.loading').dequeue().hide(0);
                 that.setState({
-                    nodes: response
+                    nodes: data
                 });
             }
         });
@@ -216,7 +215,7 @@ var SideSearch = React.createClass({
                 'FILM ',
                 React.createElement('i', { className: 'fa fa-caret-down' })
             ),
-            React.createElement(SearchBox, { query: this.state.query, doSearch: this.doSearch }),
+            React.createElement(SearchBox, { id: 'search-input', query: this.state.query, doSearch: this.doSearch }),
             React.createElement(SearchResults, { nodes: this.state.nodes })
         );
     }
@@ -288,6 +287,11 @@ new Vue({
         }
     }
 
+});
+'use strict';
+
+Vue.filter('getYear', function (value) {
+    return value.split('').reverse().join('');
 });
 /*
  *--------------------------------------------------------------------------
