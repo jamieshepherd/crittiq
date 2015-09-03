@@ -371,7 +371,7 @@ var SearchResults = React.createClass({
         this.props.nodes.forEach(function (node) {
             results.push(React.createElement(
                 "a",
-                { href: node.category + "/" + node.slug },
+                { href: "/" + node.category + "/" + node.slug },
                 React.createElement(
                     "li",
                     null,

@@ -9,7 +9,7 @@ var SearchResults = React.createClass({
         var results = [];
         this.props.nodes.forEach(function(node) {
             results.push(
-                <a href={ node.category + "/" + node.slug }>
+                <a href={ "/" + node.category + "/" + node.slug }>
                     <li>
                         <img src={ "/images/uploads/" + node.category + "/poster/" + node.poster } className="thumbnail"/>
                         <h3>{node.title}</h3>
