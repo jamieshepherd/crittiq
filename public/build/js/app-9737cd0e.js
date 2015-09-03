@@ -112,11 +112,6 @@ new Vue({
     }
 
 });
-'use strict';
-
-Vue.filter('getYear', function (value) {
-    return value.split('').reverse().join('');
-});
 /*
  |--------------------------------------------------------------------------
  | Node review component
@@ -127,7 +122,7 @@ Vue.filter('getYear', function (value) {
  |
  | - NodeReview
  | -- NodeReviewInput
- | -- NodeReviewFilter
+ | ---- NodeReviewFilter
  | -- NodeReviewList
  | -- NodeReviewMore
  */
@@ -146,20 +141,166 @@ var NodeReview = React.createClass({
         return {
             filter: '',
             userReview: '',
-            reviews: []
+            reviews: [],
+            _token: this.props._token,
+            nodeName: ''
         };
+    },
+
+    updateReview: function updateReview(review) {
+        this.setState({
+            review: review
+        });
+    },
+
+    render: function render() {
+        return React.createElement(NodeReviewInput, { userReview: this.state.userReview, updateReview: this.updateReview });
+    }
+
+});
+
+//<span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
+/*
+ *--------------------------------------------------------------------------
+ * NodeReviewFilter
+ |--------------------------------------------------------------------------
+ */
+"use strict";
+
+var NodeReviewFilter = React.createClass({
+    displayName: "NodeReviewFilter",
+
+    render: function render() {
+        return React.createElement(
+            "div",
+            { className: "sort" },
+            React.createElement(
+                "ul",
+                null,
+                React.createElement(
+                    "li",
+                    null,
+                    React.createElement(
+                        "a",
+                        null,
+                        "Latest"
+                    )
+                ),
+                React.createElement(
+                    "li",
+                    null,
+                    React.createElement(
+                        "a",
+                        null,
+                        "Oldest"
+                    )
+                ),
+                React.createElement(
+                    "li",
+                    null,
+                    React.createElement(
+                        "a",
+                        null,
+                        "Highest rated"
+                    )
+                ),
+                React.createElement(
+                    "li",
+                    null,
+                    React.createElement(
+                        "a",
+                        null,
+                        "Lowest rated"
+                    )
+                )
+            )
+        );
+    }
+
+});
+/*
+ *--------------------------------------------------------------------------
+ * NodeReviewInput
+ |--------------------------------------------------------------------------
+ */
+'use strict';
+
+var NodeReviewInput = React.createClass({
+    displayName: 'NodeReviewInput',
+
+    getInitialState: function getInitialState() {
+        return {
+            reviewLength: 0
+        };
+    },
+
+    updateReview: function updateReview() {
+        this.setState({ reviewLength: this.refs.userReview.getDOMNode().value.length });
+        this.props.updateReview(this.refs.userReview.getDOMNode().value);
+    },
+
+    expandInput: function expandInput() {
+        $('#user-review').animate({ 'min-height': "220px" }, 300);
+        $('.user-review-actions').fadeIn(300);
+        $('.character-count').css({ 'opacity': 1 }, 300);
     },
 
     render: function render() {
         return React.createElement(
             'div',
-            { id: 'review-content' },
-            React.createElement(ReviewInput, { review: this.state.userReview }),
-            React.createElement(ReviewFilter, null)
+            { className: 'user-review' },
+            React.createElement(
+                'form',
+                { action: '', method: 'post' },
+                React.createElement('input', { name: '_token', type: 'hidden', value: this.props._token }),
+                React.createElement(
+                    'h2',
+                    null,
+                    'What did you think about ',
+                    this.props.nodeName,
+                    '?'
+                ),
+                React.createElement('textarea', { ref: 'userReview', onClick: this.expandInput, id: 'user-review', maxLength: '250', name: 'review', placeholder: 'Enter your micro review here...', onChange: this.updateReview }),
+                React.createElement(
+                    'span',
+                    { className: 'character-count' },
+                    this.state.reviewLength,
+                    ' characters remaining'
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'spoilers' },
+                    React.createElement(
+                        'label',
+                        null,
+                        'My review contains spoilers'
+                    ),
+                    React.createElement('input', { type: 'checkbox' })
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'user-review-actions' },
+                    React.createElement(
+                        'span',
+                        { className: 'ratingLabel' },
+                        'Rating'
+                    ),
+                    React.createElement(
+                        'span',
+                        { className: 'rangeCount' },
+                        1 + 1,
+                        '/10'
+                    ),
+                    React.createElement('div', { className: 'slider' }),
+                    React.createElement('input', { ref: 'slider', className: 'btn green', type: 'submit', value: 'Post crittiq' })
+                )
+            ),
+            React.createElement(NodeReviewFilter, null)
         );
     }
 
 });
+/*<input max="10" min="0" name="score" step="0.5" type="range" value="5"/>*/ /*<script>$('input[type="range"]').rangeslider({ polyfill: false });</script>*/
 /*
 |--------------------------------------------------------------------------
 | Instant search component

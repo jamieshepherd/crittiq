@@ -38,9 +38,7 @@
     <section class="information">
         {{-- Entire search element --}}
         <div id="search">
-            <script>
-                React.render(React.createElement(SideSearch), document.getElementById('search'));
-            </script>
+            <script>React.render(React.createElement(SideSearch), document.getElementById('search'));</script>
         </div>
         {{-- Top right navigation bar --}}
         <div class="mini-nav">
@@ -55,113 +53,29 @@
             <span class="search-button" onClick="showSideNav()"></span>
         </div>
         {{-- Review content, including user review and feed --}}
+        @if($node->release_date < date("Y-m-d"))
         <div id="review-content">
-
-            @if($node->release_date < date("Y-m-d"))
-            {{-- User review --}}
-            <div class="user-review">
-                @if(!$userReview)
-                <form action="" method="POST">
-                    {{ csrf_field() }}
-                    <h2>What did you think about {{ $node->title }}?</h2>
-                    <textarea name="review"
-                              id="user-review"
-                              v-model="review"
-                              v-on="keyup: updateCounter, focus: showActions"
-                              placeholder="Enter your micro review here..."
-                              maxlength="250"></textarea>
-                    <span class="character-count">@{{ count }} characters remaining</span>
-                    <div class='spoilers'>
-                        <label>My review contains spoilers</label><input type="checkbox">
-                    </div>
-                    <div class="user-review-actions">
-                        <span class="ratingLabel">Rating</span>
-                        <span class="rangeCount">@{{ rangeCount }}/10</span>
-                        <div class="slider">
-                            <input name="score" type="range" min="0" max="10" step="0.5" value="5" v-model="rangeCount">
-                        </div>
-                        <script>
-                            $('input[type="range"]').rangeslider({ polyfill: false });
-                        </script>
-                        <input class="btn green" type="submit" value="Post crittiq">
-                    </div>
-                </form>
-                @else
-                    <h2>You said...</h2>
-                    <span class='user-review-content'><blockquote><span class='quote'>&ldquo;</span>{{ $userReview->review }}<span class='quote'>&rdquo;</span></blockquote></span>
-                @endif
-                <div class="sort">
-                    <ul>
-                        <li>
-                            <a v-on="click: sortBy('latest')"
-                               v-class="current: filter == 'latest'"
-                               href="#">Latest</a>
-                        </li>
-                        <li>
-                            <a v-on="click: sortBy('oldest')"
-                               v-class="current: filter == 'oldest'"
-                               href="#">Oldest</a>
-                        </li>
-                        <li>
-                            <a v-on="click: sortBy('highest')"
-                               v-class="current: filter == 'highest'"
-                               href="#">Highest rated</a>
-                        </li>
-                        <li>
-                            <a v-on="click: sortBy('lowest')"
-                               v-class="current: filter == 'lowest'
-                               "href="#">Lowest rated</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            {{-- Review feed --}}
-            <div id="review-feed">
-                <div class="review" v-repeat="reviews">
-                    <!--span class="score">@{{ score.toFixed(1); }}</span-->
-                    <div class="avatar">
-                        <img src="http://www.gravatar.com/avatar/@{{ author.gravatar }}?d=http%3A%2F%2Fjamie.sh%2Fimages%2Fuploads%2Fdefault.png?s=150" >
-                        <span class="username"><a>@{{ author.name }}</a></span>
-                    </div>
-
-                    <div class="review-content">
-                        <p>@{{ review }}</p>
-                    </div>
-                    <div class="details">
-                        <span class="score"
-                              v-class="positive: (score > 6.5),
-                                       mixed   : (score < 7 && score > 3.5),
-                                       negative: (score < 4)"
-                        ><strong>@{{ score }}</strong> / 10</span>
-                        <span class="date">3 days ago</span>
-                        <span class="hearts"><i class="fa fa-heart"></i> 0</span>
-                        <span class="comments"><i class="fa fa-comment"></i> 1</span>
-                        <span class="more"><i class="fa fa-ellipsis-h"></i></span>
-
-                        <!--span class="thumbs" v-on="click: thumbsUp(id)">@{{_id}}<i class="fa fa-thumbs-up"></i> @{{ thumbs }}</span-->
-                    </div>
-                </div>
-                <a class="more-reviews" v-on="click: getMoreReviews"><i class="fa fa-arrow-circle-o-down"></i> Show more reviews</a>
-            </div>
-            <span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
-            @else
-                <div class="user-review">
-                    <script src="/js/vendor/jquery.countdown.min.js"></script>
-                    <h2 class='countdown'></h2>
-                    <script type="text/javascript">
-                        $(".countdown").countdown("{{ $node->release_date }}", function(event) {
-                            $(this).html(event.strftime(''
-                                + '<span>%w</span> weeks&nbsp;&nbsp;&nbsp;'
-                                + '<span>%d</span> days&nbsp;&nbsp;&nbsp;'
-                                + '<span>%H</span> hr&nbsp;&nbsp;&nbsp;'
-                                + '<span>%M</span> min&nbsp;&nbsp;&nbsp;'
-                                + '<span>%S</span> sec'));
-                        });
-                    </script>
-                    <p>Sorry, this film hasn't been released yet so you can't review it. Why not search for another?</p>
-                </div>
-            @endif
+            <script>React.render(React.createElement(NodeReview, {'_token':'{{ csrf_token() }}'}), document.getElementById('review-content'));</script>
         </div>
+        @else
+        <div id="review-content">
+            <div class="user-review">
+                <script src="/js/vendor/jquery.countdown.min.js"></script>
+                <h2 class='countdown'></h2>
+                <script type="text/javascript">
+                    $(".countdown").countdown("{{ $node->release_date }}", function(event) {
+                        $(this).html(event.strftime(''
+                            + '<span>%w</span> weeks&nbsp;&nbsp;&nbsp;'
+                            + '<span>%d</span> days&nbsp;&nbsp;&nbsp;'
+                            + '<span>%H</span> hr&nbsp;&nbsp;&nbsp;'
+                            + '<span>%M</span> min&nbsp;&nbsp;&nbsp;'
+                            + '<span>%S</span> sec'));
+                    });
+                </script>
+                <p>Sorry, this film hasn't been released yet so you can't review it. Why not search for another?</p>
+            </div>
+        </div>
+        @endif
     </section>
     <script>
         BackgroundCheck.init({

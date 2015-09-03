@@ -8,7 +8,7 @@
  |
  | - NodeReview
  | -- NodeReviewInput
- | -- NodeReviewFilter
+ | ---- NodeReviewFilter
  | -- NodeReviewList
  | -- NodeReviewMore
  */
@@ -24,17 +24,25 @@ var NodeReview = React.createClass({
         return {
             filter: '',
             userReview: '',
-            reviews: []
+            reviews: [],
+            _token: this.props._token,
+            nodeName: ''
         }
+    },
+
+    updateReview: function(review) {
+        this.setState({
+            review: review
+        })
     },
 
     render: function() {
         return (
-            <div id="review-content">
-                <ReviewInput review={this.state.userReview}/>
-                <ReviewFilter/>
-            </div>
+            <NodeReviewInput userReview={this.state.userReview} updateReview={this.updateReview}/>
         );
     }
 
 });
+
+
+//<span class="noReviews" v-if="!reviews.length"><i class="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
