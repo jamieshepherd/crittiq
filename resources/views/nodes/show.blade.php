@@ -55,7 +55,7 @@
         {{-- Review content, including user review and feed --}}
         @if($node->release_date < date("Y-m-d"))
         <div id="review-content">
-            <script>React.render(React.createElement(NodeReview, {'_token':'{{ csrf_token() }}'}), document.getElementById('review-content'));</script>
+            <script>React.render(React.createElement(NodeReview, {'_token':'{{ csrf_token() }}', 'nodeName':'{{ $node->title }}'}), document.getElementById('review-content'));</script>
         </div>
         @else
         <div id="review-content">

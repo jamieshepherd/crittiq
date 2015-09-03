@@ -50,17 +50,18 @@ var MainSearch = React.createClass({
         var that = this;
 
         $('#search').find('.loading').delay(1000).show(0);
-        reqwest({
-            url: '/api/v1/films/search',
-            method: 'get',
+        $.ajax({
+            url: "/api/v1/films/search",
+            type: "get",
             data: {
                 query: this.state.query,
                 take: 5
             },
-            success: function (response) {
+            context: this,
+            success: function(data){
                 $('#search').find('.loading').dequeue().hide(0);
                 that.setState({
-                    nodes: response
+                    nodes: data
                 });
             }
         });
