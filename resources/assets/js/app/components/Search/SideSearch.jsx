@@ -1,21 +1,22 @@
  /*
 |--------------------------------------------------------------------------
-| Instant search component
+| Instant search component for mini-nav
 |--------------------------------------------------------------------------
 |
-| Component that handles instant search for nodes.
+| Component that on click reveals a drop-down search, handles instant
+| search for nodes, from the side of a node page.
 |
-| - MainSearch
-| -- MainSearchBox (Shared)
+| - SideSearch
+| -- SearchBox (Shared)
 | -- SearchResults (Shared)
 */
 
 /*
  *--------------------------------------------------------------------------
- * MainSearch
+ * SideSearch
  |--------------------------------------------------------------------------
  */
-var MainSearch = React.createClass({
+var SideSearch = React.createClass({
 
     getInitialState:function() {
         return {
@@ -33,12 +34,8 @@ var MainSearch = React.createClass({
                 this.setState({
                     nodes: []
                 });
-                $("#modal").fadeOut();
-                $('#search').css('z-index', 1);
                 return false;
             }
-            $("#modal").fadeIn();
-            $('#search').css('z-index', 3000);
 
             this.getResults();
         });
@@ -50,17 +47,18 @@ var MainSearch = React.createClass({
         var that = this;
 
         $('#search').find('.loading').delay(1000).show(0);
-        reqwest({
-            url: '/api/v1/films/search',
-            method: 'get',
+        $.ajax({
+            url: "/api/v1/films/search",
+            type: "get",
             data: {
                 query: this.state.query,
                 take: 5
             },
-            success: function (response) {
+            context: this,
+            success: function(data){
                 $('#search').find('.loading').dequeue().hide(0);
                 that.setState({
-                    nodes: response
+                    nodes: data
                 });
             }
         });
@@ -68,14 +66,12 @@ var MainSearch = React.createClass({
 
     render: function() {
         return (
-            <div className="main-search">
-                <h1>Find or create micro reviews</h1>
-                <div className="search-box">
-                    <div className="selector">Film <i className="fa fa-caret-down"></i></div>
-                    <SearchBox query={this.state.query} doSearch={this.doSearch}/>
-                    <SearchResults nodes={this.state.nodes}/>
-                </div>
+            <div>
+                <span className="category">FILM <i className="fa fa-caret-down"></i></span>
+                <SearchBox id="search-input" query={this.state.query} doSearch={this.doSearch} />
+                <SearchResults nodes={this.state.nodes} />
             </div>
         );
     }
+
 });

@@ -45,6 +45,121 @@ function showSideNav() {
         $(this).find(":input").focus();
     });
 }
+'use strict';
+
+var path = window.location.pathname;
+var characterLimit = 250;
+
+/*
+ * Vue: User review component
+ */
+
+new Vue({
+
+    el: '#review-content',
+    data: {
+        reviews: [],
+        review: "",
+        count: characterLimit,
+        rangeCount: 5,
+        filter: 'latest',
+        skip: 0
+    },
+
+    ready: function ready() {
+        this.updateCounter();
+        this.getReviews();
+    },
+
+    methods: {
+        updateCounter: function updateCounter() {
+            this.count = characterLimit - this.review.length;
+            $('.character-count').css('color', '');
+            if (this.count < 50) {
+                // Make orange
+                $('.character-count').css('color', '#f60');
+                if (this.count < 10) {
+                    // Make red
+                    $('.character-count').css('color', '#f00');
+                }
+            }
+        },
+        showActions: function showActions() {
+            $('#user-review').animate({ 'min-height': "220px" }, 300);
+            $('.user-review-actions').fadeIn(300);
+            $('.character-count').css({ 'opacity': 1 }, 300);
+        },
+        getReviews: function getReviews() {
+            this.skip = 0;
+            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter, skip: this.skip }, function (response) {
+                this.reviews = response;
+            });
+        },
+        getMoreReviews: function getMoreReviews() {
+            this.skip += 10;
+            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter, skip: this.skip }, function (response) {
+                this.reviews.push.apply(this.reviews, response);
+            });
+        },
+        sortBy: function sortBy(sortKey) {
+            this.filter = sortKey;
+            this.reviews = this.getReviews();
+        },
+        thumbsUp: function thumbsUp(id) {
+            console.log("hey");
+            console.log(id);
+        }
+    }
+
+});
+'use strict';
+
+Vue.filter('getYear', function (value) {
+    return value.split('').reverse().join('');
+});
+/*
+ |--------------------------------------------------------------------------
+ | Node review component
+ |--------------------------------------------------------------------------
+ |
+ | Component that handles lets users create reviews, and display a list of
+ | current reviews which can be sorted.
+ |
+ | - NodeReview
+ | -- NodeReviewInput
+ | -- NodeReviewFilter
+ | -- NodeReviewList
+ | -- NodeReviewMore
+ */
+
+/*
+ *--------------------------------------------------------------------------
+ * NodeReview
+ |--------------------------------------------------------------------------
+ */
+'use strict';
+
+var NodeReview = React.createClass({
+    displayName: 'NodeReview',
+
+    getInitialState: function getInitialState() {
+        return {
+            filter: '',
+            userReview: '',
+            reviews: []
+        };
+    },
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            { id: 'review-content' },
+            React.createElement(ReviewInput, { review: this.state.userReview }),
+            React.createElement(ReviewFilter, null)
+        );
+    }
+
+});
 /*
 |--------------------------------------------------------------------------
 | Instant search component
@@ -133,10 +248,11 @@ var MainSearch = React.createClass({
                     React.createElement('i', { className: 'fa fa-caret-down' })
                 ),
                 React.createElement(SearchBox, { query: this.state.query, doSearch: this.doSearch }),
-                React.createElement(SearchResults, { nodes: this.state.nodes })
+                React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
             )
         );
     }
+
 });
 /*
 |--------------------------------------------------------------------------
@@ -219,79 +335,7 @@ var SideSearch = React.createClass({
             React.createElement(SearchResults, { nodes: this.state.nodes })
         );
     }
-});
-"use strict";
-'use strict';
 
-var path = window.location.pathname;
-var characterLimit = 250;
-
-/*
- * Vue: User review component
- */
-
-new Vue({
-
-    el: '#review-content',
-    data: {
-        reviews: [],
-        review: "",
-        count: characterLimit,
-        rangeCount: 5,
-        filter: 'latest',
-        skip: 0
-    },
-
-    ready: function ready() {
-        this.updateCounter();
-        this.getReviews();
-    },
-
-    methods: {
-        updateCounter: function updateCounter() {
-            this.count = characterLimit - this.review.length;
-            $('.character-count').css('color', '');
-            if (this.count < 50) {
-                // Make orange
-                $('.character-count').css('color', '#f60');
-                if (this.count < 10) {
-                    // Make red
-                    $('.character-count').css('color', '#f00');
-                }
-            }
-        },
-        showActions: function showActions() {
-            $('#user-review').animate({ 'min-height': "220px" }, 300);
-            $('.user-review-actions').fadeIn(300);
-            $('.character-count').css({ 'opacity': 1 }, 300);
-        },
-        getReviews: function getReviews() {
-            this.skip = 0;
-            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter, skip: this.skip }, function (response) {
-                this.reviews = response;
-            });
-        },
-        getMoreReviews: function getMoreReviews() {
-            this.skip += 10;
-            this.$http.get('/api/v1' + path + '/reviews', { filter: this.filter, skip: this.skip }, function (response) {
-                this.reviews.push.apply(this.reviews, response);
-            });
-        },
-        sortBy: function sortBy(sortKey) {
-            this.filter = sortKey;
-            this.reviews = this.getReviews();
-        },
-        thumbsUp: function thumbsUp(id) {
-            console.log("hey");
-            console.log(id);
-        }
-    }
-
-});
-'use strict';
-
-Vue.filter('getYear', function (value) {
-    return value.split('').reverse().join('');
 });
 /*
  *--------------------------------------------------------------------------
@@ -310,6 +354,7 @@ var SearchBox = React.createClass({
     render: function render() {
         return React.createElement("input", { type: "text", ref: "searchBox", placeholder: "Search...", value: this.props.query, onChange: this.search, autofocus: true });
     }
+
 });
 /*
  *--------------------------------------------------------------------------
@@ -361,7 +406,7 @@ var SearchResults = React.createClass({
             ));
         });
         // Show the "click to create" text
-        if (this.props.nodes.length > 0) {
+        if (this.props.query.length > 0) {
             var createIt = React.createElement(
                 "div",
                 { className: "create-it", "v-show": "minResults" },

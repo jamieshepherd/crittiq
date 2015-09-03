@@ -4,6 +4,7 @@
  |--------------------------------------------------------------------------
  */
 var SearchResults = React.createClass({
+
     render: function() {
         var results = [];
         this.props.nodes.forEach(function(node) {
@@ -20,7 +21,7 @@ var SearchResults = React.createClass({
             )
         });
         // Show the "click to create" text
-        if(this.props.nodes.length > 0) {
+        if(this.props.query.length > 0) {
             var createIt = (
                 <div className="create-it" v-show='minResults'>
                     <i className="fa fa-cog fa-spin loading"></i>
