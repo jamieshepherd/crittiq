@@ -25,7 +25,7 @@ var SearchResults = React.createClass({
             var createIt = (
                 <div className="create-it" v-show='minResults'>
                     <i className="fa fa-cog fa-spin loading"></i>
-                    <span> Can't find what you're looking for? <a href='/films/create/:QUERY:' >Click to create it!</a></span>
+                    <span> Can't find what you're looking for? <a href={ "/films/create/" + encodeURIComponent(this.props.query) }>Click to create it!</a></span>
                 </div>
             );
         }

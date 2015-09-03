@@ -69,7 +69,7 @@ var SideSearch = React.createClass({
             <div>
                 <span className="category">FILM <i className="fa fa-caret-down"></i></span>
                 <SearchBox id="search-input" query={this.state.query} doSearch={this.doSearch} />
-                <SearchResults nodes={this.state.nodes} />
+                <SearchResults query={this.state.query} nodes={this.state.nodes} />
             </div>
         );
     }

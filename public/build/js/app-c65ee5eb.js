@@ -332,7 +332,7 @@ var SideSearch = React.createClass({
                 React.createElement('i', { className: 'fa fa-caret-down' })
             ),
             React.createElement(SearchBox, { id: 'search-input', query: this.state.query, doSearch: this.doSearch }),
-            React.createElement(SearchResults, { nodes: this.state.nodes })
+            React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
         );
     }
 
@@ -417,7 +417,7 @@ var SearchResults = React.createClass({
                     " Can't find what you're looking for? ",
                     React.createElement(
                         "a",
-                        { href: "/films/create/:QUERY:" },
+                        { href: "/films/create/" + encodeURIComponent(this.props.query) },
                         "Click to create it!"
                     )
                 )
