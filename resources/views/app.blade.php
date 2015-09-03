@@ -16,12 +16,8 @@
     <link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- Scripts -->
-    <script src="/js/vendor/html5shiv.min.js"></script>
-    <script src="/js/vendor/jquery-2.1.4.js"></script>
-    <script src="/js/vendor/vue-0.12.12.js"></script>
-    <script src="/js/vendor/vue-resource-0.1.15.js"></script>
-    <script src="/js/vendor/background-check.min.js"></script>
-    <script src="/js/vendor/rangeslider.js"></script>
+    <script src="{{ elixir('js/vendor.js') }}"></script>
+    <script src="{{ elixir('js/app.js') }}"></script>
 </head>
 <body>
     {{-- Preloader on every page --}}
@@ -36,7 +32,7 @@
     <div id="modal"></div>
 
     {{-- Account login box on every page --}}
-    <div id="account">
+    <div id="login">
         <form method="POST" action="/auth/login">
             <img class="logo" src="/images/logo-dark.svg">
             <span>Sign in to your Crittiq Account</span>
@@ -58,6 +54,5 @@
     </div>
 
     {{-- Include any custom javascript at the end --}}
-    <script src="/js/app/app.js"></script>
 </body>
 </html>

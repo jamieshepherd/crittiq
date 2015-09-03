@@ -20,10 +20,10 @@ Route::get('/home', function() {
 });
 
 // API Version 1
-Route::get('/api/v1/{category}', 'Nodes\NodeAPI@index');
-Route::get('/api/v1/{category}/search', 'Nodes\NodeAPI@search');
-Route::get('/api/v1/{category}/{slug}', 'Nodes\NodeAPI@find');
-Route::get('/api/v1/{category}/{slug}/reviews', 'Nodes\NodeAPI@reviews');
+Route::get('/api/v1/{category}', 'API\NodeAPI@index');
+Route::get('/api/v1/{category}/search', 'API\NodeAPI@search');
+Route::get('/api/v1/{category}/{slug}', 'API\NodeAPI@find');
+Route::get('/api/v1/{category}/{slug}/reviews', 'API\NodeAPI@reviews');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

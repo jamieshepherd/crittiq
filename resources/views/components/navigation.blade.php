@@ -4,7 +4,7 @@
         @if(Auth::check())
             @include('components.user-info')
         @else
-        <a v-on="click:showLogin" class="btn outlined login">Log in</a>
+        <a class="btn outlined login showLogin">Log in</a>
         <a href="/auth/register" class="btn outlined signup">Sign up</a>
         @endif
     </div>
