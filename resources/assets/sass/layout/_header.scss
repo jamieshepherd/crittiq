@@ -1,0 +1,21 @@
+header {
+  h1,h3,h4,h5,p,em {
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-bottom: 20px;
+  }
+  em {
+    font-weight: 300;
+  }
+  &.dark {
+    background: #272727;
+    h1,h2,h3,h4,h5,p,em {
+      color: white;
+    }
+  }
+  .title {
+    padding: 85px 0;
+    text-align: center;
+  }
+}

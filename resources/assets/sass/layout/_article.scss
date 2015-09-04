@@ -1,0 +1,24 @@
+article {
+    padding: 120px 0;
+    max-width: 1110px;
+    margin: 0 auto;
+    color: #6d6d6d;
+    menu {
+        width: 250px;
+        float: left;
+        a {
+            color: $blue;
+        }
+    }
+    .content {
+        margin-left: 280px;
+    }
+    h3 {
+        font-size: 30px;
+        color: #3a3a3a;
+        margin-bottom: 30px;
+    }
+    p {
+        margin-bottom: 30px;
+    }
+}

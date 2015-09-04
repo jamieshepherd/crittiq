@@ -36,6 +36,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+// Static pages
+Route::get('/terms', 'Pages\PageController@terms');
+
 // User specific routes
 Route::get('/user/{id}', 'User\UserController@getProfile');
 

@@ -11,9 +11,9 @@ var UserInfoPanel = React.createClass({
             <div className="account-menu">
                 <div className="padding">
                     <div className="account-details">
-                        <img className="avatar" src="http://www.gravatar.com/avatar/072bce9a71fc97034cf16c99e821f93d?d=http%3A%2F%2Fjamie.sh%2Fimages%2Fuploads%2Fdefault.png?s=120"/>
-                        <span className="account-menu-name">Jamie Shepherd</span>
-                        <span className="account-menu-email">itsjamieshepherd@gmail.com</span>
+                        <img className="avatar" src={"http://www.gravatar.com/avatar/" + this.props.gravatar + "?d=http%3A%2F%2Fjamie.sh%2Fimages%2Fuploads%2Fdefault.png?s=120"}/>
+                        <span className="account-menu-name">{ this.props.name }</span>
+                        <span className="account-menu-email">{ this.props.email }</span>
                     </div>
                     <div className="progress-outer">
                         <div className="progress-inner"></div>
