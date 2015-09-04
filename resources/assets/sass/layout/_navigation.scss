@@ -122,17 +122,16 @@ nav.small {
             padding-left: 3px;
             color: #999;
         }
-    }
-    .avatar {
-        vertical-align: middle;
-        display: inline-block;
-        margin-right: 10px;
-        img {
+        .avatar {
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 10px;
             border-radius: 50%;
             width: 22px;
             height: 22px;
         }
     }
+
     .level {
         color: $blue;
         margin-left: 15px;

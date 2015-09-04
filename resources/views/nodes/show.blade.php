@@ -10,11 +10,7 @@
         <div class="details">
             @if($node->avg)
             <div id="myStat" data-dimension="80" data-text="{{ $node->avg }}" data-width="1" data-fontsize="26" data-percent="{{ ($node->avg*10) }}" data-fgcolor="#54d0bf" data-bgcolor="#1f2527" class='score'></div>
-            <script>
-                $( document ).ready(function() {
-                    $('#myStat').circliful();
-                });
-            </script>
+            <script> $('#myStat').circliful(); </script>
             @endif
 
             <h1>{{ $node->title }}</h1>
@@ -42,8 +38,11 @@
         </div>
         {{-- Top right navigation bar --}}
         <div class="mini-nav">
+
             @if(Auth::check())
-                @include('components.user-info')
+                <div id="user-info">
+                    <script>React.render(React.createElement(UserInfo, {"rank": 5, "points": 10}), document.getElementById('user-info'));</script>
+                </div>
             @else
                 <span class="logged-out">
                     <a class="showLogin">Login</a> or

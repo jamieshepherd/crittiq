@@ -1,14 +1,14 @@
 #Ignore
-/.idea
-/node_modules
-/public/images/uploads
-/public/js
-/public/css
-/vendor
+.idea/
+node_modules/
+public/images/uploads/
+public/js/
+public/css/
+vendor
 .env
 npm-debug.log
 deploy.sh
 
 #Except
-!/public/images/uploads/films/cover/50634dbcbe4617f17bb159d0.jpg
-!/public/images/uploads/films/poster/50634dbcbe4617f17bb159d0.jpg
+!public/images/uploads/films/cover/50634dbcbe4617f17bb159d0.jpg
+!public/images/uploads/films/poster/50634dbcbe4617f17bb159d0.jpg
