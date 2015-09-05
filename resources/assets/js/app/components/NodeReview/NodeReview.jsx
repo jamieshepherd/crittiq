@@ -26,8 +26,6 @@ var NodeReview = React.createClass({
             reviews: [],
             filter: 'latest',
             skip: 0,
-            nodeName: this.props.nodeName,
-            _token: this.props._token,
             path: window.location.pathname
         }
     },
@@ -60,7 +58,7 @@ var NodeReview = React.createClass({
     render: function() {
         return (
             <div>
-                <NodeReviewInput userReview={this.state.userReview} nodeName={this.state.nodeName} updateReview={this.updateReview}/>
+                <NodeReviewInput userReview={this.state.userReview} nodeName={this.props.nodeName} updateReview={this.updateReview} _token={this.props._token}/>
                 <NodeReviewList reviews={this.state.reviews} getReviews={this.getReviews}/>
             </div>
         );

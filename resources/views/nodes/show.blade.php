@@ -37,8 +37,8 @@
             <script>React.render(React.createElement(SideSearch), document.getElementById('search'));</script>
         </div>
         {{-- Top right navigation bar --}}
-        <div class="mini-nav">
 
+        <div class="mini-nav">
             @if(Auth::check())
                 <div id="user-info">
                     <script>React.render(React.createElement(UserInfo, {"name": "{{ Auth::user()->name }}", "email": "{{ Auth::user()->email }}", "gravatar": "{{ md5(strtolower(trim( Auth::user()->email ))) }}","rank": 5, "points": 10}), document.getElementById('user-info'));</script>
@@ -51,10 +51,13 @@
             @endif
             <span class="search-button" onClick="showSideNav()"></span>
         </div>
+
         {{-- Review content, including user review and feed --}}
         @if($node->release_date < date("Y-m-d"))
-        <div id="review-content">
-            <script>React.render(React.createElement(NodeReview, {'_token':'{{ csrf_token() }}', 'nodeName':'{{ $node->title }}'}), document.getElementById('review-content'));</script>
+
+            <div id="review-content">
+
+            <script>React.render(React.createElement(NodeReview, {"_token":"{{ csrf_token() }}", "nodeName":"{!! $node->title !!}"}), document.getElementById('review-content'));</script>
         </div>
         @else
         <div id="review-content">

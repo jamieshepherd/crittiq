@@ -27,11 +27,11 @@ var NodeReviewList = React.createClass({
                         <p>{review.review}</p>
                     </div>
                     <div className="details">
-                        <span className="score"><strong>{review.score}</strong> / 10</span>
-                        <span className="date">3 days ago</span>
-                        <span className="hearts"><i className="fa fa-heart"></i> 0</span>
-                        <span className="comments"><i className="fa fa-comment"></i> 1</span>
-                        <span className="more"><i className="fa fa-ellipsis-h"></i></span>
+                        <span className="info score"><strong>{review.score}</strong> / 10</span>
+                        <span className="info date"><TimeAgo date={review.created_at}/></span>
+                        <span className="info hearts"><i className="fa fa-heart"></i> 0</span>
+                        {/*<span className="comments"><i className="fa fa-comment"></i> 1</span>*/}
+                        <span className="info more"><i className="fa fa-ellipsis-h"></i></span>
                     </div>
                 </div>
             )

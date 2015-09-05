@@ -72,7 +72,7 @@ var MainSearch = React.createClass({
             <div className="main-search">
                 <h1>Find or create micro reviews</h1>
                 <div className="search-box">
-                    <div className="selector">Film <i className="fa fa-caret-down"></i></div>
+                    {/*<div className="selector">Film <i className="fa fa-caret-down"></i></div>*/}
                     <SearchBox query={this.state.query} doSearch={this.doSearch}/>
                     <SearchResults query={this.state.query} nodes={this.state.nodes}/>
                 </div>
