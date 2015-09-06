@@ -164,6 +164,7 @@ var NodeReview = React.createClass({
     },
 
     getReviews: function getReviews() {
+        console.log(this.props.totalReviews);
         $.ajax({
             url: "/api/v1" + this.state.path + "/reviews",
             type: "get",
@@ -207,7 +208,7 @@ var NodeReview = React.createClass({
             'div',
             null,
             React.createElement(NodeReviewInput, { userReview: this.state.userReview, nodeName: this.props.nodeName, updateReview: this.updateReview, _token: this.props._token, setFilter: this.setFilter }),
-            React.createElement(NodeReviewList, { reviews: this.state.reviews, getReviews: this.getReviews, getMoreReviews: this.getMoreReviews })
+            React.createElement(NodeReviewList, { totalReviews: this.props.totalReviews, reviews: this.state.reviews, getReviews: this.getReviews, getMoreReviews: this.getMoreReviews })
         );
     }
 
@@ -453,16 +454,19 @@ var NodeReviewList = React.createClass({
                 " points!"
             );
         }
-        return React.createElement(
-            "div",
-            { id: "review-feed" },
-            reviews,
-            React.createElement(
+        if (this.props.reviews.length > this.props.totalReviews) {
+            var showMoreReviews = React.createElement(
                 "a",
                 { className: "more-reviews", onClick: this.props.getMoreReviews, "v-on": "click: getMoreReviews" },
                 React.createElement("i", { className: "fa fa-arrow-circle-o-down" }),
                 " Show more reviews"
-            )
+            );
+        }
+        return React.createElement(
+            "div",
+            { id: "review-feed" },
+            reviews,
+            showMoreReviews
         );
     }
 
@@ -643,69 +647,6 @@ var SideSearch = React.createClass({
 });
 /*
  |--------------------------------------------------------------------------
- | Time ago component
- |--------------------------------------------------------------------------
- |
- | Component that converts date passed in as "X time ago".
- |
- | - TimeAgo
- */
-
-/*
- *--------------------------------------------------------------------------
- * TimeAgo
- |--------------------------------------------------------------------------
- */
-
-"use strict";
-
-var TimeAgo = React.createClass({
-    displayName: "TimeAgo",
-
-    getInitialState: function getInitialState() {
-        return {
-            timeAgo: this.getTimeAgo()
-        };
-    },
-
-    getTimeAgo: function getTimeAgo() {
-
-        var date = new Date(this.props.date.sec * 1000),
-            seconds = Math.floor((new Date() - date) / 1000),
-            years = Math.floor(seconds / 31536000),
-            months = Math.floor(seconds / 2592000),
-            days = Math.floor(seconds / 86400),
-            hours = Math.floor(seconds / 3600),
-            minutes = Math.floor(seconds / 60);
-
-        if (years >= 1) {
-            return years + " years ago";
-        } else if (months >= 1) {
-            return months + " months ago";
-        } else if (days >= 1) {
-            return days + " days ago";
-        } else if (hours >= 1) {
-            return hours + " hours ago";
-        } else if (minutes >= 1) {
-            return minutes + " minutes ago";
-        } else if (seconds >= 1) {
-            return "Just now";
-        } else {
-            return "Some time ago";
-        }
-    },
-
-    render: function render() {
-        return React.createElement(
-            "span",
-            null,
-            this.state.timeAgo
-        );
-    }
-
-});
-/*
- |--------------------------------------------------------------------------
  | User info dropdown component
  |--------------------------------------------------------------------------
  |
@@ -842,6 +783,69 @@ var UserInfoPanel = React.createClass({
                 { className: "sign-out", href: "/auth/logout" },
                 "Sign out"
             )
+        );
+    }
+
+});
+/*
+ |--------------------------------------------------------------------------
+ | Time ago component
+ |--------------------------------------------------------------------------
+ |
+ | Component that converts date passed in as "X time ago".
+ |
+ | - TimeAgo
+ */
+
+/*
+ *--------------------------------------------------------------------------
+ * TimeAgo
+ |--------------------------------------------------------------------------
+ */
+
+"use strict";
+
+var TimeAgo = React.createClass({
+    displayName: "TimeAgo",
+
+    getInitialState: function getInitialState() {
+        return {
+            timeAgo: this.getTimeAgo()
+        };
+    },
+
+    getTimeAgo: function getTimeAgo() {
+
+        var date = new Date(this.props.date.sec * 1000),
+            seconds = Math.floor((new Date() - date) / 1000),
+            years = Math.floor(seconds / 31536000),
+            months = Math.floor(seconds / 2592000),
+            days = Math.floor(seconds / 86400),
+            hours = Math.floor(seconds / 3600),
+            minutes = Math.floor(seconds / 60);
+
+        if (years >= 1) {
+            return years + " years ago";
+        } else if (months >= 1) {
+            return months + " months ago";
+        } else if (days >= 1) {
+            return days + " days ago";
+        } else if (hours >= 1) {
+            return hours + " hours ago";
+        } else if (minutes >= 1) {
+            return minutes + " minutes ago";
+        } else if (seconds >= 1) {
+            return "Just now";
+        } else {
+            return "Some time ago";
+        }
+    },
+
+    render: function render() {
+        return React.createElement(
+            "span",
+            null,
+            this.state.timeAgo
         );
     }
 

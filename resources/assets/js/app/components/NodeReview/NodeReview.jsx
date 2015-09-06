@@ -47,6 +47,7 @@ var NodeReview = React.createClass({
     },
 
     getReviews: function() {
+        console.log(this.props.totalReviews);
         $.ajax({
             url: "/api/v1"  + this.state.path + "/reviews",
             type: "get",
@@ -89,7 +90,7 @@ var NodeReview = React.createClass({
         return (
             <div>
                 <NodeReviewInput userReview={this.state.userReview} nodeName={this.props.nodeName} updateReview={this.updateReview} _token={this.props._token} setFilter={this.setFilter}/>
-                <NodeReviewList reviews={this.state.reviews} getReviews={this.getReviews} getMoreReviews={this.getMoreReviews}/>
+                <NodeReviewList totalReviews={this.props.totalReviews} reviews={this.state.reviews} getReviews={this.getReviews} getMoreReviews={this.getMoreReviews}/>
             </div>
         );
     }

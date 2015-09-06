@@ -57,7 +57,7 @@
 
             <div id="review-content">
 
-            <script>React.render(React.createElement(NodeReview, {"_token":"{{ csrf_token() }}", "nodeName":"{!! $node->title !!}"}), document.getElementById('review-content'));</script>
+            <script>React.render(React.createElement(NodeReview, {"totalReviews": "{{ $node->reviewCount or 0 }}", "_token":"{{ csrf_token() }}", "nodeName":"{!! $node->title !!}"}), document.getElementById('review-content'));</script>
         </div>
         @else
         <div id="review-content">

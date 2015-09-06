@@ -38,10 +38,13 @@ var NodeReviewList = React.createClass({
                 <span className="noReviews" v-if="!reviews.length"><i className="fa fa-frown-o"></i> There are currently no reviews! Be the first to write one and earn <strong>1000</strong> points!</span>
             );
         }
+        if(this.props.reviews.length > this.props.totalReviews) {
+            var showMoreReviews = (<a className="more-reviews" onClick={this.props.getMoreReviews} v-on="click: getMoreReviews"><i className="fa fa-arrow-circle-o-down"></i> Show more reviews</a>);
+        }
         return (
             <div id="review-feed">
                 {reviews}
-                <a className="more-reviews" onClick={this.props.getMoreReviews} v-on="click: getMoreReviews"><i className="fa fa-arrow-circle-o-down"></i> Show more reviews</a>
+                {showMoreReviews}
             </div>
         );
     }
