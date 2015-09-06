@@ -1,4 +1,4 @@
-header.dark nav {
+header nav {
     border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 nav {
@@ -118,6 +118,7 @@ nav.small {
     .user-name {
         cursor: pointer;
         text-transform: uppercase;
+        user-select: none;
         .fa {
             padding-left: 3px;
             color: #999;

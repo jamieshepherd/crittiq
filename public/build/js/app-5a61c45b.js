@@ -143,6 +143,7 @@ var NodeReview = React.createClass({
             reviews: [],
             filter: 'latest',
             skip: 0,
+            take: 10,
             path: window.location.pathname
         };
     },
@@ -153,14 +154,24 @@ var NodeReview = React.createClass({
         });
     },
 
+    setFilter: function setFilter(filter) {
+        this.setState({
+            filter: filter,
+            take: 10
+        }, function () {
+            this.getReviews();
+        });
+    },
+
     getReviews: function getReviews() {
+        console.log('getting reviews by: ' + this.state.filter);
         $.ajax({
             url: "/api/v1" + this.state.path + "/reviews",
-            //url: "/api/v1/films/inception/reviews",
             type: "get",
             data: {
                 filter: this.state.filter,
-                skip: this.state.skip
+                skip: this.state.skip,
+                take: this.state.take
             },
             context: this,
             success: function success(response) {
@@ -169,14 +180,14 @@ var NodeReview = React.createClass({
                 });
             }
         });
-        this.state.skip = 0;
+        this.state.take += 10;
     },
 
     render: function render() {
         return React.createElement(
             'div',
             null,
-            React.createElement(NodeReviewInput, { userReview: this.state.userReview, nodeName: this.props.nodeName, updateReview: this.updateReview, _token: this.props._token }),
+            React.createElement(NodeReviewInput, { userReview: this.state.userReview, nodeName: this.props.nodeName, updateReview: this.updateReview, _token: this.props._token, setFilter: this.setFilter }),
             React.createElement(NodeReviewList, { reviews: this.state.reviews, getReviews: this.getReviews })
         );
     }
@@ -189,52 +200,56 @@ var NodeReview = React.createClass({
  * NodeReviewFilter
  |--------------------------------------------------------------------------
  */
-"use strict";
+'use strict';
 
 var NodeReviewFilter = React.createClass({
-    displayName: "NodeReviewFilter",
+    displayName: 'NodeReviewFilter',
+
+    setFilter: function setFilter(filter) {
+        this.props.setFilter(filter);
+    },
 
     render: function render() {
         return React.createElement(
-            "div",
-            { className: "sort" },
+            'div',
+            { className: 'sort' },
             React.createElement(
-                "ul",
+                'ul',
                 null,
                 React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                        "a",
-                        null,
-                        "Latest"
+                        'a',
+                        { onClick: this.setFilter.bind(this, 'latest') },
+                        'Latest'
                     )
                 ),
                 React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                        "a",
-                        null,
-                        "Oldest"
+                        'a',
+                        { onClick: this.setFilter.bind(this, 'oldest') },
+                        'Oldest'
                     )
                 ),
                 React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                        "a",
-                        null,
-                        "Highest rated"
+                        'a',
+                        { onClick: this.setFilter.bind(this, 'highest') },
+                        'Highest rated'
                     )
                 ),
                 React.createElement(
-                    "li",
+                    'li',
                     null,
                     React.createElement(
-                        "a",
-                        null,
-                        "Lowest rated"
+                        'a',
+                        { onClick: this.setFilter.bind(this, 'lowest') },
+                        'Lowest rated'
                     )
                 )
             )
@@ -267,6 +282,10 @@ var NodeReviewInput = React.createClass({
         $('#user-review').animate({ 'min-height': "220px" }, 300);
         $('.user-review-actions').fadeIn(300);
         $('.character-count').css({ 'opacity': 1 }, 300);
+    },
+
+    setFilter: function setFilter(filter) {
+        this.props.setFilter(filter);
     },
 
     render: function render() {
@@ -319,7 +338,7 @@ var NodeReviewInput = React.createClass({
                     React.createElement('input', { ref: 'slider', className: 'btn green', type: 'submit', value: 'Post crittiq' })
                 )
             ),
-            React.createElement(NodeReviewFilter, null)
+            React.createElement(NodeReviewFilter, { setFilter: this.setFilter })
         );
     }
 
@@ -336,78 +355,95 @@ var NodeReviewList = React.createClass({
     displayName: "NodeReviewList",
 
     componentDidMount: function componentDidMount() {
-        this.getReviews();
-    },
-
-    getReviews: function getReviews() {
         this.props.getReviews();
     },
 
     render: function render() {
-        var reviews = [];
-        this.props.reviews.forEach(function (review) {
-            reviews.push(React.createElement(
-                "div",
-                { className: "review" },
-                React.createElement(
+        if (this.props.reviews.length > 0) {
+            var reviews = [];
+            this.props.reviews.forEach(function (review) {
+                reviews.push(React.createElement(
                     "div",
-                    { className: "avatar" },
-                    React.createElement("img", { src: "http://www.gravatar.com/avatar/" + review.author.gravatar + "?d=http%3A%2F%2Fjamie.sh%2Fimages%2Fuploads%2Fdefault.png?s=150" }),
+                    { className: "review" },
                     React.createElement(
-                        "span",
-                        { className: "username" },
+                        "div",
+                        { className: "avatar" },
+                        React.createElement("img", { src: "http://www.gravatar.com/avatar/" + review.author.gravatar + "?d=http%3A%2F%2Fjamie.sh%2Fimages%2Fuploads%2Fdefault.png?s=150" }),
                         React.createElement(
-                            "a",
+                            "span",
+                            { className: "username" },
+                            React.createElement(
+                                "a",
+                                null,
+                                review.author.name
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "review-content" },
+                        React.createElement(
+                            "p",
                             null,
-                            review.author.name
+                            review.review
+                        )
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "details" },
+                        React.createElement(
+                            "span",
+                            { className: "info score" },
+                            React.createElement(
+                                "strong",
+                                null,
+                                review.score
+                            ),
+                            " / 10"
+                        ),
+                        React.createElement(
+                            "span",
+                            { className: "info date" },
+                            React.createElement(TimeAgo, { date: review.created_at })
+                        ),
+                        React.createElement(
+                            "span",
+                            { className: "info hearts" },
+                            React.createElement("i", { className: "fa fa-heart" }),
+                            " 0"
+                        ),
+                        React.createElement(
+                            "span",
+                            { className: "info more" },
+                            React.createElement("i", { className: "fa fa-ellipsis-h" })
                         )
                     )
-                ),
+                ));
+            });
+        } else {
+            var reviews = React.createElement(
+                "span",
+                { className: "noReviews", "v-if": "!reviews.length" },
+                React.createElement("i", { className: "fa fa-frown-o" }),
+                " There are currently no reviews! Be the first to write one and earn ",
                 React.createElement(
-                    "div",
-                    { className: "review-content" },
-                    React.createElement(
-                        "p",
-                        null,
-                        review.review
-                    )
+                    "strong",
+                    null,
+                    "1000"
                 ),
-                React.createElement(
-                    "div",
-                    { className: "details" },
-                    React.createElement(
-                        "span",
-                        { className: "info score" },
-                        React.createElement(
-                            "strong",
-                            null,
-                            review.score
-                        ),
-                        " / 10"
-                    ),
-                    React.createElement(
-                        "span",
-                        { className: "info date" },
-                        React.createElement(TimeAgo, { date: review.created_at })
-                    ),
-                    React.createElement(
-                        "span",
-                        { className: "info hearts" },
-                        React.createElement("i", { className: "fa fa-heart" }),
-                        " 0"
-                    ),
-                    React.createElement(
-                        "span",
-                        { className: "info more" },
-                        React.createElement("i", { className: "fa fa-ellipsis-h" })
-                    )
-                )
-            ));
-        });
+                " points!"
+            );
+        }
         return React.createElement(
             "div",
             { id: "review-feed" },
-            reviews
+            reviews,
+            React.createElement(
+                "a",
+                { className: "more-reviews", onClick: this.props.getReviews, "v-on": "click: getMoreReviews" },
+                React.createElement("i", { className: "fa fa-arrow-circle-o-down" }),
+                " Show more reviews"
+            )
         );
     }
 

@@ -22,6 +22,10 @@ var NodeReviewInput = React.createClass({
         $('.character-count').css({ 'opacity': 1 }, 300);
     },
 
+    setFilter: function(filter) {
+        this.props.setFilter(filter);
+    },
+
     render: function() {
         return (
             <div className="user-review">
@@ -46,7 +50,7 @@ var NodeReviewInput = React.createClass({
                     </div>
                 </form>
 
-                <NodeReviewFilter/>
+                <NodeReviewFilter setFilter={this.setFilter}/>
 
             </div>
         );

@@ -5,14 +5,18 @@
  */
 var NodeReviewFilter = React.createClass({
 
+    setFilter: function(filter) {
+        this.props.setFilter(filter);
+    },
+
     render: function() {
         return (
             <div className="sort">
                 <ul>
-                    <li><a>Latest</a></li>
-                    <li><a>Oldest</a></li>
-                    <li><a>Highest rated</a></li>
-                    <li><a>Lowest rated</a></li>
+                    <li><a onClick={this.setFilter.bind(this, 'latest')}>Latest</a></li>
+                    <li><a onClick={this.setFilter.bind(this, 'oldest')}>Oldest</a></li>
+                    <li><a onClick={this.setFilter.bind(this, 'highest')}>Highest rated</a></li>
+                    <li><a onClick={this.setFilter.bind(this, 'lowest')}>Lowest rated</a></li>
                 </ul>
             </div>
         );

@@ -26,6 +26,7 @@ var NodeReview = React.createClass({
             reviews: [],
             filter: 'latest',
             skip: 0,
+            take: 10,
             path: window.location.pathname
         }
     },
@@ -33,17 +34,27 @@ var NodeReview = React.createClass({
     updateReview: function(review) {
         this.setState({
             userReview: review
-        })
+        });
+    },
+
+    setFilter: function(filter) {
+        this.setState({
+            filter: filter,
+            take: 10
+        }, function() {
+            this.getReviews();
+        });
     },
 
     getReviews: function() {
+        console.log('getting reviews by: '+ this.state.filter);
         $.ajax({
             url: "/api/v1"  + this.state.path + "/reviews",
-            //url: "/api/v1/films/inception/reviews",
             type: "get",
             data: {
                 filter: this.state.filter,
-                skip: this.state.skip
+                skip: this.state.skip,
+                take: this.state.take
             },
             context: this,
             success: function(response){
@@ -52,13 +63,13 @@ var NodeReview = React.createClass({
                 });
             }
         });
-        this.state.skip = 0;
+        this.state.take += 10;
     },
 
     render: function() {
         return (
             <div>
-                <NodeReviewInput userReview={this.state.userReview} nodeName={this.props.nodeName} updateReview={this.updateReview} _token={this.props._token}/>
+                <NodeReviewInput userReview={this.state.userReview} nodeName={this.props.nodeName} updateReview={this.updateReview} _token={this.props._token} setFilter={this.setFilter}/>
                 <NodeReviewList reviews={this.state.reviews} getReviews={this.getReviews}/>
             </div>
         );

@@ -1,6 +1,8 @@
 header {
+  background: #272727 url('/images/homepage-bg.jpg') top center no-repeat;
   h1,h3,h4,h5,p,em {
     margin-bottom: 0;
+    color: white;
   }
   h2 {
     margin-bottom: 20px;
@@ -8,14 +10,8 @@ header {
   em {
     font-weight: 300;
   }
-  &.dark {
-    background: #272727;
-    h1,h2,h3,h4,h5,p,em {
-      color: white;
-    }
-  }
   .title {
-    padding: 85px 0;
+    padding: 75px 0 95px;
     text-align: center;
   }
 }
