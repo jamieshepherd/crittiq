@@ -902,14 +902,15 @@ var SearchResults = React.createClass({
                         { className: "tag" },
                         React.createElement("i", { className: "fa fa-line-chart" }),
                         " ",
-                        node.avg
+                        node.avg || 'N/A'
                     ),
                     React.createElement(
                         "span",
                         { className: "tag" },
                         React.createElement("i", { className: "fa fa-comments-o" }),
                         " ",
-                        node.reviewCount
+                        node.reviewCount || '0',
+                        " reviews"
                     )
                 )
             ));

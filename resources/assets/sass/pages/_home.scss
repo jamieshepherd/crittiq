@@ -87,9 +87,17 @@
             .search-box {
                 border-radius: 3px;
                 border: 1px solid #5c5d5d;
-                background-size: 18px 18px;
-                background: url('/images/search@2x.png') no-repeat 95% center;
                 margin: 50px 0 60px;
+                position: relative;
+                &:after {
+                    content: "\f002";
+                    font-family: FontAwesome;
+                    font-size: 18px;
+                    position: absolute;
+                    top: 24px;
+                    right: 30px;
+                    color: white;
+                }
                 .selector {
                     background: #2b2b2a;
                     float: left;

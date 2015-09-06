@@ -14,8 +14,8 @@ var SearchResults = React.createClass({
                         <img src={ "/images/uploads/" + node.category + "/poster/" + node.poster } className="thumbnail"/>
                         <h3>{node.title}</h3>
                         <p>{node.release_date} directed by {node.director}</p>
-                        <span className="tag"><i className="fa fa-line-chart"></i> {node.avg}</span>
-                        <span className="tag"><i className="fa fa-comments-o"></i> {node.reviewCount}</span>
+                        <span className="tag"><i className="fa fa-line-chart"></i> {node.avg || 'N/A'}</span>
+                        <span className="tag"><i className="fa fa-comments-o"></i> {node.reviewCount || '0'} reviews</span>
                     </li>
                 </a>
             )
