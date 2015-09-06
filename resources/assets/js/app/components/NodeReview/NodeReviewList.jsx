@@ -41,7 +41,7 @@ var NodeReviewList = React.createClass({
         return (
             <div id="review-feed">
                 {reviews}
-                <a className="more-reviews" onClick={this.props.getReviews} v-on="click: getMoreReviews"><i className="fa fa-arrow-circle-o-down"></i> Show more reviews</a>
+                <a className="more-reviews" onClick={this.props.getMoreReviews} v-on="click: getMoreReviews"><i className="fa fa-arrow-circle-o-down"></i> Show more reviews</a>
             </div>
         );
     }

@@ -157,14 +157,33 @@ var NodeReview = React.createClass({
     setFilter: function setFilter(filter) {
         this.setState({
             filter: filter,
-            take: 10
+            skip: 0
         }, function () {
             this.getReviews();
         });
     },
 
     getReviews: function getReviews() {
-        console.log('getting reviews by: ' + this.state.filter);
+        $.ajax({
+            url: "/api/v1" + this.state.path + "/reviews",
+            type: "get",
+            data: {
+                filter: this.state.filter,
+                skip: 0,
+                take: this.state.take
+            },
+            context: this,
+            success: function success(response) {
+                this.setState({
+                    reviews: response
+                });
+            }
+        });
+        this.state.skip += 10;
+    },
+
+    getMoreReviews: function getMoreReviews() {
+        console.log('holla');
         $.ajax({
             url: "/api/v1" + this.state.path + "/reviews",
             type: "get",
@@ -176,11 +195,11 @@ var NodeReview = React.createClass({
             context: this,
             success: function success(response) {
                 this.setState({
-                    reviews: response
+                    reviews: this.state.reviews.concat(response)
                 });
             }
         });
-        this.state.take += 10;
+        this.state.skip += 10;
     },
 
     render: function render() {
@@ -188,7 +207,7 @@ var NodeReview = React.createClass({
             'div',
             null,
             React.createElement(NodeReviewInput, { userReview: this.state.userReview, nodeName: this.props.nodeName, updateReview: this.updateReview, _token: this.props._token, setFilter: this.setFilter }),
-            React.createElement(NodeReviewList, { reviews: this.state.reviews, getReviews: this.getReviews })
+            React.createElement(NodeReviewList, { reviews: this.state.reviews, getReviews: this.getReviews, getMoreReviews: this.getMoreReviews })
         );
     }
 
@@ -440,7 +459,7 @@ var NodeReviewList = React.createClass({
             reviews,
             React.createElement(
                 "a",
-                { className: "more-reviews", onClick: this.props.getReviews, "v-on": "click: getMoreReviews" },
+                { className: "more-reviews", onClick: this.props.getMoreReviews, "v-on": "click: getMoreReviews" },
                 React.createElement("i", { className: "fa fa-arrow-circle-o-down" }),
                 " Show more reviews"
             )
