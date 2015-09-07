@@ -16,3 +16,7 @@ $(window).load(function(){
         showLogin();
     });
 });
+
+$('.spoilers').click(function (){
+    $(this).hide();
+});

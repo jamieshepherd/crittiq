@@ -18,6 +18,10 @@ $(window).load(function () {
         showLogin();
     });
 });
+
+$('.spoilers').click(function () {
+    $(this).hide();
+});
 'use strict';
 
 function hideModal() {
@@ -132,14 +136,13 @@ function showSideNav() {
  * NodeReview
  |--------------------------------------------------------------------------
  */
-'use strict';
+"use strict";
 
 var NodeReview = React.createClass({
-    displayName: 'NodeReview',
+    displayName: "NodeReview",
 
     getInitialState: function getInitialState() {
         return {
-            userReview: '',
             reviews: [],
             filter: 'latest',
             skip: 0,
@@ -164,7 +167,6 @@ var NodeReview = React.createClass({
     },
 
     getReviews: function getReviews() {
-        console.log(this.props.totalReviews);
         $.ajax({
             url: "/api/v1" + this.state.path + "/reviews",
             type: "get",
@@ -184,7 +186,6 @@ var NodeReview = React.createClass({
     },
 
     getMoreReviews: function getMoreReviews() {
-        console.log('holla');
         $.ajax({
             url: "/api/v1" + this.state.path + "/reviews",
             type: "get",
@@ -205,9 +206,9 @@ var NodeReview = React.createClass({
 
     render: function render() {
         return React.createElement(
-            'div',
+            "div",
             null,
-            React.createElement(NodeReviewInput, { userReview: this.state.userReview, nodeName: this.props.nodeName, updateReview: this.updateReview, _token: this.props._token, setFilter: this.setFilter }),
+            React.createElement(NodeReviewInput, { userReview: this.props.userReview, nodeName: this.props.nodeName, updateReview: this.updateReview, _token: this.props._token, setFilter: this.setFilter }),
             React.createElement(NodeReviewList, { totalReviews: this.props.totalReviews, reviews: this.state.reviews, getReviews: this.getReviews, getMoreReviews: this.getMoreReviews })
         );
     }
@@ -308,11 +309,9 @@ var NodeReviewInput = React.createClass({
         this.props.setFilter(filter);
     },
 
-    render: function render() {
-        return React.createElement(
-            'div',
-            { className: 'user-review' },
-            React.createElement(
+    displayInput: function displayInput() {
+        if (!this.props.userReview) {
+            return React.createElement(
                 'form',
                 { action: '', method: 'post' },
                 React.createElement('input', { name: '_token', type: 'hidden', value: this.props._token }),
@@ -338,7 +337,7 @@ var NodeReviewInput = React.createClass({
                         null,
                         'My review contains spoilers'
                     ),
-                    React.createElement('input', { type: 'checkbox' })
+                    React.createElement('input', { name: 'spoilers', type: 'checkbox' })
                 ),
                 React.createElement(
                     'div',
@@ -357,7 +356,48 @@ var NodeReviewInput = React.createClass({
                     React.createElement('div', { className: 'slider' }),
                     React.createElement('input', { ref: 'slider', className: 'btn green', type: 'submit', value: 'Post crittiq' })
                 )
-            ),
+            );
+        } else {
+            return React.createElement(
+                'div',
+                null,
+                React.createElement(
+                    'h2',
+                    null,
+                    'You said...'
+                ),
+                React.createElement(
+                    'span',
+                    { className: 'user-review-content' },
+                    React.createElement(
+                        'blockquote',
+                        null,
+                        React.createElement(
+                            'span',
+                            { className: 'quote' },
+                            '“'
+                        ),
+                        React.createElement('span', { dangerouslySetInnerHTML: { __html: this.props.userReview } }),
+                        React.createElement(
+                            'span',
+                            { className: 'quote' },
+                            '”'
+                        )
+                    )
+                )
+            );
+        }
+    },
+
+    render: function render() {
+        var displayInput;
+
+        displayInput = this.displayInput();
+
+        return React.createElement(
+            'div',
+            { className: 'user-review' },
+            displayInput,
             React.createElement(NodeReviewFilter, { setFilter: this.setFilter })
         );
     }
@@ -647,6 +687,69 @@ var SideSearch = React.createClass({
 });
 /*
  |--------------------------------------------------------------------------
+ | Time ago component
+ |--------------------------------------------------------------------------
+ |
+ | Component that converts date passed in as "X time ago".
+ |
+ | - TimeAgo
+ */
+
+/*
+ *--------------------------------------------------------------------------
+ * TimeAgo
+ |--------------------------------------------------------------------------
+ */
+
+"use strict";
+
+var TimeAgo = React.createClass({
+    displayName: "TimeAgo",
+
+    getInitialState: function getInitialState() {
+        return {
+            timeAgo: this.getTimeAgo()
+        };
+    },
+
+    getTimeAgo: function getTimeAgo() {
+
+        var date = new Date(this.props.date.sec * 1000),
+            seconds = Math.floor((new Date() - date) / 1000),
+            years = Math.floor(seconds / 31536000),
+            months = Math.floor(seconds / 2592000),
+            days = Math.floor(seconds / 86400),
+            hours = Math.floor(seconds / 3600),
+            minutes = Math.floor(seconds / 60);
+
+        if (years >= 1) {
+            return years + " years ago";
+        } else if (months >= 1) {
+            return months + " months ago";
+        } else if (days >= 1) {
+            return days + " days ago";
+        } else if (hours >= 1) {
+            return hours + " hours ago";
+        } else if (minutes >= 1) {
+            return minutes + " minutes ago";
+        } else if (seconds >= 1) {
+            return "Just now";
+        } else {
+            return "Some time ago";
+        }
+    },
+
+    render: function render() {
+        return React.createElement(
+            "span",
+            null,
+            this.state.timeAgo
+        );
+    }
+
+});
+/*
+ |--------------------------------------------------------------------------
  | User info dropdown component
  |--------------------------------------------------------------------------
  |
@@ -783,69 +886,6 @@ var UserInfoPanel = React.createClass({
                 { className: "sign-out", href: "/auth/logout" },
                 "Sign out"
             )
-        );
-    }
-
-});
-/*
- |--------------------------------------------------------------------------
- | Time ago component
- |--------------------------------------------------------------------------
- |
- | Component that converts date passed in as "X time ago".
- |
- | - TimeAgo
- */
-
-/*
- *--------------------------------------------------------------------------
- * TimeAgo
- |--------------------------------------------------------------------------
- */
-
-"use strict";
-
-var TimeAgo = React.createClass({
-    displayName: "TimeAgo",
-
-    getInitialState: function getInitialState() {
-        return {
-            timeAgo: this.getTimeAgo()
-        };
-    },
-
-    getTimeAgo: function getTimeAgo() {
-
-        var date = new Date(this.props.date.sec * 1000),
-            seconds = Math.floor((new Date() - date) / 1000),
-            years = Math.floor(seconds / 31536000),
-            months = Math.floor(seconds / 2592000),
-            days = Math.floor(seconds / 86400),
-            hours = Math.floor(seconds / 3600),
-            minutes = Math.floor(seconds / 60);
-
-        if (years >= 1) {
-            return years + " years ago";
-        } else if (months >= 1) {
-            return months + " months ago";
-        } else if (days >= 1) {
-            return days + " days ago";
-        } else if (hours >= 1) {
-            return hours + " hours ago";
-        } else if (minutes >= 1) {
-            return minutes + " minutes ago";
-        } else if (seconds >= 1) {
-            return "Just now";
-        } else {
-            return "Some time ago";
-        }
-    },
-
-    render: function render() {
-        return React.createElement(
-            "span",
-            null,
-            this.state.timeAgo
         );
     }
 

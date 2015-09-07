@@ -260,10 +260,21 @@ section {
             box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
             @include transition(0.1s);
             cursor: pointer;
+            position: relative;
             &:hover {
                 //padding: 55px 70px 25px 70px;
                 box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
                 background: #f5f8fa;
+            }
+            .spoilers {
+                background: #fff;
+                display: inline-block;
+                position: absolute;
+                top: 0; bottom: 0; left: 0; right: 0;
+                z-index: 5;
+                text-align: center;
+                padding-top: 80px;
+                box-sizing: border-box;
             }
             .avatar {
                 float: left;

@@ -54,15 +54,12 @@
 
         {{-- Review content, including user review and feed --}}
         @if($node->release_date < date("Y-m-d"))
-
             <div id="review-content">
-
-            <script>React.render(React.createElement(NodeReview, {"totalReviews": "{{ $node->reviewCount or 0 }}", "_token":"{{ csrf_token() }}", "nodeName":"{!! $node->title !!}"}), document.getElementById('review-content'));</script>
-        </div>
+                <script>React.render(React.createElement(NodeReview, {"totalReviews": "{{ $node->reviewCount or 0 }}", "_token":"{{ csrf_token() }}", "nodeName":"{!! $node->title !!}", "userReview":"{{ $userReview }}"}), document.getElementById('review-content'));</script>
+            </div>
         @else
         <div id="review-content">
             <div class="user-review">
-                <script src="/js/vendor/jquery.countdown.min.js"></script>
                 <h2 class='countdown'></h2>
                 <script type="text/javascript">
                     $(".countdown").countdown("{{ $node->release_date }}", function(event) {

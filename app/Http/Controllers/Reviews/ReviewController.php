@@ -43,6 +43,7 @@ class ReviewController extends Controller
         $review->score  = (double)$score;
         $review->review = Input::get('review');
         $review->thumbs = 0;
+        $review->spoilers = Input::has('spoilers');
         $review->save();
 
         if($review->score < 4) {
