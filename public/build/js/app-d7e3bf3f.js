@@ -463,6 +463,67 @@ var NodeReviewList = React.createClass({
 });
 /*<span className="comments"><i className="fa fa-comment"></i> 1</span>*/
 /*
+ |--------------------------------------------------------------------------
+ | Time ago component
+ |--------------------------------------------------------------------------
+ |
+ | Component that converts date passed in as "X time ago".
+ |
+ | - TimeAgo
+ */
+
+/*
+ *--------------------------------------------------------------------------
+ * TimeAgo
+ |--------------------------------------------------------------------------
+ */
+
+"use strict";
+
+var TimeAgo = React.createClass({
+    displayName: "TimeAgo",
+
+    getInitialState: function getInitialState() {
+        return {
+            timeAgo: this.getTimeAgo()
+        };
+    },
+
+    getTimeAgo: function getTimeAgo() {
+
+        var date = new Date(this.props.date.sec * 1000),
+            seconds = Math.floor((new Date() - date) / 1000),
+            years = Math.floor(seconds / 31536000),
+            months = Math.floor(seconds / 2592000),
+            days = Math.floor(seconds / 86400),
+            hours = Math.floor(seconds / 3600),
+            minutes = Math.floor(seconds / 60);
+
+        if (years >= 1) {
+            return years + " years ago";
+        } else if (months >= 1) {
+            return months + " months ago";
+        } else if (days >= 1) {
+            return days + " days ago";
+        } else if (hours >= 1) {
+            return hours + " hours ago";
+        } else if (minutes >= 1) {
+            return minutes + " minutes ago";
+        } else if (seconds >= 1) {
+            return "Just now";
+        }
+    },
+
+    render: function render() {
+        return React.createElement(
+            "span",
+            null,
+            this.state.timeAgo
+        );
+    }
+
+});
+/*
 |--------------------------------------------------------------------------
 | Instant search component
 |--------------------------------------------------------------------------
@@ -631,67 +692,6 @@ var SideSearch = React.createClass({
             ),
             React.createElement(SearchBox, { id: 'search-input', query: this.state.query, doSearch: this.doSearch }),
             React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
-        );
-    }
-
-});
-/*
- |--------------------------------------------------------------------------
- | Time ago component
- |--------------------------------------------------------------------------
- |
- | Component that converts date passed in as "X time ago".
- |
- | - TimeAgo
- */
-
-/*
- *--------------------------------------------------------------------------
- * TimeAgo
- |--------------------------------------------------------------------------
- */
-
-"use strict";
-
-var TimeAgo = React.createClass({
-    displayName: "TimeAgo",
-
-    getInitialState: function getInitialState() {
-        return {
-            timeAgo: this.getTimeAgo()
-        };
-    },
-
-    getTimeAgo: function getTimeAgo() {
-
-        var date = new Date(this.props.date.sec * 1000),
-            seconds = Math.floor((new Date() - date) / 1000),
-            years = Math.floor(seconds / 31536000),
-            months = Math.floor(seconds / 2592000),
-            days = Math.floor(seconds / 86400),
-            hours = Math.floor(seconds / 3600),
-            minutes = Math.floor(seconds / 60);
-
-        if (years >= 1) {
-            return years + " years ago";
-        } else if (months >= 1) {
-            return months + " months ago";
-        } else if (days >= 1) {
-            return days + " days ago";
-        } else if (hours >= 1) {
-            return hours + " hours ago";
-        } else if (minutes >= 1) {
-            return minutes + " minutes ago";
-        } else if (seconds >= 1) {
-            return "Just now";
-        }
-    },
-
-    render: function render() {
-        return React.createElement(
-            "span",
-            null,
-            this.state.timeAgo
         );
     }
 
