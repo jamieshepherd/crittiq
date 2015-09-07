@@ -9,4 +9,11 @@ footer {
         display: inline-block;
         margin: 0 10px;
     }
+    a, a:link, a:visited {
+      font-weight: normal;
+      color: white;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 }
