@@ -44,8 +44,6 @@ var TimeAgo = React.createClass({
             return minutes + " minutes ago";
         } else if (seconds >= 1) {
             return "Just now";
-        } else {
-            return "Some time ago"
         }
     },
 

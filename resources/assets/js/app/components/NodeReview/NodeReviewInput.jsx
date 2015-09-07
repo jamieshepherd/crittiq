@@ -7,8 +7,17 @@ var NodeReviewInput = React.createClass({
 
     getInitialState: function() {
         return {
-            reviewLength: 0
+            reviewLength: 0,
+            reviewScore: 5
         }
+    },
+
+    componentDidMount: function() {
+        var component = this;
+        $('#score-slider').change(function() {
+            console.log('yolo');
+            component.setState({ reviewScore: $('#score-slider').val() });
+        });
     },
 
     updateReview: function() {
@@ -26,6 +35,10 @@ var NodeReviewInput = React.createClass({
         this.props.setFilter(filter);
     },
 
+    polyfillSlider: function() {
+        $('input[type="range"]').rangeslider({ polyfill: false });
+    },
+
     displayInput: function() {
         if(!this.props.userReview) {
             return (
@@ -40,13 +53,13 @@ var NodeReviewInput = React.createClass({
 
                     <div className="user-review-actions">
                         <span className="ratingLabel">Rating</span>
-                        <span className="rangeCount">{1+1}/10</span>
+                        <span className="rangeCount">{ this.state.reviewScore }/10</span>
 
                         <div className="slider">
-                            {/*<input max="10" min="0" name="score" step="0.5" type="range" value="5"/>*/}
+                            <input id="score-slider" max="10" min="0" name="score" step="0.5" type="range" defaultValue="5"/>
                         </div>
-                        {/*<script>$('input[type="range"]').rangeslider({ polyfill: false });</script>*/}
-                        <input ref="slider" className="btn green" type="submit" value="Post crittiq"/>
+                        <input className="btn green" type="submit" value="Post crittiq"/>
+                        { this.polyfillSlider() }
                     </div>
                 </form>
             );
