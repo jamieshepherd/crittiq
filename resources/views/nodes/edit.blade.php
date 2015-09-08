@@ -44,7 +44,7 @@
                             $('#position-slider').change(function() {
                                 console.log('change: '+$('#position-slider').val());
                                 $('.cover').css({
-                                    'backgroundPosition': $('#position-slider').val()+'% top'
+                                    'backgroundPosition': $('#position-slider').val()+'% center'
                                 });
                                 BackgroundCheck.refresh();
                             });
