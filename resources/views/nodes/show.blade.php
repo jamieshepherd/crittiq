@@ -1,6 +1,6 @@
 @extends('app')
 @section('body')
-    <section class="cover background" style="background: no-repeat {{ $node->backgroundPosition }}% center url('/images/uploads/{{ $node->category }}/cover/{{ $node->cover }}')">
+    <section class="cover background" style="background: no-repeat {{ $node->backgroundPosition }}% top url('/images/uploads/{{ $node->category }}/cover/{{ $node->cover }}')">
     <div class="gradient">
         {{-- Top left logo, not really navigation --}}
         <nav class='small'>
