@@ -8,6 +8,7 @@ use App\Node;
 use App\Review;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Input;
 use Auth;
 use DB;
 
@@ -68,6 +69,7 @@ class NodeController extends Controller
 
         $node = new Node();
         $node->category = 'films';
+        $node->backgroundPosition = '50';
         $node->imdb_id = $response['imdb_id'];
         $node->themoviedb_id = $response['id'];
         $node->slug     = \Input::get('slug');
@@ -131,7 +133,8 @@ class NodeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param string $category
+     * @param string $slug
      * @return Response
      */
     public function show($category, $slug)
@@ -153,23 +156,31 @@ class NodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  string  $slug
+     * @param string $category
+     * @param string $slug
      * @return Response
      */
-    public function edit($slug)
+    public function edit($category, $slug)
     {
-        //
+        $node = Node::where('category', $category)->where('slug', $slug)->first();
+        return view('nodes.edit')->with('node', $node);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  string  $slug
+     * @param string $category
+     * @param string $slug
      * @return Response
      */
-    public function update($slug)
+    public function update($category, $slug)
     {
-        //
+        $node = Node::where('category', $category)->where('slug', $slug)->first();
+
+        $node->backgroundPosition = Input::get('position');
+        $node->save();
+
+        return redirect('/'.$category.'/'.$slug);
     }
 
     /**

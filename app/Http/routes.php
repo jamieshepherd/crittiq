@@ -55,5 +55,7 @@ Route::get('/{category}', 'Nodes\NodeController@index');
 Route::get('/{category}/create/confirm/{id}', 'Nodes\NodeController@createConfirm');
 Route::post('/{category}/create/confirm/{id}', 'Nodes\NodeController@store');
 Route::get('/{category}/create/{query}', 'Nodes\NodeController@create');
+Route::get('/{category}/{slug}/edit', 'Nodes\NodeController@edit');
+Route::post('/{category}/{slug}/edit', 'Nodes\NodeController@update');
 Route::get('/{category}/{slug}', 'Nodes\NodeController@show');
 Route::post('/{category}/{slug}', 'Reviews\ReviewController@create');

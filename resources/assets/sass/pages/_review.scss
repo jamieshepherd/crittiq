@@ -46,6 +46,12 @@ section {
                 border-top: #333 1px solid;
                 margin-top: 30px;
                 padding-top: 30px;
+                &.right {
+                  text-align: right;
+                }
+                .btn {
+                    color: white;
+                }
             }
         }
     }

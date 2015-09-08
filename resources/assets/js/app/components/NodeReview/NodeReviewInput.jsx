@@ -53,8 +53,6 @@ var NodeReviewInput = React.createClass({
 
                     <div className="user-review-actions">
                         <span className="ratingLabel">Rating</span>
-                        <span className="rangeCount">{ this.state.reviewScore }/10</span>
-
                         <div className="slider">
                             <input id="score-slider" max="10" min="0" name="score" step="1" type="range" defaultValue="5"/>
                         </div>

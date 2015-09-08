@@ -1,6 +1,6 @@
 @extends('app')
 @section('body')
-    <section class="cover background" style="background-image: url('/images/uploads/{{ $node->category }}/cover/{{ $node->cover }}')">
+    <section class="cover background" style="background: no-repeat {{ $node->backgroundPosition }}% top url('/images/uploads/{{ $node->category }}/cover/{{ $node->cover }}')">
     <div class="gradient">
         {{-- Top left logo, not really navigation --}}
         <nav class='small'>
@@ -26,6 +26,7 @@
                 @if($node->imdb_id)
                     <a class="tag" href="http://imdb.com/title/{{ $node->imdb_id }}" target="_blank" title="IMDB link"><i class="fa fa-external-link"></i> IMDB</a>
                 @endif
+                <a class="tag right" href="{{ $node->slug }}/edit" title="Edit page"><i class="fa fa-camera"></i> Image settings</a>
             </div>
         </div>
     </div>
