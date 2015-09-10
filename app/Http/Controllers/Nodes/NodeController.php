@@ -145,7 +145,7 @@ class NodeController extends Controller
         $userReview = null;
         if($node->reviewCount > 0 && Auth::user()) {
             $userReview = Review::where('node.reference', $node->_id)->where('author.reference', Auth::user()->id)->first();
-            $userReview = $userReview->review;
+            if($userReview) $userReview = $userReview->review;
         }
 
         return view('nodes.show')
