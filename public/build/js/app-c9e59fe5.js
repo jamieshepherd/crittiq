@@ -457,179 +457,6 @@ var NodeReviewList = React.createClass({
 });
 /*<span className="comments"><i className="fa fa-comment"></i> 1</span>*/
 /*
-|--------------------------------------------------------------------------
-| Instant search component
-|--------------------------------------------------------------------------
-|
-| Component that handles instant search for nodes.
-|
-| - MainSearch
-| -- MainSearchBox (Shared)
-| -- SearchResults (Shared)
-*/
-
-/*
- *--------------------------------------------------------------------------
- * MainSearch
- |--------------------------------------------------------------------------
- */
-'use strict';
-
-var MainSearch = React.createClass({
-    displayName: 'MainSearch',
-
-    getInitialState: function getInitialState() {
-        return {
-            query: '',
-            nodes: []
-        };
-    },
-
-    doSearch: function doSearch(query) {
-
-        this.setState({
-            query: query
-        }, function () {
-            if (this.state.query.length === 0) {
-                this.setState({
-                    nodes: []
-                });
-                $("#modal").fadeOut();
-                $('#search').css('z-index', 1);
-                return false;
-            }
-            $("#modal").fadeIn();
-            $('#search').css('z-index', 3000);
-
-            this.getResults();
-        });
-    },
-
-    getResults: function getResults() {
-        var that = this;
-
-        $('#search').find('.loading').delay(1000).show(0);
-        $.ajax({
-            url: "/api/v1/films/search",
-            type: "get",
-            data: {
-                query: this.state.query,
-                take: 5
-            },
-            context: this,
-            success: function success(data) {
-                $('#search').find('.loading').dequeue().hide(0);
-                that.setState({
-                    nodes: data
-                });
-            }
-        });
-    },
-
-    render: function render() {
-        return React.createElement(
-            'div',
-            { className: 'main-search' },
-            React.createElement(
-                'h1',
-                null,
-                'Find or create micro reviews'
-            ),
-            React.createElement(
-                'div',
-                { className: 'search-box' },
-                React.createElement(SearchBox, { query: this.state.query, doSearch: this.doSearch }),
-                React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
-            )
-        );
-    }
-
-});
-/*<div className="selector">Film <i className="fa fa-caret-down"></i></div>*/
-/*
-|--------------------------------------------------------------------------
-| Instant search component for mini-nav
-|--------------------------------------------------------------------------
-|
-| Component that on click reveals a drop-down search, handles instant
-| search for nodes, from the side of a node page.
-|
-| - SideSearch
-| -- SearchBox (Shared)
-| -- SearchResults (Shared)
-*/
-
-/*
- *--------------------------------------------------------------------------
- * SideSearch
- |--------------------------------------------------------------------------
- */
-'use strict';
-
-var SideSearch = React.createClass({
-    displayName: 'SideSearch',
-
-    getInitialState: function getInitialState() {
-        return {
-            query: '',
-            nodes: []
-        };
-    },
-
-    doSearch: function doSearch(query) {
-
-        this.setState({
-            query: query
-        }, function () {
-            if (this.state.query.length === 0) {
-                this.setState({
-                    nodes: []
-                });
-                return false;
-            }
-
-            this.getResults();
-        });
-    },
-
-    getResults: function getResults() {
-        var that = this;
-
-        $('#search').find('.loading').delay(1000).show(0);
-        $.ajax({
-            url: "/api/v1/films/search",
-            type: "get",
-            data: {
-                query: this.state.query,
-                take: 5
-            },
-            context: this,
-            success: function success(data) {
-                $('#search').find('.loading').dequeue().hide(0);
-                that.setState({
-                    nodes: data
-                });
-            }
-        });
-    },
-
-    render: function render() {
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(
-                'span',
-                { className: 'category' },
-                'FILM ',
-                React.createElement('i', { className: 'fa fa-caret-down' })
-            ),
-            React.createElement(SearchBox, { id: 'search-input', query: this.state.query, doSearch: this.doSearch }),
-            React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
-        );
-    }
-
-});
-/*
  |--------------------------------------------------------------------------
  | User info dropdown component
  |--------------------------------------------------------------------------
@@ -828,6 +655,179 @@ var TimeAgo = React.createClass({
             "span",
             null,
             this.state.timeAgo
+        );
+    }
+
+});
+/*
+|--------------------------------------------------------------------------
+| Instant search component
+|--------------------------------------------------------------------------
+|
+| Component that handles instant search for nodes.
+|
+| - MainSearch
+| -- MainSearchBox (Shared)
+| -- SearchResults (Shared)
+*/
+
+/*
+ *--------------------------------------------------------------------------
+ * MainSearch
+ |--------------------------------------------------------------------------
+ */
+'use strict';
+
+var MainSearch = React.createClass({
+    displayName: 'MainSearch',
+
+    getInitialState: function getInitialState() {
+        return {
+            query: '',
+            nodes: []
+        };
+    },
+
+    doSearch: function doSearch(query) {
+
+        this.setState({
+            query: query
+        }, function () {
+            if (this.state.query.length === 0) {
+                this.setState({
+                    nodes: []
+                });
+                $("#modal").fadeOut();
+                $('#search').css('z-index', 1);
+                return false;
+            }
+            $("#modal").fadeIn();
+            $('#search').css('z-index', 3000);
+
+            this.getResults();
+        });
+    },
+
+    getResults: function getResults() {
+        var that = this;
+
+        $('#search').find('.loading').delay(1000).show(0);
+        $.ajax({
+            url: "/api/v1/films/search",
+            type: "get",
+            data: {
+                query: this.state.query,
+                take: 5
+            },
+            context: this,
+            success: function success(data) {
+                $('#search').find('.loading').dequeue().hide(0);
+                that.setState({
+                    nodes: data
+                });
+            }
+        });
+    },
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            { className: 'main-search' },
+            React.createElement(
+                'h1',
+                null,
+                'Find or create micro reviews'
+            ),
+            React.createElement(
+                'div',
+                { className: 'search-box' },
+                React.createElement(SearchBox, { query: this.state.query, doSearch: this.doSearch }),
+                React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
+            )
+        );
+    }
+
+});
+/*<div className="selector">Film <i className="fa fa-caret-down"></i></div>*/
+/*
+|--------------------------------------------------------------------------
+| Instant search component for mini-nav
+|--------------------------------------------------------------------------
+|
+| Component that on click reveals a drop-down search, handles instant
+| search for nodes, from the side of a node page.
+|
+| - SideSearch
+| -- SearchBox (Shared)
+| -- SearchResults (Shared)
+*/
+
+/*
+ *--------------------------------------------------------------------------
+ * SideSearch
+ |--------------------------------------------------------------------------
+ */
+'use strict';
+
+var SideSearch = React.createClass({
+    displayName: 'SideSearch',
+
+    getInitialState: function getInitialState() {
+        return {
+            query: '',
+            nodes: []
+        };
+    },
+
+    doSearch: function doSearch(query) {
+
+        this.setState({
+            query: query
+        }, function () {
+            if (this.state.query.length === 0) {
+                this.setState({
+                    nodes: []
+                });
+                return false;
+            }
+
+            this.getResults();
+        });
+    },
+
+    getResults: function getResults() {
+        var that = this;
+
+        $('#search').find('.loading').delay(1000).show(0);
+        $.ajax({
+            url: "/api/v1/films/search",
+            type: "get",
+            data: {
+                query: this.state.query,
+                take: 5
+            },
+            context: this,
+            success: function success(data) {
+                $('#search').find('.loading').dequeue().hide(0);
+                that.setState({
+                    nodes: data
+                });
+            }
+        });
+    },
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'span',
+                { className: 'category' },
+                'FILM ',
+                React.createElement('i', { className: 'fa fa-caret-down' })
+            ),
+            React.createElement(SearchBox, { id: 'search-input', query: this.state.query, doSearch: this.doSearch }),
+            React.createElement(SearchResults, { query: this.state.query, nodes: this.state.nodes })
         );
     }
 
