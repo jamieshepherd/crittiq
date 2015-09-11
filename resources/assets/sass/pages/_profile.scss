@@ -1,0 +1,61 @@
+header.profile {
+    min-height: 300px;
+}
+.full-wrapper {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+}
+.stats-bar {
+    background: white;
+    .content {
+        padding: 25px 0 25px 350px;
+        max-width: 1110px;
+        margin: 0 auto;
+        .stats {
+            text-transform: uppercase;
+            li {
+                display: inline-block;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+.profile-bio {
+    width: 285px;
+    float: left;
+    background: #f60;
+    height: 600px;
+    margin-top: -110px;
+}
+.profile-feed {
+    width: auto;
+    overflow: hidden;
+    height: 600px;
+    padding-top: 50px;
+    .review {
+        background: #ffffff;
+        color: #2b2b2b;
+        font-size: 15px;
+        line-height: 24px;
+        padding: 45px;
+        margin-bottom: 10px;
+        min-height: 100px;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.03);
+        @include transition(0.1s);
+        cursor: pointer;
+        position: relative;
+        h4 {
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        &:hover {
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+            background: #f5f8fa;
+        }
+        .review-content {
+            font-family: "Merriweather", serif;
+        }
+    }
+}

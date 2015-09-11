@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function() {
-   return redirect('/films/inception');
+   return redirect('/');
 });
 
 // API Version 1
@@ -40,7 +40,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/terms', 'Pages\PageController@terms');
 
 // User specific routes
-Route::get('/user/{id}', 'User\UserController@getProfile');
+Route::get('/users/{id}', 'User\UserController@getProfile');
 
 // Account specific routes
 Route::get('/account/profile', 'User\AccountController@getProfile');

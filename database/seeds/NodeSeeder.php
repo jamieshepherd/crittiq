@@ -23,6 +23,7 @@ class NodeSeeder extends Seeder
         $node->director = "Christopher Nolan";
         $node->cover    = "50634dbcbe4617f17bb159d0.jpg";
         $node->poster    = "50634dbcbe4617f17bb159d0.jpg";
+        $node->backgroundPosition = "50";
         $node->year     = 2010;
         $node->synopsis = "A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.";
         $node->save();

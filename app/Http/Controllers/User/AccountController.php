@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 
+use App;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -29,7 +30,11 @@ class AccountController extends Controller
      */
     public function getProfile()
     {
-        return view('users.profile')->with('user', Auth::user());
+        if(Auth::user()) {
+            return App::make('\App\Http\Controllers\User\UserController')->getProfile(Auth::user()->id);
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
